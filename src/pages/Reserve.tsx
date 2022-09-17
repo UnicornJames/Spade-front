@@ -52,8 +52,8 @@ const Reserve = () => {
 
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
-      <div className="lg:flex mb-16">
-        <div className="w-6/12 flex justify-center flex-col">
+      <div className="md:flex">
+        <div className="md:w-6/12 flex justify-center flex-col mb-5 md:mr-3 md:mb-16">
           <h1 className="text-left text-white text-4xl font-bold">
             Spade Smart Reserve
           </h1>
@@ -61,7 +61,7 @@ const Reserve = () => {
             Last recorded at {stats.last_recorded}
           </p>
         </div>
-        <div className="w-6/12 flex items-center flex-col">
+        <div className="sm:w-6/12 flex items-center flex-col mb-5 sm:mr-3 md:mb-16">
           <div className="rounded-md border shadow-md bg-white w-full">
             <div className="md:grid grid-cols-1">
               <div className={`p-4`}>
