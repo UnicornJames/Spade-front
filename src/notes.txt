@@ -1,0 +1,123 @@
+cmd 1: view assets
+shows the following:
+"REAL ESTATE" value is US$0.00
+"DIGITAL ASSETS" value is US$0.00
+"STOCKS" value is $0.00
+"COMMODITIES" value is $0.00
+
+These asset valuations were conducted at 00.00 PM (DD/MM/YY) 
+
+cmd 2:
+credit line health 
+shows: status: “GOOD”
+
+cmd 3:
+borrow info
+shows:
+Collateral Value
+Loan-To-Value
+Credit Line
+Credit utilized
+APR 
+Borrow Term Length 
+
+cmd 4:
+ltv
+shows:
+Your average loan-to-value for all of your active positions:
+
+
+
+heres more cmds
+function drawUp 
+
+Confirm that you are initiating the full liquidation of all of your assets (y/n) 
+
+y = You have successfully submitted your request to our Proprietary Assets division to resort to our network contract to initiate asset conversion to cash which takes the contract within our private network. 
+
+This approximately takes 2 minutes of assets depending on the network queue turning downwards at a fast rate. If network congestions occur, it may take longer.
+
+
+
+
+
+
+
+sudo escalateLiq 
+then ask: Which asset are you liquidating? 
+
+then asks:
+Are you initiating “partial” or “full” liquidation of your commodity assets? ( if they typed commodity )
+
+Are you initiating “partial” or “full” liquidation of your digital assets?  ( if they typed digital )
+
+Are you initiating “partial” or “full” liquidation of your stock assets? ( if they typed stocks OR stock)
+
+Are you initiating “partial” or “full” liquidation of your real estate assets?  ( if they typed real estate )
+
+ 
+IF type full then:
+Confirm that you are initiating the full liquidation of all your assets (y/n) 
+THEN SAYS:
+You have successfully submitted your request to our Proprietary Assets division to resort to our network contract to initiate asset conversion to cash which takes the contract within our private network. 
+
+This approximately takes 2 minutes of assets depending on the network queue turning downwards at a fast rate. If network congestions occur, it may take longer.
+
+IF type partial then:
+Percent (%) of your assets you are allocating to be liquidated (they type a % here from 0-99%)
+then gives this output after typed %
+You have successfully submitted your request to our Proprietary Assets division to resort to our network contract to initiate asset conversion to cash which takes the contract within our private network. 
+
+This approximately takes 2 minutes of assets depending on the network queue turning downwards at a fast rate. If network congestions occur, it may take longer.
+
+
+
+
+cmd: repay interest
+output: Approve transfer to “Repay Interest” from your Spade Oracle cash balance (Y/N)
+then: You have successfully submitted your request to our Proprietary Assets division to resort to our network contract to initiate asset conversion to cash which takes the contract within our private network. 
+
+This approximately takes 2 minutes of assets depending on the network queue turning downwards at a fast rate. If network congestions occur, it may take longer.
+
+
+
+
+
+
+other cmds:
+cmd: function liquidateDigitalAssets
+
+then: Are you initiating “partial” or “full” liquidation of your digital assets?
+If full: success output
+
+OR if partial: Percent (%) of your digital assets you are allocating to be liquidated 
+then: success output
+
+cmd: function liquidateCommodity
+
+then: Are you initiating “partial” or “full” liquidation of your commodities assets?
+If full: success output
+
+OR if partial: Percent (%) of your commodities assets you are allocating to be liquidated 
+then: success output
+
+cmd: function liquidateRealEstate
+
+then: Are you initiating “partial” or “full” liquidation of your real estate assets?
+ If full: success output 
+
+OR if partial: Percent (%) of your real estate assets you are allocating to be liquidated 
+then: success output
+
+
+cmd: function liquidateStocks
+
+then: Are you initiating “partial” or “full” liquidation of your stock assets?
+If full: success output
+
+OR if partial: Percent (%) of your stock assets you are allocating to be liquidated
+then: success output
+this is the success output:
+You have successfully submitted your request to our Proprietary Assets division to resort to our network contract to initiate asset conversion to cash which takes the contract within our private network. 
+
+This approximately takes 2 minutes of assets depending on the network queue turning downwards at a fast rate. If network congestions occur, it may take longer.

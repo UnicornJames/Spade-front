@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f9fafb;
+  font-family: "Roboto", sans-serif;
+}
+
+.terminal.xterm {
+  padding: 10px 15px;
+}
+
+.xterm-viewport {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.terminal_top_bar {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.nav-tabs .nav-link.active {
+  color: #292d3b;
+  border-color: #292d3b;
+}
+
+.box h4 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
