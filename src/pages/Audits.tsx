@@ -68,7 +68,7 @@ const Audits = () => {
             <div className="flex items-center">
               <div className="w-full">
                 <p className="text-sm font-medium text-[#2A2D3C]">
-                  Total Assets
+                  Total Verified Assets
                 </p>
                 <p className="text-md font-semibold text-gray-500">
                   {currency(totalAssets)}
@@ -80,7 +80,7 @@ const Audits = () => {
             <div className="flex items-center">
               <div className="w-full">
                 <p className="text-sm font-medium text-[#2A2D3C]">
-                  Total Liabilities
+                  otal Verified Liabilities
                 </p>
                 <p className="text-md font-semibold text-gray-500">
                   {currency(reserve[1].total)}
