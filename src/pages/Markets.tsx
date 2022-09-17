@@ -25,6 +25,17 @@ const Markets = () => {
     };
   }, []);
 
+  const tooltip = {
+    asset:"You can provide assets for collateral as a form of security to secure a loan with Spade. Assets can range from commodities, stock, digital assets, and real estate.",
+    total_collateral:"This is the total value of assets you provide as a form of security to borrow cash from Spade’s Cash Reserves.",
+    loan_to_value:"This is the evaluation ratio utilised by Spade when determining the risk involved with providing a credit line for a potential borrower. A higher LTV ratio is more dependable to Spade, and a lower LTV ratio is perceived as riskier.",
+    total_borrowed:"This is the amount of money you have borrowed from the Spade Cash Reserve by providing your asset collateral.",
+    supply_flexible_apy:"Supply Flexible APY",
+    supply_fixed_term_apy:"Supply Fixed Term APY",
+    borrow_flexible_apr:"Borrow Flexible APR",
+    borrow_fixed_term_apr:"Borrow Fixed Term APR"
+  }
+
   const loadAssets = async () => {
     const { data } = await axios.get(API_URL + "/assets");
     const finalData: any[] = [];
@@ -88,7 +99,7 @@ const Markets = () => {
             <tr>
               <th className="pl-8 pb-2">
                 Asset
-                <Tippy interactive content="Asset">
+                <Tippy interactive content={tooltip.asset}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
@@ -105,7 +116,7 @@ const Markets = () => {
               </th>
               <th>
                 Total collateral
-                <Tippy interactive content="Total collateral">
+                <Tippy interactive content={tooltip.total_collateral}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
@@ -122,7 +133,7 @@ const Markets = () => {
               </th>
               <th>
                 Loan to Value
-                <Tippy interactive content="Loan to Value">
+                <Tippy interactive content={tooltip.loan_to_value}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
@@ -139,7 +150,7 @@ const Markets = () => {
               </th>
               <th>
                 Total borrowed
-                <Tippy interactive content="Total borrowed">
+                <Tippy interactive content={tooltip.total_borrowed}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
@@ -156,7 +167,7 @@ const Markets = () => {
               </th>
               <th>
                 Supply Flexible APY
-                <Tippy interactive content="Supply Flexible APY">
+                <Tippy interactive content={tooltip.supply_flexible_apy}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
@@ -173,7 +184,7 @@ const Markets = () => {
               </th>
               <th>
                 Supply Fixed Term APY
-                <Tippy interactive content="Supply Fixed Term APY">
+                <Tippy interactive content={tooltip.supply_fixed_term_apy}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
@@ -190,7 +201,7 @@ const Markets = () => {
               </th>
               <th>
                 Borrow Flexible APR
-                <Tippy interactive content="Borrow Flexible APR">
+                <Tippy interactive content={tooltip.borrow_flexible_apr}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
@@ -207,7 +218,7 @@ const Markets = () => {
               </th>
               <th>
                 Borrow Fixed Term APR
-                <Tippy interactive content="Borrow Fixed Term APR">
+                <Tippy interactive content={tooltip.borrow_fixed_term_apr}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
