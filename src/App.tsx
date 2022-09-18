@@ -30,7 +30,7 @@ function App() {
           }
         />
         <Route
-          path="markets"
+          path="/markets"
           element={
             <Suspense>
               <Markets />
@@ -38,7 +38,7 @@ function App() {
           }
         />
         <Route
-          path="markets/overview/:asset_id"
+          path="/markets/overview/:asset_id"
           element={
             <Suspense>
               <MarketOverview />
@@ -46,7 +46,7 @@ function App() {
           }
         />
         <Route
-          path="borrow"
+          path="/borrow"
           element={
             <Suspense>
               <Borrow />
@@ -54,7 +54,7 @@ function App() {
           }
         />
         <Route
-          path="status"
+          path="/status"
           element={
             <Suspense>
               <Status />
@@ -62,7 +62,7 @@ function App() {
           }
         />
         <Route
-          path="audits"
+          path="/audits"
           element={
             <Suspense>
               <Audits />
@@ -70,7 +70,7 @@ function App() {
           }
         />
         <Route
-          path="depository"
+          path="/depository"
           element={
             <Suspense>
               <Depository />
@@ -78,7 +78,7 @@ function App() {
           }
         />
         <Route
-          path="terminal"
+          path="/terminal"
           element={
             <Suspense>
               <Terminal />
@@ -86,7 +86,7 @@ function App() {
           }
         />
         <Route
-          path="signin"
+          path="/signin"
           element={
             <Suspense>
               <Signin />
@@ -94,7 +94,7 @@ function App() {
           }
         />
         <Route
-          path="partners"
+          path="/partners"
           element={
             <Suspense>
               <Partners />
