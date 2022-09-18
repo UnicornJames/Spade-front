@@ -114,7 +114,7 @@ const Reserve = () => {
           </div>
         </div>
       </div>
-      
+      {/* body */}
       <div className="grid gap-6 lg:grid-cols-3 items-start">
         {reserve.map((value: any, index: number) => (
           <div key={value._id} className="rounded shadow-md bg-white">
