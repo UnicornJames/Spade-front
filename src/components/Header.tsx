@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./component.css";
 import { useMediaQuery } from 'react-responsive'
 
 const Header = () => {
