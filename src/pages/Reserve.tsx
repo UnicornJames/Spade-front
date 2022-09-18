@@ -68,7 +68,7 @@ const Reserve = () => {
                 <div className="flex justify-between">
                   <div className="w-10/12">
                     <p className="text-lg font-medium text-[#2A2D3C]">
-                      Audit administered by PriceWaterhouseCoopers (PwC)
+                      PriceWaterhouseCoopers Audit
                     </p>
                     <p className="text-sm text-gray-500">
                     11th September 2022
