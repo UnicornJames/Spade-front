@@ -42,7 +42,7 @@ const Audits = () => {
         Audits & Attestations
       </h1>
       <p className="text-left text-white text-base mt-2">
-        Administered by PricewatershouseCoopers on 11th September 2022
+        PriceWaterhouseCoopers Audit on 11th September 2022
       </p>
       <p className="mb-10 mt-6 p-2"></p>
       <div className="rounded-md shadow-md bg-white">
@@ -96,7 +96,7 @@ const Audits = () => {
             <div className="flex items-center justify-between">
               <div className="w-3/4">
                 <p className="text-lg font-medium text-[#2A2D3C]">
-                  About our external auditors, PriceWaterhouseCoopers (PwC)
+                  About our external auditors, PriceWaterhouseCoopers Audit
                 </p>
                 <p className="text-sm text-gray-500">
                   PwC is the second-largest professional services network in the whole world, which audit Spade Enterprise Ltd regularly to verify that the Spade Reserve assets exceed our customer liabilities, and is considered one of the Big Four accounting firms, along with Deloitte, EY, and KPMG. PwC is the auditor for enterprises such as the Bank of America, J.P Morgan & Chase, Blackrock, and many other publicly/private traded companies.
