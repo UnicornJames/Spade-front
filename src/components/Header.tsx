@@ -19,7 +19,7 @@ const Header = () => {
       </div>
       <header className="bg-[#2A2D3C] text-white z-20">
         <div className="lg:container md:mx-auto relative lg:flex justify-between items-center px-4 py-8 sm:px-6">
-          <div className="mb-4 lg:mb-0">
+          <div className="mb-4 lg:mb-0 flex justify-between">
             <Link to="/" className="flex">
               <span className="sr-only">Spade</span>
               <img className="w-32" src="/spade.png" alt="Spade" />
