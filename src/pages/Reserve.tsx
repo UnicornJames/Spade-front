@@ -2,18 +2,19 @@ import Tippy from "@tippyjs/react";
 import { useEffect, useState } from "react";
 import { socket } from "../socket";
 import { currency, currencyAbbr } from "../utils/currency";
+import Chart from "../components/Chart";
 
 const Reserve = () => {
   const [reserve, setReserve] = useState<any>(null);
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
-    socket.on("reserve", (data:any) => {
-      console.log("data => ", data)
+    socket.on("reserve", (data: any) => {
+      console.log("data => ", data);
       setReserve(data);
     });
 
-    socket.on("statistics", (data:any) => {
+    socket.on("statistics", (data: any) => {
       setStats(data);
     });
 
@@ -70,9 +71,7 @@ const Reserve = () => {
                     <p className="text-lg font-medium text-[#2A2D3C]">
                       PriceWaterhouseCoopers Audit
                     </p>
-                    <p className="text-sm text-gray-500">
-                    11th September 2022
-                    </p>
+                    <p className="text-sm text-gray-500">11th September 2022</p>
                   </div>
                   <div className="flex items-center">
                     <div className="w-6/12 mr-2.5">
@@ -221,6 +220,9 @@ const Reserve = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="bg-split-white-white px-4 md:p-12 lg:p-4 xl:px-24 mt-0">
+        {/* <Chart /> */}
       </div>
     </div>
   );
