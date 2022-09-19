@@ -250,7 +250,7 @@ const Markets = () => {
                 <td>{currencyAbbr(asset.total_collateral)}</td>
                 <td>{asset.loan_to_value}</td>
                 {/* <td>{currencyAbbr(asset.total_borrowed)}</td> */}
-                <td>{asset.total_collateral * asset.loan_to_value / 100}</td>
+                <td>{currencyAbbr(asset.total_collateral / 100 * asset.loan_to_value)}</td>
                 <td>{asset.supply_flexible_apy || "N/A"}</td>
                 <td>{asset.supply_fixed_term_apy || "N/A"}</td>
                 <td>{asset.borrow_flexible_apr || "N/A"}</td>
