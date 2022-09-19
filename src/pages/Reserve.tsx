@@ -9,7 +9,6 @@ const Reserve = () => {
 
   useEffect(() => {
     socket.on("reserve", (data:any) => {
-      console.log("data => ", data)
       setReserve(data);
     });
 
