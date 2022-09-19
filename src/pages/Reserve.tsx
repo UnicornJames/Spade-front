@@ -2,7 +2,7 @@ import Tippy from "@tippyjs/react";
 import { useEffect, useState } from "react";
 import { socket } from "../socket";
 import { currency, currencyAbbr } from "../utils/currency";
-import Chart from "../components/Chart";
+// import Chart from "../components/Chart";
 
 const Reserve = () => {
   const [reserve, setReserve] = useState<any>(null);
