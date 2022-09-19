@@ -118,6 +118,7 @@ const Reserve = () => {
       <div className="grid gap-6 lg:grid-cols-3 items-start">
         {reserve.map((value: any, index: number) => (
           <div key={value._id} className="rounded shadow-md bg-white">
+            {/* title */}
             <p className="text-lg font-semibold my-4 mx-6 text-left">
               {value.title}
               {index == 0 && (
@@ -171,6 +172,7 @@ const Reserve = () => {
               </Tippy>
             </p>
             <hr />
+            {/* total currency */}
             <p className="text-xl font-semibold mt-4 mx-6">
               {currency(value.total)}
               <span
@@ -181,6 +183,7 @@ const Reserve = () => {
                 {value.change}%
               </span>
             </p>
+            {/* progress bar */}
             {value.multi_level_assets
               ? value.assets.map((asset: any, index: number) => (
                   <div key={index} className="my-4 mx-6">
@@ -197,7 +200,8 @@ const Reserve = () => {
                   <div key={index} className="my-4 mx-6">
                     {percentageTemplate(value.total, value.color, asset)}
                   </div>
-                ))}
+                ))
+              }
             <br />
             <hr />
             <div className="my-4 mx-6 text-center">
