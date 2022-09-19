@@ -47,7 +47,7 @@ const Depository = () => {
   };
 
   const percentageTemplate = (total: number, value: number) => {
-    const percent = ((total - value) / total) * 100;
+    const percent = (value / total) * 100;
     return (
       <>
         <div className={`w-full bg-[#b5b5b5] rounded h-1`}>
