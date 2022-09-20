@@ -1,6 +1,6 @@
 import Tippy from "@tippyjs/react";
 import axios from "axios";
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { API_URL } from "../config";
 import { socket } from "../socket";
 import { currency } from "../utils/currency";

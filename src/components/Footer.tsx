@@ -1,5 +1,6 @@
 import { footerBottomLinks } from "../data/footer";
 import Statistics from "./Statistics";
+import React from "react";
 
 const Footer = () => {
   return (

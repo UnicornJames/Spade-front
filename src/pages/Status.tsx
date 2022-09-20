@@ -1,4 +1,5 @@
 import Tippy from "@tippyjs/react";
+import React from "react";
 
 const Status = () => {
   const services = [
