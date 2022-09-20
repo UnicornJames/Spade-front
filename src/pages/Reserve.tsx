@@ -187,6 +187,8 @@ const Reserve = () => {
                     {asset.items.map((item: any, itemIndex: number) => (
                       <div key={itemIndex} className="my-4">
                         {percentageTemplate(value.total, value.color, item)}
+                        {value.total}
+                        {item}
                       </div>
                     ))}
                   </div>
