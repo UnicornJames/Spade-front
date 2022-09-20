@@ -232,11 +232,7 @@ const Header = () => {
                   localStorage.clear();
                   location.href = "/";
                 }}
-<<<<<<< HEAD
-                className="text-white hover:text-gray-100 text-xs md:text-base cursor-pointer"
-=======
                 className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
->>>>>>> parent of eafc9ed (update sign in button style)
               >
                 Logout
               </a>
@@ -244,50 +240,13 @@ const Header = () => {
               <>
                 <Link
                   to="/signin"
-<<<<<<< HEAD
-                  className="text-white hover:text-gray-100 text-xs md:text-base"
-=======
                   className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
->>>>>>> parent of eafc9ed (update sign in button style)
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/borrow"
-<<<<<<< HEAD
                   className="bg-white text-black ml-8 inline-flex items-center justify-center px-2 md:px-6 py-1 md:py-2 border border-transparent rounded-md shadow-sm text-xs md:text-base font-medium"
-=======
-                  className="bg-white text-black ml-8 inline-flex items-center px-4 md:px-6 py-1 md:py-2 border border-transparent rounded-full shadow-sm md:text-base font-medium"
-                >
-                  Apply
-                </Link>
-              </>
-            )}
-          </div>
-          </div>
-          <div className={`space-x-8 ${isDesktopOrLaptop ? "block" : "hidden"}`}>
-            {isLoggedIn ? (
-              <a
-                onClick={() => {
-                  localStorage.clear();
-                  location.href = "/";
-                }}
-                className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
-              >
-                Logout
-              </a>
-            ) : (
-              <>
-                <Link
-                  to="/signin"
-                  className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  to="/borrow"
-                  className="bg-white text-black ml-8 inline-flex items-center justify-center px-4 md:px-6 py-1 md:py-2 border border-transparent rounded-full shadow-sm md:text-base font-medium"
->>>>>>> parent of eafc9ed (update sign in button style)
                 >
                   Apply
                 </Link>
