@@ -8,12 +8,11 @@ const Reserve = () => {
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
-    socket.on("reserve", (data: any) => {
-      console.log("data => ", data);
+    socket.on("reserve", (data) => {
       setReserve(data);
     });
 
-    socket.on("statistics", (data: any) => {
+    socket.on("statistics", (data) => {
       setStats(data);
     });
 
@@ -186,8 +185,6 @@ const Reserve = () => {
                     {asset.items.map((item: any, itemIndex: number) => (
                       <div key={itemIndex} className="my-4">
                         {percentageTemplate(value.total, value.color, item)}
-                        {value.total}
-                        {item}
                       </div>
                     ))}
                   </div>
