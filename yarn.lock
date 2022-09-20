@@ -395,6 +395,13 @@
     "@types/react" "*"
     "hoist-non-react-statics" "^3.3.0"
 
+"@types/jquery@^3.5.14":
+  "integrity" "sha512-X1gtMRMbziVQkErhTQmSe2jFwwENA/Zr+PprCkF63vFq+Yt5PZ4AlKqgmeNlwgn7dhsXEK888eIW2520EpC+xg=="
+  "resolved" "https://registry.npmjs.org/@types/jquery/-/jquery-3.5.14.tgz"
+  "version" "3.5.14"
+  dependencies:
+    "@types/sizzle" "*"
+
 "@types/lodash@^4.14.172", "@types/lodash@^4.14.175":
   "integrity" "sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q=="
   "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.182.tgz"
@@ -425,6 +432,11 @@
   "integrity" "sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew=="
   "resolved" "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   "version" "0.16.2"
+
+"@types/sizzle@*":
+  "integrity" "sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ=="
+  "resolved" "https://registry.npmjs.org/@types/sizzle/-/sizzle-2.3.3.tgz"
+  "version" "2.3.3"
 
 "@types/styled-components@^5.1.26":
   "integrity" "sha512-KuKJ9Z6xb93uJiIyxo/+ksS7yLjS1KzG6iv5i78dhVg/X3u5t1H7juRWqVmodIdz6wGVaIApo1u01kmFRdJHVw=="
@@ -1085,6 +1097,20 @@
   "resolved" "https://registry.npmjs.org/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz"
   "version" "1.0.4"
 
+"igniteui-react-charts@^18.0.0":
+  "integrity" "sha512-QIm/QuOzVNzlExO9jRib9QpxjAAivMwZRf+s9C+8MPcNma1qqy5Po06NTyqsF9zVKHZDEEQTBVeNGCniUvFe+A=="
+  "resolved" "https://registry.npmjs.org/igniteui-react-charts/-/igniteui-react-charts-18.0.0.tgz"
+  "version" "18.0.0"
+  dependencies:
+    "tslib" "^2.3.1"
+
+"igniteui-react-core@18.0.0":
+  "integrity" "sha512-DTLhFN9URhQeJvQMMhZRWwnlrJoOMmZU4qj3/zx5UXXtT0TBjDklREyIbzymsWjFBQWhbstwN7luXUimd0uo6Q=="
+  "resolved" "https://registry.npmjs.org/igniteui-react-core/-/igniteui-react-core-18.0.0.tgz"
+  "version" "18.0.0"
+  dependencies:
+    "tslib" "^2.3.1"
+
 "internmap@^1.0.0", "internmap@1 - 2":
   "integrity" "sha512-lDB5YccMydFBtasVtxnZ3MRBHuaoE8GKsppq+EchKL2U4nK/DmEpPHNH8MZe5HkMtpSiTSOZwfN0tzYjO/lJEw=="
   "resolved" "https://registry.npmjs.org/internmap/-/internmap-1.0.1.tgz"
@@ -1631,6 +1657,11 @@
   "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
+
+"tslib@^2.3.1":
+  "integrity" "sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
+  "version" "2.4.0"
 
 "typescript@^4.6.4":
   "integrity" "sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ=="
