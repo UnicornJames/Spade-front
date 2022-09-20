@@ -149,37 +149,37 @@ const Header = () => {
               <>
                 <Link
                   to="/markets"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Markets
                 </Link>
                 <Link
                   to=""
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Overview
                 </Link>
                 <Link
                   to=""
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Credit Health
                 </Link>
                 <Link
                   to="/terminal"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Terminal
                 </Link>
                 <Link
                   to="/status"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Status
                 </Link>
                 <a
                   href="https://help.withspade.com/"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Help
                 </a>
@@ -188,50 +188,51 @@ const Header = () => {
               <>
                 <Link
                   to="/"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Reserves
                 </Link>
                 <Link
                   to="/markets"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Markets
                 </Link>
                 <Link
                   to="/depository"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Depository
                 </Link>
                 <Link
                   to="/audits"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Audits
                 </Link>
                 <Link
                   to="/partners"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Partners
                 </Link>
                 <Link
                   to="/status"
-                  className="text-white flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
+                  className="text-white bg-[#00000055] flex w-full mb-1 justify-center hover:text-gray-100 text-xl md:text-xl"
                 >
                   Status
                 </Link>
               </>
             )}
-            <div className={`space-x-8 flex justify-center items-center mt-5 ${navbar ? "block" : "hidden"}`}>
+          </div>
+          <div className="space-x-8">
             {isLoggedIn ? (
               <a
                 onClick={() => {
                   localStorage.clear();
                   location.href = "/";
                 }}
-                className="text-white hover:text-gray-100 md:text-base hover:bg-white hover:text-black px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
+                className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
               >
                 Logout
               </a>
@@ -239,7 +240,7 @@ const Header = () => {
               <>
                 <Link
                   to="/signin"
-                  className="text-white hover:text-gray-100 md:text-base hover:bg-white hover:text-black px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
+                  className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
                 >
                   Sign In
                 </Link>
@@ -252,7 +253,6 @@ const Header = () => {
               </>
             )}
           </div>
-          </div>
           <div className={`space-x-8 ${isDesktopOrLaptop ? "block" : "hidden"}`}>
             {isLoggedIn ? (
               <a
@@ -260,7 +260,7 @@ const Header = () => {
                   localStorage.clear();
                   location.href = "/";
                 }}
-                className="text-white hover:text-gray-100 md:text-base hover:bg-white hover:text-black px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
+                className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
               >
                 Logout
               </a>
@@ -268,7 +268,7 @@ const Header = () => {
               <>
                 <Link
                   to="/signin"
-                  className="text-white hover:text-gray-100 md:text-base hover:bg-white hover:text-black px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
+                  className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
                 >
                   Sign In
                 </Link>
