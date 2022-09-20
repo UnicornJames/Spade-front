@@ -2,7 +2,6 @@ import Tippy from "@tippyjs/react";
 import { useEffect, useState } from "react";
 import { socket } from "../socket";
 import { currency, currencyAbbr } from "../utils/currency";
-import Chart from "../components/Chart";
 
 const Reserve = () => {
   const [reserve, setReserve] = useState<any>(null);
@@ -222,9 +221,6 @@ const Reserve = () => {
             </div>
           </div>
         ))}
-      </div>
-      <div className="bg-split-white-white px-4 md:p-12 lg:p-4 xl:px-24 mt-0">
-        <Chart />
       </div>
     </div>
   );
