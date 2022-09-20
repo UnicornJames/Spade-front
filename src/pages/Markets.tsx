@@ -52,6 +52,10 @@ const Markets = () => {
     return <></>;
   }
 
+  const percentStyle = (value: number) => {
+    return value.toFixed(2);
+  }
+
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
       <div className="xl:flex">
@@ -248,12 +252,11 @@ const Markets = () => {
                   {asset.name}
                 </td>
                 <td>{currencyAbbr(asset.total_collateral)}</td>
-                <td>{asset.loan_to_value}%</td>
-                {/* <td>{currencyAbbr(asset.total_borrowed)}</td> */}
+                <td>{percentStyle(asset.loan_to_value)}%</td>
                 <td>{currencyAbbr(asset.total_collateral / 100 * asset.loan_to_value)}</td>
-                <td>{asset.supply_flexible_apy || "N/A"}%</td>
+                <td>{percentStyle(asset.supply_flexible_apy) || "N/A"}%</td>
                 <td>{asset.supply_fixed_term_apy || "N/A"}</td>
-                <td>{asset.borrow_flexible_apr || "N/A"}%</td>
+                <td>{percentStyle(asset.borrow_flexible_apr) || "N/A"}%</td>
                 <td>{asset.borrow_fixed_term_apr || "N/A"}</td>
                 <td className={asset.child ? "hidden" : ""}>
                   <Link to={"/markets/overview/" + asset._id}>
