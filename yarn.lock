@@ -412,10 +412,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.0.15":
-  "integrity" "sha512-iz3BtLuIYH1uWdsv6wXYdhozhqj20oD4/Hk2DNXIn1kFsmp9x8d9QB6FnPhfkbhd2PgEONt9Q1x/ebkwjfFLow=="
-  "resolved" "https://registry.npmjs.org/@types/react/-/react-18.0.15.tgz"
-  "version" "18.0.15"
+"@types/react@*", "@types/react@^18.0.20":
+  "integrity" "sha512-MWul1teSPxujEHVwZl4a5HxQ9vVNsjTchVA+xRqv/VYGCuKGAU6UhfrTdF5aBefwD1BHUD8i/zq+O/vyCm/FrA=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-18.0.20.tgz"
+  "version" "18.0.20"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -671,24 +671,10 @@
     "escape-string-regexp" "^1.0.5"
     "supports-color" "^5.3.0"
 
-"chart.js@^3.0.0", "chart.js@^3.9.1", "chart.js@>=3.0.2":
+"chart.js@^3.9.1":
   "integrity" "sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w=="
   "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-3.9.1.tgz"
   "version" "3.9.1"
-
-"chartjs-adapter-date-fns@>=2.0.0":
-  "integrity" "sha512-rmZINGLe+9IiiEB0kb57vH3UugAtYw33anRiw5kS2Tu87agpetDDoouquycWc9pRsKtQo5j+vLsYHyr8etAvFw=="
-  "resolved" "https://registry.npmjs.org/chartjs-adapter-date-fns/-/chartjs-adapter-date-fns-2.0.0.tgz"
-  "version" "2.0.0"
-
-"chartkick@^4.0.0":
-  "integrity" "sha512-7yYZyxeFhOh/LA7gc1VwDFgc6t4ZM9RrbBjgb4dJoFukk2+94QkK0yulYI2OUH1cjcfrf1qmj04FkjZx7kZDeg=="
-  "resolved" "https://registry.npmjs.org/chartkick/-/chartkick-4.2.0.tgz"
-  "version" "4.2.0"
-  optionalDependencies:
-    "chart.js" ">=3.0.2"
-    "chartjs-adapter-date-fns" ">=2.0.0"
-    "date-fns" ">=2.0.0"
 
 "chokidar@^3.5.3":
   "integrity" "sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw=="
@@ -849,11 +835,6 @@
   "version" "2.1.1"
   dependencies:
     "d3-array" "2"
-
-"date-fns@>=2.0.0":
-  "integrity" "sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA=="
-  "resolved" "https://registry.npmjs.org/date-fns/-/date-fns-2.29.3.tgz"
-  "version" "2.29.3"
 
 "debug@^4.1.0", "debug@~4.3.1", "debug@~4.3.2":
   "integrity" "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ=="
@@ -1351,14 +1332,7 @@
   "resolved" "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   "version" "5.1.1"
 
-"react-chartkick@^0.5.3":
-  "integrity" "sha512-HOAONZ8PunkemVpAXzbDz8eOSpyY1H5MARRvPsF8ZVWmiVMkDsJeo12PcLuBiZzVhQ1FCL4sABV9AyfbO5coUA=="
-  "resolved" "https://registry.npmjs.org/react-chartkick/-/react-chartkick-0.5.3.tgz"
-  "version" "0.5.3"
-  dependencies:
-    "chartkick" "^4.0.0"
-
-"react-dom@*", "react-dom@>= 16.8.0", "react-dom@>=16", "react-dom@>=16.8", "react-dom@>=16.8.0":
+"react-dom@^18.2.0", "react-dom@>= 16.8.0", "react-dom@>=16", "react-dom@>=16.8", "react-dom@>=16.8.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -1412,7 +1386,7 @@
   dependencies:
     "clsx" "^1.1.1"
 
-"react@*", "react@^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0", "react@^16.3.0-0 || ^17.0.0-0 || ^18.0.0-0", "react@^16.8.0-0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16.8.0", "react@>=16", "react@>=16.8", "react@>=16.8.0":
+"react@^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0", "react@^16.3.0-0 || ^17.0.0-0 || ^18.0.0-0", "react@^16.8.0-0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16.8.0", "react@>=16", "react@>=16.8", "react@>=16.8.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

@@ -1,5 +1,5 @@
 import Tippy from "@tippyjs/react";
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 import { socket } from "../socket";
 import { currency, currencyAbbr } from "../utils/currency";
 
