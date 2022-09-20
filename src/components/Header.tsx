@@ -231,7 +231,7 @@ const Header = () => {
                   localStorage.clear();
                   location.href = "/";
                 }}
-                className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
+                className="text-white hover:text-gray-100 md:text-base hover:bg-white hover:text-black px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
               >
                 Logout
               </a>
@@ -239,7 +239,7 @@ const Header = () => {
               <>
                 <Link
                   to="/signin"
-                  className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
+                  className="text-white hover:text-gray-100 md:text-base hover:bg-white hover:text-black px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
                 >
                   Sign In
                 </Link>
@@ -260,7 +260,7 @@ const Header = () => {
                   localStorage.clear();
                   location.href = "/";
                 }}
-                className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
+                className="text-white hover:text-gray-100 md:text-base hover:bg-white hover:text-black px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full cursor-pointer"
               >
                 Logout
               </a>
@@ -268,7 +268,7 @@ const Header = () => {
               <>
                 <Link
                   to="/signin"
-                  className="text-white hover:text-gray-100 md:text-base px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
+                  className="text-white hover:text-gray-100 md:text-base hover:bg-white hover:text-black px-3 md:px-6 py-1 md:py-2 border-solid border-white border rounded-full"
                 >
                   Sign In
                 </Link>
