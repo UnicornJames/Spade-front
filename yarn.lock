@@ -1097,20 +1097,6 @@
   "resolved" "https://registry.npmjs.org/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz"
   "version" "1.0.4"
 
-"igniteui-react-charts@^18.0.0":
-  "integrity" "sha512-QIm/QuOzVNzlExO9jRib9QpxjAAivMwZRf+s9C+8MPcNma1qqy5Po06NTyqsF9zVKHZDEEQTBVeNGCniUvFe+A=="
-  "resolved" "https://registry.npmjs.org/igniteui-react-charts/-/igniteui-react-charts-18.0.0.tgz"
-  "version" "18.0.0"
-  dependencies:
-    "tslib" "^2.3.1"
-
-"igniteui-react-core@18.0.0":
-  "integrity" "sha512-DTLhFN9URhQeJvQMMhZRWwnlrJoOMmZU4qj3/zx5UXXtT0TBjDklREyIbzymsWjFBQWhbstwN7luXUimd0uo6Q=="
-  "resolved" "https://registry.npmjs.org/igniteui-react-core/-/igniteui-react-core-18.0.0.tgz"
-  "version" "18.0.0"
-  dependencies:
-    "tslib" "^2.3.1"
-
 "internmap@^1.0.0", "internmap@1 - 2":
   "integrity" "sha512-lDB5YccMydFBtasVtxnZ3MRBHuaoE8GKsppq+EchKL2U4nK/DmEpPHNH8MZe5HkMtpSiTSOZwfN0tzYjO/lJEw=="
   "resolved" "https://registry.npmjs.org/internmap/-/internmap-1.0.1.tgz"
@@ -1657,11 +1643,6 @@
   "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
-
-"tslib@^2.3.1":
-  "integrity" "sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
-  "version" "2.4.0"
 
 "typescript@^4.6.4":
   "integrity" "sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ=="
