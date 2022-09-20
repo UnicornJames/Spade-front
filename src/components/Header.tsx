@@ -253,7 +253,6 @@ const Header = () => {
               </>
             )}
           </div>
-          </div>
           <div className={`space-x-8 ${isDesktopOrLaptop ? "block" : "hidden"}`}>
             {isLoggedIn ? (
               <a
