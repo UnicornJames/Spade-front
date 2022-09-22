@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
+import { ApexOptions } from "apexcharts";
 import moment from "moment";
 import "../index.css";
 
@@ -12,12 +13,13 @@ const BTCchart:React.FC = () => {
       data: seriesarr,
     },
   ];
-  const options = {
+  const options: ApexOptions = {
     title: {
       text: "",
       align: "center",
     },
     chart: {
+      height: 350,
       zoom: {
         enabled: false,
       },
@@ -27,8 +29,6 @@ const BTCchart:React.FC = () => {
     },
     xaxis: {
       type: "datetime",
-      rotate: 0,
-      rotateAlways: false,
       labels: {
         datetimeFormatter: {
           year: "yyyy",
