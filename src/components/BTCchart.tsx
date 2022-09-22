@@ -19,8 +19,8 @@ const BTCchart = () => {
   ];
   const options = {
     title: {
-        text: "USD",
-        align: 'canter',
+        text: "",
+        align: 'center',
     },
     chart: {
       type: "line",
@@ -85,19 +85,13 @@ const BTCchart = () => {
       });
   };
 
-//   const getCurrentTimeFromStamp = (timestamp) => {
-//     var d = new Date(timestamp * 1000);
-//     var timesCom = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear();
-//     return timesCom;
-//   };
-
   return (
     <div className="w-full text-center">
-      <div id="chart" className="w-full flex justify-center items-center block">
-        <Chart options={options} series={series} type="line" className="chartside" />
+      <div id="chart" className="flex w-full justify-center h-1/2">
+        <Chart options={options} series={series} type="line" className="chartside w-8/12" />
       </div>
       <div className="w-full flex justify-center">
-        <div className="w-8/12 mt-20 text-md">
+        <div className="w-4/12 mt-20 text-md">
         <button
           value={"30days"}
           className={"py-2 sm:text-sm w-2/12 border-2 rounded-l-xl md:text-xl"}
@@ -122,7 +116,8 @@ const BTCchart = () => {
         <button
           value={"1year"}
           className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
-          onClick={() => setTimestamp("1year")}
+          onClick={() => setTimestamp("1year")
+        }
         >
           1year
         </button>
