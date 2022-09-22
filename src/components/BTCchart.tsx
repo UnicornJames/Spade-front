@@ -43,7 +43,7 @@ const BTCchart = () => {
                 hour: 'HH:mm',
             },
             format: 'dd/MM',
-            formatter: function(value, timestamp) {
+            formatter: function(value: any, timestamp: number) {
                 var dateoptions = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric'};
                 return moment(timestamp*1000).format("MM DD yyyy HH:mm");
             },
