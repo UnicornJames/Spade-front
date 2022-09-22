@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
-import { date } from "yup/lib/locale";
 import moment from "moment";
 import "../index.css";
 
