@@ -1,11 +1,149 @@
-import React from "react"
+import { useState, useEffect } from "react";
+import Chart from "react-apexcharts";
+import { date } from "yup/lib/locale";
+import moment from "moment";
+import "../index.css";
 
 const BTCchart = () => {
-    return (
-        <div className="Chart flex justify-center mt-10 shadow-md py-10 w-full items-center">
-            <h1 className="text-4xl">BTC Chart Coming Soon!</h1>
-        </div>
-    )
-}
+  let price: any = null;
+  let value: any = null;
+  let time: any = null;
 
-export default BTCchart
+  const [timestamp, setTimestamp] = useState("1year");
+  const [seriesarr, setSeriesarr] = useState([]);
+  const series = [
+    {
+      name: "Price",
+      data: seriesarr,
+    },
+  ];
+  const options = {
+    title: {
+        text: "USD",
+        align: 'canter',
+    },
+    chart: {
+      type: "line",
+      zoom: {
+        enabled: false,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    xaxis: {
+        type: "datetime",
+        rotate: 0,
+        rotateAlways: false,
+        labels: {
+            datetimeFormatter: {
+                year: 'yyyy',
+                month: "MMM 'yy",
+                day: 'dd MMM',
+                hour: 'HH:mm',
+            },
+            format: 'dd/MM',
+            formatter: function(value, timestamp) {
+                var dateoptions = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric'};
+                return moment(timestamp*1000).format("MM DD yyyy HH:mm");
+            },
+        }
+    },
+    stroke: {
+      width: 3,
+      curve: "smooth",
+    },
+    colors: ["#0C6CF2"],
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        inverseColors: true,
+        gradientToColors: ["#0C6CF2"],
+        opacityFrom: 1,
+        opacityTo: 1,
+        type: "vertical",
+        stops: [0, 30],
+      },
+    },
+  };
+
+  useEffect(() => {
+    getchartdata();
+  }, [timestamp]);
+
+  const getchartdata = async () => {
+    await fetch(
+      "https://api.blockchain.info/charts/market-price?timespan=" +
+        `${timestamp}` +
+        "&sampled=true&metadata=false&cors=true&format=json",
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        var datas = data.values;
+        setSeriesarr(datas);
+      });
+  };
+
+//   const getCurrentTimeFromStamp = (timestamp) => {
+//     var d = new Date(timestamp * 1000);
+//     var timesCom = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear();
+//     return timesCom;
+//   };
+
+  return (
+    <div className="w-full text-center">
+      <div id="chart" className="w-full flex justify-center items-center block">
+        <Chart options={options} series={series} type="line" className="chartside" />
+      </div>
+      <div className="w-full flex justify-center">
+        <div className="w-8/12 mt-20 text-md">
+        <button
+          value={"30days"}
+          className={"py-2 sm:text-sm w-2/12 border-2 rounded-l-xl md:text-xl"}
+          onClick={() => setTimestamp("30days")}
+        >
+          30days
+        </button>
+        <button
+          value={"60days"}
+          className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
+          onClick={() => setTimestamp("60days")}
+        >
+          60days
+        </button>
+        <button
+          value={"180days"}
+          className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
+          onClick={() => setTimestamp("180days")}
+        >
+          180days
+        </button>
+        <button
+          value={"1year"}
+          className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
+          onClick={() => setTimestamp("1year")}
+        >
+          1year
+        </button>
+        <button
+          value={"3years"}
+          className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
+          onClick={() => setTimestamp("3years")}
+        >
+          3years
+        </button>
+        <button
+          value={"all"}
+          className={"py-2 sm:text-sm w-2/12 border-2 rounded-r-xl md:text-xl"}
+          onClick={() => setTimestamp("all")}
+        >
+          all
+        </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BTCchart;

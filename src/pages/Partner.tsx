@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { API_URL } from "../config";
 import { socket } from "../socket";
 import { currencyAbbr } from "../utils/currency";
-import { PartnerCard } from "../components/PartnerCard";
+import  PartnerCard from "../components/PartnerCard";
 
 const Partner = () => {
   const [assets, setAssets] = useState<any[]>([]);
@@ -61,17 +61,7 @@ const Partner = () => {
     <div className="bg-split-white-black p-20 lg:px-36 lg:py-20">
       <h1 className="text-left text-white text-2xl lg:text-4xl font-bold">Partners</h1>
       <div className="rounded-md shadow-md bg-white p-1 mt-10">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 p-5">
-            {/* <div className="box border p-4 md:p-6 transition ease-in-out delay-150 hover:-translate-y-2 duration-300">
-                <div className="bg-cover">
-                    //<img className="w-4/6 mb-5" src="/assets/ExxonMobil.2d6a0ec9.png"></img>
-                </div>
-                <h4 className="mb-5 text-stone-700">ExxonMobil (Depository)</h4>
-                <p className="text-gray-400">
-                    ExxonMobil Corporation is an American multinational oil and gas corporation that is the key administrator and shareholder of the Spade Enterprise Ltd WTI Crude Oil and Brent Crude Oil depository. ExxonMobil Corporation is organized and exists under the laws of the State of New Jersey, restated and integrated into its Certificate of Incorporation.
-                </p>
-            </div>*/}
-        
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 p-2 md:padding-5">        
             {exploreList.map((item, i) => (
                 <PartnerCard key={i} card={item} />
             ))}

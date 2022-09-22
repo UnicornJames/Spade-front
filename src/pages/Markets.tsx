@@ -276,7 +276,7 @@ const Markets = () => {
                 <p className="font-bold">{asset.name}</p>
               </div>
               <div className="w-full flex my-4">
-                <div className="w-2/4">
+                <div className="w-7/12">
                   <p className="text-sm">
                     Total collateral
                     <Tippy interactive content="Total collateral">
@@ -295,14 +295,14 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="w-2/4">
+                <div className="w-5/12">
                   <p className="text-right">
                     {currencyAbbr(asset.total_collateral)}
                   </p>
                 </div>
               </div>
               <div className="w-full flex my-4">
-                <div className="w-2/4">
+                <div className="w-7/12">
                   <p className="text-sm">
                     Loan to Value
                     <Tippy interactive content="Loan to Value">
@@ -321,12 +321,12 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="w-2/4">
-                  <p className="text-right">{asset.loan_to_value}</p>
+                <div className="w-5/12">
+                  <p className="text-right">{asset.loan_to_value}%</p>
                 </div>
               </div>
               <div className="w-full flex my-4">
-                <div className="w-2/4">
+                <div className="w-7/12">
                   <p className="text-sm">
                     Total borrowed
                     <Tippy interactive content="Total borrowed">
@@ -345,14 +345,14 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="w-2/4">
+                <div className="w-5/12">
                   <p className="text-right">
                     {currencyAbbr(asset.total_borrowed)}
                   </p>
                 </div>
               </div>
               <div className="w-full flex my-4">
-                <div className="w-2/4">
+                <div className="w-7/12">
                   <p className="text-sm">
                     Supply Flexible APY
                     <Tippy interactive content="Supply Flexible APY">
@@ -371,14 +371,14 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="w-2/4">
+                <div className="w-5/12">
                   <p className="text-right">
-                    {asset.supply_flexible_apy || "N/A"}
+                    {asset.supply_flexible_apy || "N/A"}%
                   </p>
                 </div>
               </div>
               <div className="w-full flex my-4">
-                <div className="w-2/4">
+                <div className="w-7/12">
                   <p className="text-sm">
                     Supply Fixed Term APY
                     <Tippy interactive content="Supply Fixed Term APY">
@@ -397,14 +397,14 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="w-2/4">
+                <div className="w-5/12">
                   <p className="text-right">
                     {asset.supply_fixed_term_apy || "N/A"}
                   </p>
                 </div>
               </div>
               <div className="w-full flex my-4">
-                <div className="w-2/4">
+                <div className="w-7/12">
                   <p className="text-sm">
                     Borrow Flexible APR
                     <Tippy interactive content="Borrow Flexible APR">
@@ -423,14 +423,14 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="w-2/4">
+                <div className="w-5/12">
                   <p className="text-right">
-                    {asset.borrow_flexible_apr || "N/A"}
+                    {asset.borrow_flexible_apr || "N/A"}%
                   </p>
                 </div>
               </div>
               <div className="w-full flex my-4">
-                <div className="w-2/4">
+                <div className="w-7/12">
                   <p className="text-sm">
                     Borrow Fixed Term APR
                     <Tippy interactive content="Borrow APY, stable">
@@ -449,7 +449,7 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="w-2/4">
+                <div className="w-5/12">
                   <p className="text-right">
                     {asset.borrow_fixed_term_apr || "N/A"}
                   </p>

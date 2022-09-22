@@ -94,8 +94,8 @@ const Audits = () => {
         <div className="md:grid grid-cols-1">
           <div className="px-4 py-4">
             <div className="flex items-center justify-between">
-              <div className="w-3/4">
-                <p className="text-lg font-medium text-[#2A2D3C]">
+              <div className="w-full">
+                <p className="text-lg font-medium flex md:text-left text-center text-[#2A2D3C]">
                   About our external auditors, PriceWaterhouseCoopers Audit
                 </p>
                 <p className="text-sm text-gray-500">
@@ -110,7 +110,7 @@ const Audits = () => {
         <div className="md:grid grid-cols-1">
           <div className={`px-4 py-4`}>
             <div className="flex items-center justify-between">
-              <div className="w-3/4">
+              <div className="md:w-9/12 xs:8/12">
                 <p className="text-lg font-medium text-[#2A2D3C]">
                   PriceWaterhouseCoopers Audit
                 </p>
@@ -118,7 +118,7 @@ const Audits = () => {
                   11th September 2022
                 </p>
               </div>
-              <div className="w-1/12 flex items-center">
+              <div className="md:w-2/12 xs:4/12 flex items-center">
                 <div className="w-6/12">
                   <Tippy interactive content="View">
                     <svg

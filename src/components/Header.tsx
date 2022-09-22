@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from 'react-responsive'
 
-const Header = () => {
+function Header () {
   const isLoggedIn = !!localStorage.getItem("isLoggedIn");
   const [navbar, setNavbar] = useState(false);
   const isDesktopOrLaptop = useMediaQuery({

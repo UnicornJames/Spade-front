@@ -130,7 +130,7 @@ const Depository = () => {
                   <span className="text-xs ">{v.name}</span>
                 </div>
                 <div className="w-full bg-[#F9FCFE] py-1 px-1 flex items-center rounded-r-md">
-                  {percentageTemplate(v.total, v.less)}
+                  {percentageTemplate(totalAssets, v.total)}
                 </div>
               </div>
               <div className="flex my-4 px-1">
