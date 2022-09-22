@@ -3,11 +3,7 @@ import Chart from "react-apexcharts";
 import moment from "moment";
 import "../index.css";
 
-const BTCchart = () => {
-  let price: any = null;
-  let value: any = null;
-  let time: any = null;
-
+const BTCchart:React.FC = () => {
   const [timestamp, setTimestamp] = useState("1year");
   const [seriesarr, setSeriesarr] = useState([]);
   const series = [
@@ -18,11 +14,10 @@ const BTCchart = () => {
   ];
   const options = {
     title: {
-        text: "",
-        align: 'center',
+      text: "",
+      align: "center",
     },
     chart: {
-      type: "line",
       zoom: {
         enabled: false,
       },
@@ -31,21 +26,21 @@ const BTCchart = () => {
       enabled: false,
     },
     xaxis: {
-        type: "datetime",
-        rotate: 0,
-        rotateAlways: false,
-        labels: {
-            datetimeFormatter: {
-                year: 'yyyy',
-                month: "MMM 'yy",
-                day: 'dd MMM',
-                hour: 'HH:mm',
-            },
-            format: 'dd/MM',
-            formatter: function(value: any, timestamp: number) {
-                return moment(timestamp*1000).format("MM DD yyyy HH:mm");
-            },
-        }
+      type: "datetime",
+      rotate: 0,
+      rotateAlways: false,
+      labels: {
+        datetimeFormatter: {
+          year: "yyyy",
+          month: "MMM 'yy",
+          day: "dd MMM",
+          hour: "HH:mm",
+        },
+        format: "dd/MM",
+        formatter: function (value: any, timestamp: number) {
+          return moment(timestamp * 1000).format("MM DD yyyy HH:mm");
+        },
+      },
     },
     stroke: {
       width: 3,
@@ -86,53 +81,61 @@ const BTCchart = () => {
   return (
     <div className="w-full text-center">
       <div id="chart" className="flex w-full justify-center">
-        <Chart options={options} series={series} type="line" className="chartside w-8/12" />
+        <Chart
+          options={options}
+          series={series}
+          type="line"
+          className="chartside w-8/12"
+        />
       </div>
       <div className="w-full flex justify-center">
         <div className="w-4/12 mt-20 text-md">
-        <button
-          value={"30days"}
-          className={"py-2 sm:text-sm w-2/12 border-2 rounded-l-xl md:text-xl"}
-          onClick={() => setTimestamp("30days")}
-        >
-          30days
-        </button>
-        <button
-          value={"60days"}
-          className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
-          onClick={() => setTimestamp("60days")}
-        >
-          60days
-        </button>
-        <button
-          value={"180days"}
-          className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
-          onClick={() => setTimestamp("180days")}
-        >
-          180days
-        </button>
-        <button
-          value={"1year"}
-          className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
-          onClick={() => setTimestamp("1year")
-        }
-        >
-          1year
-        </button>
-        <button
-          value={"3years"}
-          className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
-          onClick={() => setTimestamp("3years")}
-        >
-          3years
-        </button>
-        <button
-          value={"all"}
-          className={"py-2 sm:text-sm w-2/12 border-2 rounded-r-xl md:text-xl"}
-          onClick={() => setTimestamp("all")}
-        >
-          all
-        </button>
+          <button
+            value={"30days"}
+            className={
+              "py-2 sm:text-sm w-2/12 border-2 rounded-l-xl md:text-xl"
+            }
+            onClick={() => setTimestamp("30days")}
+          >
+            30days
+          </button>
+          <button
+            value={"60days"}
+            className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
+            onClick={() => setTimestamp("60days")}
+          >
+            60days
+          </button>
+          <button
+            value={"180days"}
+            className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
+            onClick={() => setTimestamp("180days")}
+          >
+            180days
+          </button>
+          <button
+            value={"1year"}
+            className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
+            onClick={() => setTimestamp("1year")}
+          >
+            1year
+          </button>
+          <button
+            value={"3years"}
+            className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
+            onClick={() => setTimestamp("3years")}
+          >
+            3years
+          </button>
+          <button
+            value={"all"}
+            className={
+              "py-2 sm:text-sm w-2/12 border-2 rounded-r-xl md:text-xl"
+            }
+            onClick={() => setTimestamp("all")}
+          >
+            all
+          </button>
         </div>
       </div>
     </div>
