@@ -44,7 +44,6 @@ const BTCchart = () => {
             },
             format: 'dd/MM',
             formatter: function(value: any, timestamp: number) {
-                var dateoptions = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric'};
                 return moment(timestamp*1000).format("MM DD yyyy HH:mm");
             },
         }
@@ -87,7 +86,7 @@ const BTCchart = () => {
 
   return (
     <div className="w-full text-center">
-      <div id="chart" className="flex w-full justify-center h-1/2">
+      <div id="chart" className="flex w-full justify-center">
         <Chart options={options} series={series} type="line" className="chartside w-8/12" />
       </div>
       <div className="w-full flex justify-center">
