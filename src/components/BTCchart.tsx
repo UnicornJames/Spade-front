@@ -7,6 +7,7 @@ import "../index.css";
 const BTCchart: React.FC = () => {
   const [timestamp, setTimestamp] = useState("1year");
   const [seriesarr, setSeriesarr] = useState([]);
+  const [buttonclicked, setButtonClicked] = useState(3);
   const series = [
     {
       name: "Price",
@@ -80,6 +81,11 @@ const BTCchart: React.FC = () => {
 
   const ChartDays = ["30days", "60days", "180days", "1year", "3years", "all"];
 
+  const setTarget = (chartday: any, index: any) => {
+    setTimestamp(chartday);
+    setButtonClicked(index);
+  }
+
   return (
     <div className="w-full text-center">
       <div id="chart" className="flex w-full justify-center">
@@ -96,10 +102,10 @@ const BTCchart: React.FC = () => {
             return (
               <button
                 value={chartday}
-                className={`py-2 text-xs sm:text-sm md:text-base w-2/12 border-2 active:bg-green-800 ${
+                className={`py-2 text-xs sm:text-sm md:text-base w-2/12 border-2 active:bg-[#292E31] active:text-white ${
                   index === 0 && "rounded-l-xl"
-                } ${index === ChartDays.length - 1 && "rounded-r-xl"}`}
-                onClick={() => setTimestamp(chartday)}
+                } ${index === ChartDays.length - 1 && "rounded-r-xl"} ${index === buttonclicked && "bg-[#292E31] text-white"}`}
+                onClick={() => setTarget(chartday, index)}
               >
                 {chartday}
               </button>
