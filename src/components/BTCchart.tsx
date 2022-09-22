@@ -4,7 +4,7 @@ import { ApexOptions } from "apexcharts";
 import moment from "moment";
 import "../index.css";
 
-const BTCchart:React.FC = () => {
+const BTCchart: React.FC = () => {
   const [timestamp, setTimestamp] = useState("1year");
   const [seriesarr, setSeriesarr] = useState([]);
   const series = [
@@ -78,6 +78,8 @@ const BTCchart:React.FC = () => {
       });
   };
 
+  const ChartDays = ["30days", "60days", "180days", "1year", "3years", "all"];
+
   return (
     <div className="w-full text-center">
       <div id="chart" className="flex w-full justify-center">
@@ -89,53 +91,20 @@ const BTCchart:React.FC = () => {
         />
       </div>
       <div className="w-full flex justify-center">
-        <div className="w-4/12 mt-20 text-md">
-          <button
-            value={"30days"}
-            className={
-              "py-2 sm:text-sm w-2/12 border-2 rounded-l-xl md:text-xl"
-            }
-            onClick={() => setTimestamp("30days")}
-          >
-            30days
-          </button>
-          <button
-            value={"60days"}
-            className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
-            onClick={() => setTimestamp("60days")}
-          >
-            60days
-          </button>
-          <button
-            value={"180days"}
-            className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
-            onClick={() => setTimestamp("180days")}
-          >
-            180days
-          </button>
-          <button
-            value={"1year"}
-            className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
-            onClick={() => setTimestamp("1year")}
-          >
-            1year
-          </button>
-          <button
-            value={"3years"}
-            className={"py-2 sm:text-sm w-2/12 border-2 md:text-xl"}
-            onClick={() => setTimestamp("3years")}
-          >
-            3years
-          </button>
-          <button
-            value={"all"}
-            className={
-              "py-2 sm:text-sm w-2/12 border-2 rounded-r-xl md:text-xl"
-            }
-            onClick={() => setTimestamp("all")}
-          >
-            all
-          </button>
+        <div className="w-full sm:w-8/12 lg:w-6/12 2xl:w-4/12 mt-20 text-md">
+          {ChartDays.map((chartday, index) => {
+            return (
+              <button
+                value={chartday}
+                className={`py-2 text-xs sm:text-sm md:text-base w-2/12 border-2 active:bg-green-800 ${
+                  index === 0 && "rounded-l-xl"
+                } ${index === ChartDays.length - 1 && "rounded-r-xl"}`}
+                onClick={() => setTimestamp(chartday)}
+              >
+                {chartday}
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
