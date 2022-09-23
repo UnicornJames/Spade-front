@@ -8,40 +8,75 @@ const BTCchart: React.FC = () => {
   const [timestamp, setTimestamp] = useState("1year");
   const [seriesarr, setSeriesarr] = useState([]);
   const [buttonclicked, setButtonClicked] = useState(3);
+  const [mindate, setMindate] = useState(0);
+  const [maxdate, setMaxdate] = useState(0);
+  const [logarithmic, setLogarithmic] = useState(false);
+  const [lineartarget, setLinearTarget] = useState(0);
+  const [langer, setLanger] = useState(1);
+  const [langbuttonetarget, setlangbuttontarget] = useState(0);
+
+  const ChartDays = ["30days", "60days", "180days", "1year", "3years", "all"];
+
+  const setTarget = (chartday: any, index: any) => {
+    setTimestamp(chartday);
+    setButtonClicked(index);
+  };
+
+  const LinerTarget = (index: any, target: any) => {
+    setLinearTarget(index);
+    setLogarithmic(target);
+  };
+
   const series = [
     {
       name: "Price",
       data: seriesarr,
     },
   ];
+
   const options: ApexOptions = {
-    title: {
-      text: "",
-      align: "center",
-    },
     chart: {
-      height: 350,
+      type: "line",
+      width: "100%",
+      height: "500px",
       zoom: {
         enabled: false,
       },
+    },
+    responsive: [
+      {
+        breakpoint: 500,
+        options: {
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    ],
+    title: {
+      text: "",
+      align: "center",
     },
     dataLabels: {
       enabled: false,
     },
     xaxis: {
       type: "datetime",
+      min: mindate,
+      max: maxdate,
       labels: {
         datetimeFormatter: {
           year: "yyyy",
           month: "MMM 'yy",
           day: "dd MMM",
-          hour: "HH:mm",
-        },
-        format: "dd/MM",
-        formatter: function (value: any, timestamp: number) {
-          return moment(timestamp * 1000).format("MM DD yyyy HH:mm");
         },
       },
+    },
+    yaxis: {
+      logarithmic: logarithmic,
+      min: 0,
+      max: 80000,
+      tickAmount: 8,
     },
     stroke: {
       width: 3,
@@ -51,11 +86,8 @@ const BTCchart: React.FC = () => {
     fill: {
       type: "gradient",
       gradient: {
-        shadeIntensity: 1,
         inverseColors: true,
         gradientToColors: ["#0C6CF2"],
-        opacityFrom: 1,
-        opacityTo: 1,
         type: "vertical",
         stops: [0, 30],
       },
@@ -63,10 +95,10 @@ const BTCchart: React.FC = () => {
   };
 
   useEffect(() => {
-    getchartdata();
-  }, [timestamp]);
+    getchartdata(langer);
+  }, [timestamp, langer]);
 
-  const getchartdata = async () => {
+  const getchartdata = async (langer: any) => {
     await fetch(
       "https://api.blockchain.info/charts/market-price?timespan=" +
         `${timestamp}` +
@@ -75,42 +107,77 @@ const BTCchart: React.FC = () => {
       .then((response) => response.json())
       .then((data) => {
         var datas = data.values;
-        setSeriesarr(datas);
+        var newData = [];
+        if (langer === 7 || langer === 30) {
+          for (var i = 0; i < datas.length; i++) {
+            if (i % langer == 0) {
+              newData[i / langer] = datas[i];
+            }
+          }
+        } else {
+          newData = datas;
+        }
+        newData.map((item) => {
+          item.x = item.x * 1000;
+        });
+        setMindate(newData[0].x);
+        setMaxdate(newData[newData.length - 1].x);
+        setSeriesarr(newData);
       });
   };
 
-  const ChartDays = ["30days", "60days", "180days", "1year", "3years", "all"];
-
-  const setTarget = (chartday: any, index: any) => {
-    setTimestamp(chartday);
-    setButtonClicked(index);
+  const setlen = (index: any, leng: any) => {
+    setLanger(leng);
+    setlangbuttontarget(index)
   }
 
   return (
     <div className="w-full text-center">
-      <div id="chart" className="flex w-full justify-center">
-        <Chart
-          options={options}
-          series={series}
-          type="line"
-          className="chartside w-8/12"
-        />
+      <div id="chart" className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto">
+        <Chart options={options} series={series} height="400" />
       </div>
-      <div className="w-full flex justify-center">
-        <div className="w-full sm:w-8/12 lg:w-6/12 2xl:w-4/12 mt-20 text-md">
-          {ChartDays.map((chartday, index) => {
-            return (
-              <button
-                value={chartday}
-                className={`py-2 text-xs sm:text-sm md:text-base w-2/12 border-2 active:bg-[#292E31] active:text-white ${
-                  index === 0 && "rounded-l-xl"
-                } ${index === ChartDays.length - 1 && "rounded-r-xl"} ${index === buttonclicked && "bg-[#292E31] text-white"}`}
-                onClick={() => setTarget(chartday, index)}
-              >
-                {chartday}
-              </button>
-            );
-          })}
+      <div className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto">
+        <div className="w-full lg:flex justify-between">
+          <div className="sm:w-12/12 lg:w-6/12 2xl:w-4/12 text-md mt-5">
+            {ChartDays.map((chartday, index) => {
+              return (
+                <button
+                  value={chartday}
+                  className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-2/12 border-2 active:bg-[#0C6CF277] active:text-white ${
+                    index === 0 && "rounded-l-xl"
+                  } ${index === ChartDays.length - 1 && "rounded-r-xl"} ${
+                    index === buttonclicked && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+                  }`}
+                  onClick={() => setTarget(chartday, index)}
+                >
+                  {chartday}
+                </button>
+              );
+            })}
+          </div>
+          <div className="mt-5 sm:w-12/12 lg:w-6/12 2xl:w-4/12">
+            <button className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-4/12 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${langbuttonetarget == 0 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"}`} onClick={() => setlen(0, 1)}>Raw Values</button>
+            <button className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-4/12 border-2 active:bg-[#0C6CF277] active:text-white ${langbuttonetarget == 1 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"}`} onClick={() => setlen(1, 7)}>7 Day Average</button>
+            <button className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-4/12 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${langbuttonetarget == 2 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"}`} onClick={() => setlen(2, 30)}>30 Day Average</button>
+          </div>
+        </div>
+        <div className=" sm:w-12/12 lg:w-4/12 2xl:w-3/12 mt-5">
+          <button
+            className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-6/12 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${
+              lineartarget === 0 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+            }`}
+            onClick={() => LinerTarget(0, false)}
+          >
+            Linear Scale
+          </button>
+          <button
+            className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-6/12 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${
+              lineartarget === 1 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+            }`}
+            onClick={() => LinerTarget(1, true)}
+          >
+            Logarithmic Scale
+          </button>
         </div>
       </div>
     </div>
