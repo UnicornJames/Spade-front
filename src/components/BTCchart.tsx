@@ -17,6 +17,15 @@ const BTCchart: React.FC = () => {
 
   const ChartDays = ["30days", "60days", "180days", "1year", "3years", "all"];
 
+  const chartButtonName = [
+    "30 Days",
+    "60 Days",
+    "180 Days",
+    "1 Year",
+    "3 Years",
+    "All Time",
+  ];
+
   const setTarget = (chartday: any, index: any) => {
     setTimestamp(chartday);
     setButtonClicked(index);
@@ -79,7 +88,7 @@ const BTCchart: React.FC = () => {
       tickAmount: 8,
     },
     stroke: {
-      width: 3,
+      width: 2,
       curve: "smooth",
     },
     colors: ["#0C6CF2"],
@@ -128,51 +137,79 @@ const BTCchart: React.FC = () => {
 
   const setlen = (index: any, leng: any) => {
     setLanger(leng);
-    setlangbuttontarget(index)
-  }
+    setlangbuttontarget(index);
+  };
 
   return (
     <div className="w-full text-center">
       <div id="chart" className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto">
         <Chart options={options} series={series} height="400" />
       </div>
-      <div className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto">
+      <div className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto px-1 md:px-10">
         <div className="w-full lg:flex justify-between">
-          <div className="sm:w-12/12 lg:w-6/12 2xl:w-4/12 text-md mt-5">
+          <div className="text-md mt-5">
             {ChartDays.map((chartday, index) => {
               return (
                 <button
                   value={chartday}
-                  className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-2/12 border-2 active:bg-[#0C6CF277] active:text-white ${
+                  className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white ${
                     index === 0 && "rounded-l-xl"
                   } ${index === ChartDays.length - 1 && "rounded-r-xl"} ${
-                    index === buttonclicked && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+                    index === buttonclicked &&
+                    "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
                   }`}
                   onClick={() => setTarget(chartday, index)}
                 >
-                  {chartday}
+                  {chartButtonName[index]}
                 </button>
               );
             })}
           </div>
-          <div className="mt-5 sm:w-12/12 lg:w-6/12 2xl:w-4/12">
-            <button className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-4/12 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${langbuttonetarget == 0 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"}`} onClick={() => setlen(0, 1)}>Raw Values</button>
-            <button className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-4/12 border-2 active:bg-[#0C6CF277] active:text-white ${langbuttonetarget == 1 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"}`} onClick={() => setlen(1, 7)}>7 Day Average</button>
-            <button className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-4/12 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${langbuttonetarget == 2 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"}`} onClick={() => setlen(2, 30)}>30 Day Average</button>
+          <div className="mt-5">
+            <button
+              className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${
+                langbuttonetarget == 0 &&
+                "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+              }`}
+              onClick={() => setlen(0, 1)}
+            >
+              Raw Values
+            </button>
+            <button
+              className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white ${
+                langbuttonetarget == 1 &&
+                "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+              }`}
+              onClick={() => setlen(1, 7)}
+            >
+              7 Day Average
+            </button>
+            <button
+              className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${
+                langbuttonetarget == 2 &&
+                "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+              }`}
+              onClick={() => setlen(2, 30)}
+            >
+              30 Day Average
+            </button>
           </div>
         </div>
-        <div className=" sm:w-12/12 lg:w-4/12 2xl:w-3/12 mt-5">
+
+        <div className="sm:w-12/12 mt-5 md:flex md:justify-start">
           <button
-            className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-6/12 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${
-              lineartarget === 0 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+            className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${
+              lineartarget === 0 &&
+              "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
             }`}
             onClick={() => LinerTarget(0, false)}
           >
             Linear Scale
           </button>
           <button
-            className={`py-2 text-xs sm:text-sm active:border-none md:text-base w-6/12 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${
-              lineartarget === 1 && "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+            className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${
+              lineartarget === 1 &&
+              "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
             }`}
             onClick={() => LinerTarget(1, true)}
           >
