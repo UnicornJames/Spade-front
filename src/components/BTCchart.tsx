@@ -117,7 +117,7 @@ const BTCchart: React.FC = () => {
         } else {
           newData = datas;
         }
-        newData.map((item) => {
+        newData.map((item: any) => {
           item.x = item.x * 1000;
         });
         setMindate(newData[0].x);
