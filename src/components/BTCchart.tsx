@@ -126,7 +126,7 @@ const BTCchart: React.FC = () => {
       y: {
           formatter: function(value: number) {
             var val: number = Math.abs(value)
-            var newvalue: string
+            var newvalue: string = ''
             if (val >= 1000) {
               newvalue = (val / 1000).toFixed(3) + ' K'
             }
