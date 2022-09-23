@@ -51,25 +51,6 @@ const BTCchart: React.FC = () => {
       zoom: {
         enabled: false,
       },
-      toolbar: {
-        export: {
-          csv: {
-            filename: undefined,
-            columnDelimiter: ',',
-            headerCategory: 'category',
-            headerValue: 'value',
-            dateFormatter(timestamp) {
-              return new Date(timestamp).toDateString()
-            }
-          },
-          svg: {
-            filename: undefined,
-          },
-          png: {
-            filename: undefined,
-          }
-        },
-      }
     },
     responsive: [
       {
@@ -114,8 +95,9 @@ const BTCchart: React.FC = () => {
       labels: {
     formatter: function(value) {
       var val: number = Math.abs(value)
+      var newval: string = ''
       if (val >= 1000) {
-        var newval: string = (val / 1000).toFixed(0) + ' K'
+        newval = (val / 1000).toFixed(0) + ' K'
       }
       return newval
     }
@@ -144,10 +126,11 @@ const BTCchart: React.FC = () => {
       y: {
           formatter: function(value: number) {
             var val: number = Math.abs(value)
+            var newvalue: string
             if (val >= 1000) {
-              val = (val / 1000).toFixed(3) + ' K'
+              newvalue = (val / 1000).toFixed(3) + ' K'
             }
-            return val
+            return newvalue
           },
           title: {
               formatter: (seriesName) => seriesName,
