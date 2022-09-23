@@ -113,11 +113,11 @@ const BTCchart: React.FC = () => {
       tickAmount: 4,
       labels: {
     formatter: function(value) {
-      var val = Math.abs(value)
+      var val: number = Math.abs(value)
       if (val >= 1000) {
-        val = (val / 1000).toFixed(0) + ' K'
+        var newval: string = (val / 1000).toFixed(0) + ' K'
       }
-      return val
+      return newval
     }
       }
     },
@@ -142,8 +142,8 @@ const BTCchart: React.FC = () => {
           formatter: undefined,
       },
       y: {
-          formatter: function(value) {
-            var val = Math.abs(value)
+          formatter: function(value: number) {
+            var val: number = Math.abs(value)
             if (val >= 1000) {
               val = (val / 1000).toFixed(3) + ' K'
             }
