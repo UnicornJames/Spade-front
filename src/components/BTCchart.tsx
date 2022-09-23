@@ -196,7 +196,7 @@ const BTCchart: React.FC = () => {
           </div>
         </div>
 
-        <div className="sm:w-12/12 mt-5 md:flex md:justify-start">
+        <div className="sm:w-12/12 mt-5 lg:flex justify-start">
           <button
             className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${
               lineartarget === 0 &&
