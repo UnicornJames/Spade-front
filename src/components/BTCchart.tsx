@@ -51,6 +51,25 @@ const BTCchart: React.FC = () => {
       zoom: {
         enabled: false,
       },
+      toolbar: {
+        export: {
+          csv: {
+            filename: undefined,
+            columnDelimiter: ',',
+            headerCategory: 'category',
+            headerValue: 'value',
+            dateFormatter(timestamp) {
+              return new Date(timestamp).toDateString()
+            }
+          },
+          svg: {
+            filename: undefined,
+          },
+          png: {
+            filename: undefined,
+          }
+        },
+      }
     },
     responsive: [
       {
@@ -73,6 +92,9 @@ const BTCchart: React.FC = () => {
       type: "datetime",
       min: mindate,
       max: maxdate,
+      title: {
+        text: 'Date'
+      },
       labels: {
         datetimeFormatter: {
           year: "yyyy",
@@ -82,10 +104,22 @@ const BTCchart: React.FC = () => {
       },
     },
     yaxis: {
+      title: {
+        text: 'USD'
+      },
       logarithmic: logarithmic,
       min: 0,
       max: 80000,
-      tickAmount: 8,
+      tickAmount: 4,
+      labels: {
+    formatter: function(value) {
+      var val = Math.abs(value)
+      if (val >= 1000) {
+        val = (val / 1000).toFixed(0) + ' K'
+      }
+      return val
+    }
+      }
     },
     stroke: {
       width: 2,
@@ -101,6 +135,25 @@ const BTCchart: React.FC = () => {
         stops: [0, 30],
       },
     },
+    tooltip: {
+      x: {
+          show: true,
+          format: 'dd MMM',
+          formatter: undefined,
+      },
+      y: {
+          formatter: function(value) {
+            var val = Math.abs(value)
+            if (val >= 1000) {
+              val = (val / 1000).toFixed(3) + ' K'
+            }
+            return val
+          },
+          title: {
+              formatter: (seriesName) => seriesName,
+          },
+      },
+    }
   };
 
   useEffect(() => {
