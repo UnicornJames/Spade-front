@@ -16,15 +16,15 @@ const BTCchart: React.FC = () => {
   const [lineartarget, setLinearTarget] = useState(0);
   const [langer, setLanger] = useState(1);
   const [langbuttonetarget, setlangbuttontarget] = useState(0);
-  const [timestyle, setTimestyle] = useState('mm:ss');
+  const [timestyle, setTimestyle] = useState('HH:mm');
 
   const ChartDays = [1800 * 1000, 3600 * 1000, 21600 * 1000, 43200 * 1000, 86400 * 1000, 604800 * 1000];
 
   const chartButtonName = [
     "30 Minutes",
-    "1 Houre",
-    "6 Huores",
-    "12 Houres",
+    "1 Hour",
+    "6 Hours",
+    "12 Hours",
     "1 Day",
     "All Time",
   ];
@@ -223,11 +223,11 @@ const BTCchart: React.FC = () => {
     setTimestamp(chartday);
     setButtonClicked(index);
     if (index == 5) {
-      setTimestyle('dddd : HH')
+      setTimestyle('dddd:HH')
     } else if (index < 5 && index > 2) {
-      setTimestyle('dd : HH : mm')
+      setTimestyle('dd:HH:mm')
     } else if (index < 3) {
-      setTimestyle('HH : mm')
+      setTimestyle('HH:mm')
     }
   };
 
