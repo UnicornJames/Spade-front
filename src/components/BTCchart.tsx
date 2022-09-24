@@ -53,9 +53,9 @@ const BTCchart: React.FC = () => {
   
   useEffect(() => {
     socket.on("getchartdata", (data) => {
-      var seriesOne = [];
-      var seriseTwo = [];
-      var seriseThree = [];
+      var seriesOne: any = [];
+      var seriseTwo: any = [];
+      var seriseThree: any = [];
       data.map((item : any, key: number) => {
         seriesOne.push({x: item.timestamp, y: item.total[0]});
         seriseTwo.push({x: item.timestamp, y: item.total[1]});
