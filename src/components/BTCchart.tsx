@@ -200,7 +200,7 @@ const BTCchart: React.FC = () => {
     tooltip: {
       x: {
         show: true,
-        format: "dd MMM",
+        format: "dd MMM HH:mm",
         formatter: undefined,
       },
       y: {
