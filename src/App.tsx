@@ -60,7 +60,7 @@ function App() {
           path="/"
           element={
             <Suspense>
-              <Reserve DATA={DATA} />
+              <Reserve />
             </Suspense>
           }
         />
