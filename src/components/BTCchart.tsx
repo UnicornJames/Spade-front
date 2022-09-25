@@ -4,16 +4,20 @@ import { socket } from "../socket";
 import { ApexOptions } from "apexcharts";
 import "../index.css";
 
-const BTCchart: React.FC = (props: any) => {
+interface BTCchartProps {
+  cash: any;
+  borrow: any;
+  high: any;
+}
+
+const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
   // const Data = props.DATA
   // let seriesa = Data.seriesa;
   // let seriesb = Data.seriesb;
   // let seriesc = Data.seriesc;
   // let mindate = Data.mindate;
   // let maxdate = Data.maxdate;
-  let cash: any = props.cash;
-  let high: any = props.high;
-  let borrow: any = props.borrow;
+
   const [timestamp, setTimestamp] = useState(21600 * 1000);
   const [seriesa, setSeriesa] = useState([]);
   const [seriesb, setSeriesb] = useState([]);
@@ -249,19 +253,21 @@ const BTCchart: React.FC = (props: any) => {
   // },[])
 
   // get newdata whenever socket called in Reserve.tsx
-  
-  useEffect(() => {
-      var newseriesOne: any = [];
-      var newseriesTwo: any = [];
-      var newseriesThree: any = [];
-    
-      newseriesOne.push({ x: Math.floor((new Date()).getTime() / 1000), y: cash });
-      newseriesTwo.push({ x: Math.floor((new Date()).getTime() / 1000), y: high });
-      newseriesThree.push({ x: Math.floor((new Date()).getTime() / 1000), y: borrow });
-    
-      setMindate(mindate + 1000);
-      setMaxdate(maxdate + 1000);
 
+  useEffect(() => {
+    var newseriesOne: any = [];
+    var newseriesTwo: any = [];
+    var newseriesThree: any = [];
+
+    newseriesOne.push({ x: Math.floor(new Date().getTime() / 1000), y: cash });
+    newseriesTwo.push({ x: Math.floor(new Date().getTime() / 1000), y: high });
+    newseriesThree.push({
+      x: Math.floor(new Date().getTime() / 1000),
+      y: borrow,
+    });
+
+    setMindate(mindate + 1000);
+    setMaxdate(maxdate + 1000);
   }, [cash, high, borrow]);
 
   const setTarget = (chartday: any, index: any) => {
