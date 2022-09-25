@@ -230,7 +230,7 @@ const Reserve = () => {
         ))}
       </div>
       <div id="Chart" className="w-full my-10">
-        <BTCchart DATA={DATA} cash={cash} high={high} borrow={borrow} />
+        <BTCchart cash={cash} high={high} borrow={borrow} />
       </div>
     </div>
   );
