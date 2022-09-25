@@ -4,16 +4,16 @@ import { socket } from "../socket";
 import { ApexOptions } from "apexcharts";
 import "../index.css";
 
-const BTCchart: React.FC = (props: any) => {
+const BTCchart: React.FC = () => {
   // const Data = props.DATA
   // let seriesa = Data.seriesa;
   // let seriesb = Data.seriesb;
   // let seriesc = Data.seriesc;
   // let mindate = Data.mindate;
   // let maxdate = Data.maxdate;
-  var cash: number = props.cash;
-  var high: number = props.high;
-  var borrow: number = props.borrow;
+  // var cash: number = props.cash;
+  // var high: number = props.high;
+  // var borrow: number = props.borrow;
   const [timestamp, setTimestamp] = useState(21600 * 1000);
   const [seriesa, setSeriesa] = useState([]);
   const [seriesb, setSeriesb] = useState([]);

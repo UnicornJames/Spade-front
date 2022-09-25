@@ -4,9 +4,7 @@ import { socket } from "../socket";
 import { currency, currencyAbbr } from "../utils/currency";
 import BTCchart from "../components/BTCchart";
 
-const Reserve = (props: any) => {
-  const DATA = props.DATA;
-  console.log(DATA);
+const Reserve = () => {
   const [reserve, setReserve] = useState<any>(null);
   const [stats, setStats] = useState<any>(null);
   const [cash, setCash] = useState();
