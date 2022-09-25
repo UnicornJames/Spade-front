@@ -98,7 +98,7 @@ const Audits = () => {
                 <p className="text-lg font-medium flex md:text-left text-center text-[#2A2D3C]">
                   About our external auditors, PriceWaterhouseCoopers Audit
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 text-center md:text-left">
                   PwC is the second-largest professional services network in the whole world, which audit Spade Enterprise Ltd regularly to verify that the Spade Reserve assets exceed our customer liabilities, and is considered one of the Big Four accounting firms, along with Deloitte, EY, and KPMG. PwC is the auditor for enterprises such as the Bank of America, J.P Morgan & Chase, Blackrock, and many other publicly/private traded companies.
                 </p>
               </div>

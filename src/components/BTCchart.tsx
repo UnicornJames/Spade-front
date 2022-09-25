@@ -4,21 +4,37 @@ import { socket } from "../socket";
 import { ApexOptions } from "apexcharts";
 import "../index.css";
 
-const BTCchart: React.FC = () => {
+const BTCchart: React.FC = (props: any) => {
+  // const Data = props.DATA
+  // let seriesa = Data.seriesa;
+  // let seriesb = Data.seriesb;
+  // let seriesc = Data.seriesc;
+  // let mindate = Data.mindate;
+  // let maxdate = Data.maxdate;
+  var cash: number = props.cash;
+  var high: number = props.high;
+  var borrow: number = props.borrow;
   const [timestamp, setTimestamp] = useState(21600 * 1000);
   const [seriesa, setSeriesa] = useState([]);
   const [seriesb, setSeriesb] = useState([]);
   const [seriesc, setSeriesc] = useState([]);
-  const [buttonclicked, setButtonClicked] = useState(2);
   const [mindate, setMindate] = useState(0);
   const [maxdate, setMaxdate] = useState(0);
+  const [buttonclicked, setButtonClicked] = useState(2);
   const [logarithmic, setLogarithmic] = useState(false);
   const [lineartarget, setLinearTarget] = useState(0);
-  const [langer, setLanger] = useState(1);
-  const [langbuttonetarget, setlangbuttontarget] = useState(0);
-  const [timestyle, setTimestyle] = useState('HH:mm');
+  // const [langer, setLanger] = useState(1);
+  // const [langbuttonetarget, setlangbuttontarget] = useState(0);
+  const [timestyle, setTimestyle] = useState("HH:mm");
 
-  const ChartDays = [1800 * 1000, 3600 * 1000, 21600 * 1000, 43200 * 1000, 86400 * 1000, 604800 * 1000];
+  const ChartDays = [
+    1800 * 1000,
+    3600 * 1000,
+    21600 * 1000,
+    43200 * 1000,
+    86400 * 1000,
+    604800 * 1000,
+  ];
 
   const chartButtonName = [
     "30 Minutes",
@@ -47,28 +63,33 @@ const BTCchart: React.FC = () => {
 
   // useEffect(() => {
   //   getchartdata(langer);
-    
+
   // }, [timestamp, langer]);
 
-  
   useEffect(() => {
     socket.on("getchartdata", (data) => {
       var seriesOne: any = [];
-      var seriseTwo: any = [];
-      var seriseThree: any = [];
-      data.map((item : any, key: number) => {
-        seriesOne.push({x: item.timestamp, y: item.total[0]});
-        seriseTwo.push({x: item.timestamp, y: item.total[1]});
-        seriseThree.push({x: item.timestamp, y: item.total[2]});
-      })
+      var seriesTwo: any = [];
+      var seriesThree: any = [];
+      data.map((item: any, key: number) => {
+        seriesOne.push({ x: item.timestamp, y: item.total[0] });
+        seriesTwo.push({ x: item.timestamp, y: item.total[1] });
+        seriesThree.push({ x: item.timestamp, y: item.total[2] });
+      });
       setSeriesa(seriesOne);
-      setSeriesb(seriseTwo);
-      setSeriesc(seriseThree);
+      setSeriesb(seriesTwo);
+      setSeriesc(seriesThree);
       setMindate(seriesOne[0].x);
       setMaxdate(seriesOne[seriesOne.length - 1].x);
     });
 
     socket.emit("getchartdata");
+
+    // window.setInterval(()=> {
+    //   ApexCharts.exec('realtime', 'updateSeries',[{
+    //     data: series
+    //   }])
+    // }, 10000)
 
     return () => {
       socket.off("getchartdata");
@@ -76,55 +97,55 @@ const BTCchart: React.FC = () => {
   }, []);
 
   // get input data from api
-  const getchartdata = async (langer: any) => {
-    await fetch(
-      "https://api.blockchain.info/charts/market-price?timespan=" +
-        `${timestamp}` +
-        "&sampled=true&metadata=false&cors=true&format=json",
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        var datas = data.values;
-        var newData = [];
-        if (langer === 7 || langer === 30) {
-          for (var i = 0; i < datas.length; i++) {
-            if (i % langer == 0) {
-              newData[i / langer] = datas[i];
-            }
-          }
-        } else {
-          newData = datas;
-        }
-        newData.map((item: any) => {
-          item.x = item.x * 1000;
-        });
-        // var newData2 = newData;
-        // newData2.map((item: any) => {
-        //   item.y = item.y + 20000;
-        // });
-        
-        setMindate(newData[0].x);
-        setMaxdate(newData[newData.length - 1].x);
-        setSeriesa(newData);
-        // setSeriesa2(newData2);
-      });
-  };
+  // const getchartdata = async (langer: any) => {
+  //   await fetch(
+  //     "https://api.blockchain.info/charts/market-price?timespan=" +
+  //       `${timestamp}` +
+  //       "&sampled=true&metadata=false&cors=true&format=json",
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       var datas = data.values;
+  //       var newData = [];
+  //       if (langer === 7 || langer === 30) {
+  //         for (var i = 0; i < datas.length; i++) {
+  //           if (i % langer == 0) {
+  //             newData[i / langer] = datas[i];
+  //           }
+  //         }
+  //       } else {
+  //         newData = datas;
+  //       }
+  //       newData.map((item: any) => {
+  //         item.x = item.x * 1000;
+  //       });
+  //       // var newData2 = newData;
+  //       // newData2.map((item: any) => {
+  //       //   item.y = item.y + 20000;
+  //       // });
+
+  //       setMindate(newData[0].x);
+  //       setMaxdate(newData[newData.length - 1].x);
+  //       setSeriesa(newData);
+  //       // setSeriesa2(newData2);
+  //     });
+  // };
 
   const options: ApexOptions = {
     chart: {
-      id: 'realtime',
+      id: "realtime",
       type: "line",
       width: "100%",
       height: "500px",
       zoom: {
-        enabled: true,
+        enabled: false,
       },
       animations: {
         enabled: true,
-        easing: 'linear',
+        easing: "linear",
         dynamicAnimation: {
-          speed: 1000
-        }
+          speed: 5000,
+        },
       },
     },
     responsive: [
@@ -176,7 +197,7 @@ const BTCchart: React.FC = () => {
             var newval: string = "";
             if (val >= 10000000) {
               newval = (val / 1000000).toFixed(0) + " M";
-            } else if ( val > 10000) {
+            } else if (val > 10000) {
               newval = (val / 1000).toFixed(0) + " K";
             }
             return newval;
@@ -207,8 +228,8 @@ const BTCchart: React.FC = () => {
         formatter: function (value: number) {
           var val: number = Math.abs(value);
           var newvalue: string = "";
-          if (val >= 1000) {
-            newvalue = (val / 1000) + " K";
+          if (val >= 1000000) {
+            newvalue = (val / 1000000).toFixed(2) + " M";
           }
           return newvalue;
         },
@@ -219,15 +240,44 @@ const BTCchart: React.FC = () => {
     },
   };
 
+  // useEffect(() => {
+  //   window.setInterval(()=> {
+  //     ApexCharts.exec('realtime', 'updateSeries',[{
+  //       data: series
+  //     }])
+  //   }, 1000)
+  // },[])
+
+  // get newdata whenever socket called in Reserve.tsx
+  useEffect(() => {
+      var newseriesOne: any = [];
+      var newseriesTwo: any = [];
+      var newseriesThree: any = [];
+    
+      newseriesOne.push({ x: Math.floor((new Date()).getTime() / 1000), y: cash });
+      newseriesTwo.push({ x: Math.floor((new Date()).getTime() / 1000), y: high });
+      newseriesThree.push({ x: Math.floor((new Date()).getTime() / 1000), y: borrow });
+    
+      setMindate(mindate + 1000);
+      setMaxdate(maxdate + 1000);
+    
+      seriesa[maxdate] = cash;
+      seriesb[maxdate] = high;
+      seriesc[maxdate] = borrow;
+
+      console.log(cash, high, borrow)
+
+  }, [cash, high, borrow]);
+
   const setTarget = (chartday: any, index: any) => {
     setTimestamp(chartday);
     setButtonClicked(index);
     if (index == 5) {
-      setTimestyle('dddd:HH')
+      setTimestyle("dddd:HH");
     } else if (index < 5 && index > 2) {
-      setTimestyle('dd:HH:mm')
+      setTimestyle("dd:HH:mm");
     } else if (index < 3) {
-      setTimestyle('HH:mm')
+      setTimestyle("HH:mm");
     }
   };
 
@@ -236,11 +286,11 @@ const BTCchart: React.FC = () => {
     setLogarithmic(target);
   };
 
-  const setlen = (index: any, leng: any) => {
-    setLanger(leng);
-    setlangbuttontarget(index);
-  };
-  
+  // const setlen = (index: any, leng: any) => {
+  //   setLanger(leng);
+  //   setlangbuttontarget(index);
+  // };
+
   return (
     <>
       <div className="w-full text-center">

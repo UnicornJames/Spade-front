@@ -1,15 +1,23 @@
 import Tippy from "@tippyjs/react";
-import React,{ useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { socket } from "../socket";
 import { currency, currencyAbbr } from "../utils/currency";
 import BTCchart from "../components/BTCchart";
 
-const Reserve = () => {
+const Reserve = (props: any) => {
+  const DATA = props.DATA;
+  console.log(DATA);
   const [reserve, setReserve] = useState<any>(null);
   const [stats, setStats] = useState<any>(null);
+  const [cash, setCash] = useState();
+  const [high, setHigh] = useState();
+  const [borrow, setBorrow] = useState();
 
   useEffect(() => {
     socket.on("reserve", (data) => {
+      setCash(data[0].assets[0].total);
+      setHigh(data[0].assets[1].total);
+      setBorrow(data[1].total);
       setReserve(data);
     });
 
@@ -67,8 +75,11 @@ const Reserve = () => {
               <div className={`p-4`}>
                 <div className="flex justify-between">
                   <div className="md:w-9/12 xs:8/12">
-                    <p className="flex text-lg font-medium text-[#2A2D3C]">
+                    <p className="flex text-lg font-medium hidden md:block text-[#2A2D3C]">
                       PriceWaterhouseCoopers Audit
+                    </p>
+                    <p className="flex text-lg font-medium md:hidden text-[#2A2D3C]">
+                      PwC Audit
                     </p>
                     <p className="text-sm text-gray-500">11th September 2022</p>
                   </div>
@@ -221,7 +232,7 @@ const Reserve = () => {
         ))}
       </div>
       <div id="Chart" className="w-full my-10">
-        <BTCchart />
+        <BTCchart DATA={DATA} cash={cash} high={high} borrow={borrow} />
       </div>
     </div>
   );
