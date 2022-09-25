@@ -13,7 +13,6 @@ const Reserve = () => {
 
   useEffect(() => {
     socket.on("reserve", (data) => {
-      console.log(data);
       setCash(data[0].assets[0].total);
       setHigh(data[0].assets[1].total);
       setBorrow(data[1].total);
