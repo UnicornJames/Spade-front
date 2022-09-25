@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ScrollToTop from "./components/ScrollToTop";
-import { socket } from "./socket";
 
 const Reserve = lazy(() => import("./pages/Reserve"));
 const Markets = lazy(() => import("./pages/Markets"));
