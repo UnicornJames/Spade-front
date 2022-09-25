@@ -52,7 +52,7 @@ const BTCchart: React.FC = (props: any) => {
       data: seriesa,
     },
     {
-      name: "High Quality",
+      name: "High Quality Liquid Assets (HQLA)",
       data: seriesb,
     },
     {
