@@ -111,7 +111,10 @@ const Audits = () => {
           <div className={`px-4 py-4`}>
             <div className="flex items-center justify-between">
               <div className="md:w-9/12 xs:8/12">
-                <p className="text-lg font-medium text-[#2A2D3C]">
+                <p className="text-lg font-medium text-[#2A2D3C] md:hidden">
+                  PwC Audit
+                </p>
+                <p className="hidden md:block text-lg font-medium text-[#2A2D3C]">
                   PriceWaterhouseCoopers Audit
                 </p>
                 <p className="text-sm text-gray-500">

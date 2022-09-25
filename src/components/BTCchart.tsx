@@ -66,7 +66,7 @@ const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
   ];
 
   // useEffect(() => {
-  //   getchartdata(langer);
+  //   GetChartData(langer);
 
   // }, [timestamp, langer]);
 
@@ -101,7 +101,7 @@ const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
   }, []);
 
   // get input data from api
-  // const getchartdata = async (langer: any) => {
+  // const GetChartData = async (langer: any) => {
   //   await fetch(
   //     "https://api.blockchain.info/charts/market-price?timespan=" +
   //       `${timestamp}` +
