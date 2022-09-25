@@ -260,12 +260,6 @@ const BTCchart: React.FC = (props: any) => {
     
       setMindate(mindate + 1000);
       setMaxdate(maxdate + 1000);
-    
-      seriesa[maxdate] = cash;
-      seriesb[maxdate] = high;
-      seriesc[maxdate] = borrow;
-
-      console.log(cash, high, borrow)
 
   }, [cash, high, borrow]);
 
