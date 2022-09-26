@@ -95,11 +95,12 @@ const Bankchart: React.FC<BankchartProps> = ({
   }, [X]);
 
   useEffect(() => {
+    let date: number = new Date().getTime() + 7200; 
     const addData = (data: any, value: number) => {
       return [
         ...data,
         {
-          x: new Date().getTime()+7200,
+          x: date,
           y: value,
         },
       ];
