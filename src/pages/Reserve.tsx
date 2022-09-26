@@ -6,6 +6,7 @@ import BTCchart from "../components/BTCchart";
 
 const Reserve = () => {
   const [reserve, setReserve] = useState<any>(null);
+  const [chartdata, setChartdata] = useState<any>(null);
   const [stats, setStats] = useState<any>(null);
   const [cash, setCash] = useState();
   const [high, setHigh] = useState();
@@ -22,13 +23,18 @@ const Reserve = () => {
     socket.on("statistics", (data) => {
       setStats(data);
     });
+    socket.on("getchartdata", (data) => {
+      setChartdata(data);
+    });
 
     socket.emit("reserve");
     socket.emit("statistics");
-
+    socket.emit("getchartdata");
+    
     return () => {
       socket.off("reserve");
       socket.off("statistics");
+      socket.off("getchartdata");
     };
   }, []);
 
@@ -230,7 +236,7 @@ const Reserve = () => {
         ))}
       </div>
       <div id="Chart" className="w-full my-10">
-        <BTCchart cash={cash} high={high} borrow={borrow} />
+        <BTCchart cash={cash} high={high} borrow={borrow} chartdata={chartdata} />
       </div>
     </div>
   );

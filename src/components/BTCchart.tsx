@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
-import { socket } from "../socket";
+// import { socket } from "../socket";
 import { ApexOptions } from "apexcharts";
 import "../index.css";
 
@@ -8,27 +8,45 @@ interface BTCchartProps {
   cash: any;
   borrow: any;
   high: any;
+  chartdata: any;
 }
 
-const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
-  // const Data = props.DATA
-  // let seriesa = Data.seriesa;
-  // let seriesb = Data.seriesb;
-  // let seriesc = Data.seriesc;
-  // let mindate = Data.mindate;
-  // let maxdate = Data.maxdate;
+const X: number = 0;
 
+const BTCchart: React.FC<BTCchartProps> = ({
+  cash,
+  borrow,
+  high,
+  chartdata,
+}) => {
+  const series = [
+    {
+      name: "Cash",
+      data: [],
+    },
+    {
+      name: "High Quality Liquid Assets (HQLA)",
+      data: [],
+    },
+    {
+      name: "Borrowed",
+      data: [],
+    },
+  ];
+  const [seriesdata, setSeriesdata] = useState(series);
   const [timestamp, setTimestamp] = useState(21600 * 1000);
-  const [seriesa, setSeriesa] = useState([]);
-  const [seriesb, setSeriesb] = useState([]);
-  const [seriesc, setSeriesc] = useState([]);
-  const [mindate, setMindate] = useState(0);
-  const [maxdate, setMaxdate] = useState(0);
+  // const [seriesa, setSeriesa] = useState([]);
+  // const [seriesb, setSeriesb] = useState([]);
+  // const [seriesc, setSeriesc] = useState([]);
+  // const [mindate, setMindate] = useState(0);
+  // const [maxdate, setMaxdate] = useState(0);
   const [buttonclicked, setButtonClicked] = useState(2);
   const [logarithmic, setLogarithmic] = useState(false);
   const [lineartarget, setLinearTarget] = useState(0);
-  // const [langer, setLanger] = useState(1);
-  // const [langbuttonetarget, setlangbuttontarget] = useState(0);
+  // const [tcash, setTcash] = useState(cash);
+  // const [thigh, setThigh] = useState(high);
+  // const [tborrow, setTborrow] = useState(borrow);
+  // const [servertime, setServertime] = useState(0);
   const [timestyle, setTimestyle] = useState("HH:mm");
 
   const ChartDays = [
@@ -49,57 +67,71 @@ const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
     "All Time",
   ];
 
-  // chart input data
-  const series = [
-    {
-      name: "Cash",
-      data: seriesa,
-    },
-    {
-      name: "High Quality Liquid Assets (HQLA)",
-      data: seriesb,
-    },
-    {
-      name: "Borrowed",
-      data: seriesc,
-    },
-  ];
-
-  // useEffect(() => {
-  //   GetChartData(langer);
-
-  // }, [timestamp, langer]);
+  useEffect(() => {
+    let seriesCash: any = [];
+    let seriesHigh: any = [];
+    let seriesBorrow: any = [];
+  
+    chartdata && chartdata.map((item: any) => {
+      seriesCash.push({ x: item.timestamp, y: item.total[0] });
+      seriesHigh.push({ x: item.timestamp, y: item.total[1] });
+      seriesBorrow.push({ x: item.timestamp, y: item.total[2] });
+    });
+  
+    setSeriesdata([
+      {
+        name: "Cash",
+        data: seriesCash,
+      },
+      {
+        name: "High Quality Liquid Assets (HQLA)",
+        data: seriesHigh,
+      },
+      {
+        name: "Borrowed",
+        data: seriesBorrow,
+      },
+    ]);
+  }, [X]);
 
   useEffect(() => {
-    socket.on("getchartdata", (data) => {
-      var seriesOne: any = [];
-      var seriesTwo: any = [];
-      var seriesThree: any = [];
-      data.map((item: any, key: number) => {
-        seriesOne.push({ x: item.timestamp, y: item.total[0] });
-        seriesTwo.push({ x: item.timestamp, y: item.total[1] });
-        seriesThree.push({ x: item.timestamp, y: item.total[2] });
-      });
-      setSeriesa(seriesOne);
-      setSeriesb(seriesTwo);
-      setSeriesc(seriesThree);
-      setMindate(seriesOne[0].x);
-      setMaxdate(seriesOne[seriesOne.length - 1].x);
-    });
-
-    socket.emit("getchartdata");
-
-    // window.setInterval(()=> {
-    //   ApexCharts.exec('realtime', 'updateSeries',[{
-    //     data: series
-    //   }])
-    // }, 10000)
-
-    return () => {
-      socket.off("getchartdata");
+    const addData = (data: any, value: number) => {
+      return [
+        ...data,
+        {
+          x: new Date().getTime()+7200,
+          y: value,
+        },
+      ];
     };
-  }, []);
 
+    let chartinterval = setInterval(() => {
+      setSeriesdata(
+        seriesdata.map((item: any) => {
+          if (item.name == "Cash") {
+            return {
+              name: item.name,
+              data: addData(item.data, cash),
+            };
+          } else if (item.name == "High Quality Liquid Assets (HQLA)") {
+            return {
+              name: item.name,
+              data: addData(item.data, high),
+            };
+          } else {
+            return {
+              name: item.name,
+              data: addData(item.data, borrow),
+            };
+          }
+        }),
+      );
+    }, 5000);
+    return () => {
+      clearInterval(chartinterval);
+    };
+  }, [cash, high, borrow]);
+  
   // get input data from api
   // const GetChartData = async (langer: any) => {
   //   await fetch(
@@ -172,17 +204,10 @@ const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
     xaxis: {
       type: "datetime",
       range: timestamp,
-      min: mindate,
-      max: maxdate,
       title: {
-        text: "Date",
+        text: "Date (UTC)",
       },
       labels: {
-        // datetimeFormatter: {
-        //   year: "yyyy",
-        //   month: "MMM 'yy",
-        //   day: "dd MMM",
-        // },
         format: timestyle,
       },
     },
@@ -242,41 +267,17 @@ const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
     },
   };
 
-  // useEffect(() => {
-  //   window.setInterval(()=> {
-  //     ApexCharts.exec('realtime', 'updateSeries',[{
-  //       data: series
-  //     }])
-  //   }, 1000)
-  // },[])
-
-  // get newdata whenever socket called in Reserve.tsx
-
-  useEffect(() => {
-    var newseriesOne: any = [];
-    var newseriesTwo: any = [];
-    var newseriesThree: any = [];
-
-    newseriesOne.push({ x: Math.floor(new Date().getTime() / 1000), y: cash });
-    newseriesTwo.push({ x: Math.floor(new Date().getTime() / 1000), y: high });
-    newseriesThree.push({
-      x: Math.floor(new Date().getTime() / 1000),
-      y: borrow,
-    });
-
-    setMindate(mindate + 1000);
-    setMaxdate(maxdate + 1000);
-  }, [cash, high, borrow]);
-
   const setTarget = (chartday: any, index: any) => {
     setTimestamp(chartday);
     setButtonClicked(index);
     if (index == 5) {
-      setTimestyle("dddd:HH");
-    } else if (index < 5 && index > 2) {
-      setTimestyle("dd:HH:mm");
-    } else if (index < 3) {
+      setTimestyle("ddd:HH");
+    } else if (index == 4 || index == 3) {
       setTimestyle("HH:mm");
+    } else if (index == 2){
+      setTimestyle("HH:mm");
+    } else if (index < 2) {
+      setTimestyle("HH:mm:ss");
     }
   };
 
@@ -285,16 +286,11 @@ const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
     setLogarithmic(target);
   };
 
-  // const setlen = (index: any, leng: any) => {
-  //   setLanger(leng);
-  //   setlangbuttontarget(index);
-  // };
-
   return (
     <>
       <div className="w-full text-center">
         <div id="chart" className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto">
-          <Chart options={options} series={series} height="400" />
+          <Chart options={options} series={seriesdata} height="400" />
         </div>
         <div className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto px-1 md:px-10">
           <div className="w-full lg:flex justify-between">
@@ -317,35 +313,6 @@ const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
                 );
               })}
             </div>
-            {/* <div className="mt-5">
-              <button
-                className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${
-                  langbuttonetarget == 0 &&
-                  "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
-                }`}
-                onClick={() => setlen(0, 1)}
-              >
-                Raw Values
-              </button>
-              <button
-                className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white ${
-                  langbuttonetarget == 1 &&
-                  "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
-                }`}
-                onClick={() => setlen(1, 7)}
-              >
-                7 Day Average
-              </button>
-              <button
-                className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${
-                  langbuttonetarget == 2 &&
-                  "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
-                }`}
-                onClick={() => setlen(2, 30)}
-              >
-                30 Day Average
-              </button>
-            </div> */}
 
             <div className="sm:w-12/12 mt-5 lg:flex justify-start">
               <button
