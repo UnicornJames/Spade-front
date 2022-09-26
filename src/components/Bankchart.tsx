@@ -108,7 +108,7 @@ const Bankchart: React.FC<BankchartProps> = ({
 
     let chartinterval = setInterval(() => {
       setSeriesdata(
-        seriesdata.map((item) => {
+        seriesdata.map((item: any) => {
           if (item.name == "Cash") {
             return {
               name: item.name,
