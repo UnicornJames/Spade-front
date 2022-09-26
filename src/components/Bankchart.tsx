@@ -19,7 +19,7 @@ const Bankchart: React.FC<BankchartProps> = ({
   high,
   chartdata,
 }) => {
-  const series = [
+  const series: any = [
     {
       name: "Cash",
       data: [],
