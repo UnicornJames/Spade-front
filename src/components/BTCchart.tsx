@@ -192,8 +192,6 @@ const BTCchart: React.FC<BTCchartProps> = ({ cash, borrow, high }) => {
           text: "USD",
         },
         logarithmic: logarithmic,
-        min: 1000000000,
-        max: 3500000000,
         tickAmount: 8,
         labels: {
           formatter: function (value) {
