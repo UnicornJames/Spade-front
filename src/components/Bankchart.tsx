@@ -4,7 +4,7 @@ import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
 import "../index.css";
 
-interface BTCchartProps {
+interface BankchartProps {
   cash: any;
   borrow: any;
   high: any;
@@ -13,7 +13,7 @@ interface BTCchartProps {
 
 const X: number = 0;
 
-const BTCchart: React.FC<BTCchartProps> = ({
+const Bankchart: React.FC<BankchartProps> = ({
   cash,
   borrow,
   high,
@@ -107,7 +107,7 @@ const BTCchart: React.FC<BTCchartProps> = ({
 
     let chartinterval = setInterval(() => {
       setSeriesdata(
-        seriesdata.map((item: any) => {
+        seriesdata.map((item) => {
           if (item.name == "Cash") {
             return {
               name: item.name,
@@ -341,4 +341,4 @@ const BTCchart: React.FC<BTCchartProps> = ({
   );
 };
 
-export default BTCchart;
+export default Bankchart;

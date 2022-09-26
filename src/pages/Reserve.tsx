@@ -2,7 +2,7 @@ import Tippy from "@tippyjs/react";
 import React, { useEffect, useState } from "react";
 import { socket } from "../socket";
 import { currency, currencyAbbr } from "../utils/currency";
-import BTCchart from "../components/BTCchart";
+import Bankchart from "../components/Bankchart";
 
 const Reserve = () => {
   const [reserve, setReserve] = useState<any>(null);
@@ -236,7 +236,7 @@ const Reserve = () => {
         ))}
       </div>
       <div id="Chart" className="w-full my-10">
-        <BTCchart cash={cash} high={high} borrow={borrow} chartdata={chartdata} />
+        <Bankchart cash={cash} high={high} borrow={borrow} chartdata={chartdata} />
       </div>
     </div>
   );
