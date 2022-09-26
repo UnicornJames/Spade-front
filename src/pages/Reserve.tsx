@@ -11,6 +11,7 @@ const Reserve = () => {
   const [cash, setCash] = useState();
   const [high, setHigh] = useState();
   const [borrow, setBorrow] = useState();
+  const [servertime, setServerTime] = useState();
 
   useEffect(() => {
     socket.on("reserve", (data) => {
@@ -19,9 +20,12 @@ const Reserve = () => {
       setBorrow(data[1].total);
       setReserve(data);
     });
-
-    socket.on("statistics", (data) => {
-      setStats(data);
+    socket.on("servertime", (servertime) => {
+        setServerTime(servertime);
+      })
+      
+      socket.on("statistics", (data) => {
+        setStats(data);
     });
     socket.on("getchartdata", (data) => {
       setChartdata(data);
@@ -30,11 +34,13 @@ const Reserve = () => {
     socket.emit("reserve");
     socket.emit("statistics");
     socket.emit("getchartdata");
+    socket.emit("servertime");
     
     return () => {
       socket.off("reserve");
       socket.off("statistics");
       socket.off("getchartdata");
+      socket.off("servertime");
     };
   }, []);
 
@@ -236,7 +242,7 @@ const Reserve = () => {
         ))}
       </div>
       <div id="Chart" className="w-full my-10">
-        <Bankchart cash={cash} high={high} borrow={borrow} chartdata={chartdata} />
+        <Bankchart cash={cash} high={high} borrow={borrow} chartdata={chartdata} servertime ={servertime} />
       </div>
     </div>
   );

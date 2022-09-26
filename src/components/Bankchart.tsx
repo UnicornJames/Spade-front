@@ -9,6 +9,7 @@ interface BankchartProps {
   borrow: any;
   high: any;
   chartdata: any;
+  servertime : any;
 }
 
 const X: number = 0;
@@ -18,6 +19,7 @@ const Bankchart: React.FC<BankchartProps> = ({
   borrow,
   high,
   chartdata,
+  servertime,
 }) => {
   const series: any = [
     {
@@ -68,16 +70,18 @@ const Bankchart: React.FC<BankchartProps> = ({
   ];
 
   useEffect(() => {
-    let seriesCash: any = [];
-    let seriesHigh: any = [];
-    let seriesBorrow: any = [];
-  
-    chartdata && chartdata.map((item: any) => {
-      seriesCash.push({ x: item.timestamp, y: item.total[0] });
-      seriesHigh.push({ x: item.timestamp, y: item.total[1] });
-      seriesBorrow.push({ x: item.timestamp, y: item.total[2] });
-    });
-  
+    const seriesCash: any = [];
+    const seriesHigh: any = [];
+    const seriesBorrow: any = [];
+    const date: number = new Date().getTime() + 7200;
+
+    chartdata &&
+      chartdata.map((item: any) => {
+        seriesCash.push({ x: item.timestamp, y: item.total[0] });
+        seriesHigh.push({ x: item.timestamp, y: item.total[1] });
+        seriesBorrow.push({ x: item.timestamp, y: item.total[2] });
+      });
+
     setSeriesdata([
       {
         name: "Cash",
@@ -92,15 +96,12 @@ const Bankchart: React.FC<BankchartProps> = ({
         data: seriesBorrow,
       },
     ]);
-  }, [X]);
 
-  useEffect(() => {
-    let date: number = new Date().getTime() + 7200; 
     const addData = (data: any, value: number) => {
       return [
         ...data,
         {
-          x: date,
+          x: servertime,
           y: value,
         },
       ];
@@ -132,7 +133,7 @@ const Bankchart: React.FC<BankchartProps> = ({
       clearInterval(chartinterval);
     };
   }, [cash, high, borrow]);
-  
+
   // get input data from api
   // const GetChartData = async (langer: any) => {
   //   await fetch(
@@ -275,7 +276,7 @@ const Bankchart: React.FC<BankchartProps> = ({
       setTimestyle("ddd:HH");
     } else if (index == 4 || index == 3) {
       setTimestyle("HH:mm");
-    } else if (index == 2){
+    } else if (index == 2) {
       setTimestyle("HH:mm");
     } else if (index < 2) {
       setTimestyle("HH:mm:ss");
