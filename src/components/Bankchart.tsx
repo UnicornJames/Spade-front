@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
-// import { socket } from "../socket";
 import { ApexOptions } from "apexcharts";
 import "../index.css";
 
@@ -108,7 +107,6 @@ const Bankchart: React.FC<BankchartProps> = ({
       return [
         ...data,
         {
-          // x: new Date(),
           x: tservertime,
           y: value
         }
@@ -267,7 +265,7 @@ const Bankchart: React.FC<BankchartProps> = ({
         </div>
         <div className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto px-1 md:px-10">
           <div className="w-full lg:flex justify-between">
-            <div className="text-md mt-5">
+            <div className="md:text-md mt-5">
               {ChartDays.map((chartday, index) => {
                 return (
                   <button

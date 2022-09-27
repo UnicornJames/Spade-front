@@ -58,7 +58,7 @@ const Partner = () => {
   ]
 
   return (
-    <div className="bg-split-white-black p-20 lg:px-36 lg:py-20">
+    <div className="bg-split-white-black p-4 md:p-10 lg:p-20 lg:px-36 lg:py-20">
       <h1 className="text-left text-white text-2xl lg:text-4xl font-bold">Partners</h1>
       <div className="rounded-md shadow-md bg-white p-1 mt-10">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 p-2 md:padding-5">        

@@ -62,12 +62,12 @@ const Markets = () => {
 
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
-      <div className="xl:flex">
-        <div className="md:w-8/12 xl:w-4/12 text-left text-white font-bold pt-10 md:pt-2 cursor-pointer relative">
+      <div className="md:flex justify-between">
+        <div className="text-left text-white font-bold pt-10 md:pt-2 cursor-pointer relative">
           <span className="ml-2 text-xl md:text-2xl">Market Overview</span>
         </div>
-        <div className="xl:w-6/12 m-auto md:flex md:text-left text-center mt-6 xl:mt-0">
-          <div className="md:w-3/12 md:text-left xl:w-4/12 w-full">
+        <div className="flex justify-between flex-wrap text-left 6 xl:mt-0">
+          <div className="mr-8">
             <p className="text-gray-400 text-sm">Total collateral value</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
@@ -77,7 +77,7 @@ const Markets = () => {
               )}
             </p>
           </div>
-          <div className="md:w-3/12 md:text-left xl:w-4/12 w-full">
+          <div className="mr-8">
             <p className="text-gray-400 text-sm">Available Liquidity</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
@@ -90,7 +90,7 @@ const Markets = () => {
               )}
             </p>
           </div>
-          <div className="md:w-3/12 md:text-left xl:w-4/12 w-full">
+          <div className="mr-8">
             <p className="text-gray-400 text-sm">Total cash borrowed</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(reserve[1].total)}
@@ -283,9 +283,9 @@ const Markets = () => {
               <div className="w-full">
                 <p className="font-bold text-center md:text-left">{asset.name}</p>
               </div>
-              <div className="w-full md:text-left text-center md:flex justify-bewteen my-4">
-                <div className="md:w-9/12">
-                  <p className="text-sm">
+              <div className="w-full md:text-base sm:text-sm text-xs flex justify-bewteen my-4">
+                <div className="w-10/12">
+                  <p className="text-left">
                     Total collateral
                     <Tippy interactive content="Total collateral">
                       <svg
@@ -303,15 +303,15 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="md:w-3/12">
-                  <p className="md:text-right text-center xs:test-xs sm:text-sm text-base">
+                <div className="w-5/12 text-right">
+                  <p className="text-right">
                     {currencyAbbr(asset.total_collateral)}
                   </p>
                 </div>
               </div>
-              <div className="w-full md:text-left text-center md:flex justify-bewteen my-4">
-                <div className="md:w-9/12">
-                  <p className="text-sm">
+              <div className="w-full md:text-base sm:text-sm text-xs flex justify-bewteen my-4">
+                <div className="w-10/12">
+                  <p className="text-left">
                     Loan to Value
                     <Tippy interactive content="Loan to Value">
                       <svg
@@ -329,15 +329,15 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="md:w-3/12">
-                  <p className="md:text-right text-center xs:test-xs sm:text-sm text-base">
+                <div className="w-5/12 text-right">
+                  <p className="text-right">
                     {percentStyle(asset.loan_to_value)}%
                   </p>
                 </div>
               </div>
-              <div className="w-full md:text-left text-center md:flex justify-bewteen my-4">
-                <div className="md:w-9/12">
-                  <p className="text-sm">
+              <div className="w-full md:text-base sm:text-sm text-xs flex justify-bewteen my-4">
+                <div className="w-10/12">
+                  <p className="text-left">
                     Total borrowed
                     <Tippy interactive content="Total borrowed">
                       <svg
@@ -355,8 +355,8 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="md:w-3/12">
-                  <p className="md:text-right text-center xs:test-xs sm:text-sm text-base">
+                <div className="w-5/12 text-right">
+                  <p className="text-right">
                     {/* {currencyAbbr(asset.total_borrowed)} */}
                     {currencyAbbr(
                       (asset.total_collateral / 100) * asset.loan_to_value,
@@ -364,9 +364,9 @@ const Markets = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full md:text-left text-center md:flex justify-bewteen my-4">
-                <div className="md:w-9/12">
-                  <p className="text-sm">
+              <div className="w-full md:text-base sm:text-sm text-xs flex justify-bewteen my-4">
+                <div className="w-10/12">
+                  <p className="text-left">
                     Supply Flexible APY
                     <Tippy interactive content="Supply Flexible APY">
                       <svg
@@ -384,15 +384,15 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="md:w-3/12">
-                  <p className="md:text-right text-center xs:test-xs sm:text-sm text-base">
+                <div className="w-5/12 text-right">
+                  <p className="text-right">
                     {percentStyle(asset.supply_flexible_apy) || "N/A"}%
                   </p>
                 </div>
               </div>
-              <div className="w-full md:text-left text-center md:flex justify-bewteen my-4">
-                <div className="md:w-9/12">
-                  <p className="text-sm">
+              <div className="w-full md:text-base sm:text-sm text-xs flex justify-bewteen my-4">
+                <div className="w-10/12">
+                  <p className="text-left">
                     Supply Fixed Term APY
                     <Tippy interactive content="Supply Fixed Term APY">
                       <svg
@@ -410,15 +410,15 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="md:w-3/12">
-                  <p className="md:text-right text-center xs:test-xs sm:text-sm text-base">
+                <div className="w-5/12 text-right">
+                  <p className="text-right">
                     {asset.supply_fixed_term_apy || "N/A"}
                   </p>
                 </div>
               </div>
-              <div className="w-full md:text-left text-center md:flex justify-bewteen my-4">
-                <div className="md:w-9/12">
-                  <p className="text-sm">
+              <div className="w-full md:text-base sm:text-sm text-xs flex justify-bewteen my-4">
+                <div className="w-10/12">
+                  <p className="text-left">
                     Borrow Flexible APR
                     <Tippy interactive content="Borrow Flexible APR">
                       <svg
@@ -436,15 +436,15 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="md:w-3/12">
-                  <p className="md:text-right text-center xs:test-xs sm:text-sm text-base">
+                <div className="w-5/12 text-right">
+                  <p className="text-right">
                     {percentStyle(asset.borrow_flexible_apr) || "N/A"}%
                   </p>
                 </div>
               </div>
-              <div className="w-full md:text-left text-center md:flex justify-bewteen my-4">
-                <div className="md:w-9/12">
-                  <p className="text-sm">
+              <div className="w-full md:text-base sm:text-sm text-xs flex justify-bewteen my-4">
+                <div className="w-10/12">
+                  <p className="text-left">
                     Borrow Fixed Term APR
                     <Tippy interactive content="Borrow APY, stable">
                       <svg
@@ -462,8 +462,8 @@ const Markets = () => {
                     </Tippy>
                   </p>
                 </div>
-                <div className="md:w-3/12">
-                  <p className="md:text-right text-center xs:test-xs sm:text-sm text-base">
+                <div className="w-5/12 text-right">
+                  <p className="text-right">
                     {asset.borrow_fixed_term_apr || "N/A"}
                   </p>
                 </div>

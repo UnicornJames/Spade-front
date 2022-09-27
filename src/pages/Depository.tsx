@@ -71,7 +71,7 @@ const Depository = () => {
           <span className="ml-2 text-xl md:text-2xl lg:text-4xl font-bold">
             Depository
           </span>
-          <p className="ml-2 text-left text-white text-base mt-2">
+          <p className="ml-2 text-left text-white md:text-base text-xs mt-2">
             Last verified at 07/09/2022 02:05:45 PM UTC
           </p>
         </div>
@@ -82,14 +82,6 @@ const Depository = () => {
               {currency(totalAssets)}
             </p>
           </div>
-          {/* <div className="md:w-6/12">
-            <p className="text-gray-400 text-sm text-right">
-              Total liabilities
-            </p>
-            <p className="text-gray-200 text-xl text-right">
-              {currency(reserve[1].total)}
-            </p>
-          </div> */}
         </div>
       </div>
       <p className="mb-10 mt-6 p-2"></p>
@@ -140,16 +132,6 @@ const Depository = () => {
                 <div className="w-1/2">
                   <p className="text-xs text-[#586871] text-right">
                     {currency(v.total)}
-                  </p>
-                </div>
-              </div>
-              <div className="flex my-4 px-1">
-                <div className="w-1/2">
-                  <p className="text-xs text-[#232323]">{v.less_text}</p>
-                </div>
-                <div className="w-1/2">
-                  <p className="text-xs text-[#586871] text-right">
-                    -{currency(v.less)}
                   </p>
                 </div>
               </div>
