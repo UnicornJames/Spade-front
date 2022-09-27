@@ -18,11 +18,9 @@ const Reserve = () => {
       setCash(data[0].assets[0].total);
       setHigh(data[0].assets[1].total);
       setBorrow(data[1].total);
-      setReserve(data);
+      setServerTime(data[3]);
+      setReserve([data[0], data[1], data[2]]);
     });
-    socket.on("servertime", (servertime) => {
-        setServerTime(servertime);
-      })
       
       socket.on("statistics", (data) => {
         setStats(data);
@@ -33,14 +31,12 @@ const Reserve = () => {
 
     socket.emit("reserve");
     socket.emit("statistics");
-    socket.emit("getchartdata");
-    socket.emit("servertime");
+    socket.emit("getchartdata");;
     
     return () => {
       socket.off("reserve");
       socket.off("statistics");
       socket.off("getchartdata");
-      socket.off("servertime");
     };
   }, []);
 

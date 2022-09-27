@@ -21,7 +21,7 @@ const Bankchart: React.FC<BankchartProps> = ({
   chartdata,
   servertime,
 }) => {
-  const series: any = [
+  const defaultseries: any = [
     {
       name: "Cash",
       data: [],
@@ -35,20 +35,15 @@ const Bankchart: React.FC<BankchartProps> = ({
       data: [],
     },
   ];
-  const [seriesdata, setSeriesdata] = useState(series);
+  const [dataList, setDataList] = useState(defaultseries);
   const [timestamp, setTimestamp] = useState(21600 * 1000);
-  // const [seriesa, setSeriesa] = useState([]);
-  // const [seriesb, setSeriesb] = useState([]);
-  // const [seriesc, setSeriesc] = useState([]);
-  // const [mindate, setMindate] = useState(0);
-  // const [maxdate, setMaxdate] = useState(0);
   const [buttonclicked, setButtonClicked] = useState(2);
   const [logarithmic, setLogarithmic] = useState(false);
   const [lineartarget, setLinearTarget] = useState(0);
-  // const [tcash, setTcash] = useState(cash);
-  // const [thigh, setThigh] = useState(high);
-  // const [tborrow, setTborrow] = useState(borrow);
-  // const [servertime, setServertime] = useState(0);
+  const [tcash, setTcash] = useState(cash);
+  const [thigh, setThigh] = useState(high);
+  const [tborrow, setTborrow] = useState(borrow);
+  const [tservertime, setTservertime] = useState(servertime);
   const [timestyle, setTimestyle] = useState("HH:mm");
 
   const ChartDays = [
@@ -69,20 +64,19 @@ const Bankchart: React.FC<BankchartProps> = ({
     "All Time",
   ];
 
+
   useEffect(() => {
-    const seriesCash: any = [];
-    const seriesHigh: any = [];
-    const seriesBorrow: any = [];
-    const date: number = new Date().getTime() + 7200;
-
-    chartdata &&
-      chartdata.map((item: any) => {
-        seriesCash.push({ x: item.timestamp, y: item.total[0] });
-        seriesHigh.push({ x: item.timestamp, y: item.total[1] });
-        seriesBorrow.push({ x: item.timestamp, y: item.total[2] });
-      });
-
-    setSeriesdata([
+    let seriesCash: any = [];
+    let seriesHigh: any = [];
+    let seriesBorrow: any = [];
+  
+    chartdata && chartdata.map((item: any) => {
+      seriesCash.push({ x: item.timestamp, y: item.total[0] });
+      seriesHigh.push({ x: item.timestamp, y: item.total[1] });
+      seriesBorrow.push({ x: item.timestamp, y: item.total[2] });
+    });
+  
+    setDataList([
       {
         name: "Cash",
         data: seriesCash,
@@ -96,78 +90,55 @@ const Bankchart: React.FC<BankchartProps> = ({
         data: seriesBorrow,
       },
     ]);
+  },[])
 
-    const addData = (data: any, value: number) => {
+  useEffect(()=> {
+    setTcash(cash)
+    setThigh(high)
+    setTborrow(borrow)
+  }, [cash,high, borrow])
+
+  useEffect(() => {
+    setTservertime(servertime)
+  }, [servertime])
+
+  useEffect(() => {
+    
+    const addDataRandomly = (data: any, value: any) => {
       return [
         ...data,
         {
-          x: servertime,
-          y: value,
-        },
+          // x: new Date(),
+          x: tservertime,
+          y: value
+        }
       ];
     };
-
-    let chartinterval = setInterval(() => {
-      setSeriesdata(
-        seriesdata.map((item: any, key: number) => {
-          if (item.name == "Cash") {
+    const interval = setInterval(() => {
+      setDataList(
+        dataList.map((val: any) => {
+          if(val.name == "Cash") {
             return {
-              name: item.name,
-              data: addData(item.data, cash),
+              name: val.name,
+              data: addDataRandomly(val.data, tcash)
             };
-          } else if (item.name == "High Quality Liquid Assets (HQLA)") {
+          } else if (val.name == "High Quality Liquid Assets (HQLA)") {
             return {
-              name: item.name,
-              data: addData(item.data, high),
+              name: val.name,
+              data: addDataRandomly(val.data, thigh)
             };
           } else {
             return {
-              name: item.name,
-              data: addData(item.data, borrow),
+              name: val.name,
+              data: addDataRandomly(val.data, tborrow)
             };
           }
-        }),
+        })
       );
-    }, 5000);
-    return () => {
-      clearInterval(chartinterval);
-    };
-  }, [cash, high, borrow]);
+    }, 60000);
 
-  // get input data from api
-  // const GetChartData = async (langer: any) => {
-  //   await fetch(
-  //     "https://api.blockchain.info/charts/market-price?timespan=" +
-  //       `${timestamp}` +
-  //       "&sampled=true&metadata=false&cors=true&format=json",
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       var datas = data.values;
-  //       var newData = [];
-  //       if (langer === 7 || langer === 30) {
-  //         for (var i = 0; i < datas.length; i++) {
-  //           if (i % langer == 0) {
-  //             newData[i / langer] = datas[i];
-  //           }
-  //         }
-  //       } else {
-  //         newData = datas;
-  //       }
-  //       newData.map((item: any) => {
-  //         item.x = item.x * 1000;
-  //       });
-  //       // var newData2 = newData;
-  //       // newData2.map((item: any) => {
-  //       //   item.y = item.y + 20000;
-  //       // });
-
-  //       setMindate(newData[0].x);
-  //       setMaxdate(newData[newData.length - 1].x);
-  //       setSeriesa(newData);
-  //       // setSeriesa2(newData2);
-  //     });
-  // };
+    return () => clearInterval(interval);
+  });
 
   const options: ApexOptions = {
     chart: {
@@ -182,7 +153,7 @@ const Bankchart: React.FC<BankchartProps> = ({
         enabled: true,
         easing: "linear",
         dynamicAnimation: {
-          speed: 5000,
+          speed: 500,
         },
       },
     },
@@ -292,7 +263,7 @@ const Bankchart: React.FC<BankchartProps> = ({
     <>
       <div className="w-full text-center">
         <div id="chart" className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto">
-          <Chart options={options} series={seriesdata} height="400" />
+          <Chart options={options} series={dataList} height="400" />
         </div>
         <div className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto px-1 md:px-10">
           <div className="w-full lg:flex justify-between">
