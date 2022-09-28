@@ -36,7 +36,6 @@ const Reserve = () => {
   const [borrow, setBorrow] = useState();
   const [servertime, setServerTime] = useState();
   const [slidercouter, setSliderCounter] = useState(3);
-  const [windowDimension, setWindowDimension] = useState([]);
    
   const getWindowDimensions = () => {
     const { innerWidth: width, innerHeight: height } = window;
@@ -175,7 +174,7 @@ const Reserve = () => {
       <Carousel responsive={responsive}>
         {/* <div className="grid gap-6 lg:grid-cols-3 items-start"> */}
           {reserve.map((value: any, index: number) => (
-            <div key={value._id} className="rounded shadow-md bg-white mx-2">
+            <div key={value._id} className="rounded shadow-md bg-white mx-2 py-4">
               <p className="text-lg font-semibold my-4 mx-6 text-left">
                 {value.title}
                 {index == 0 && (
