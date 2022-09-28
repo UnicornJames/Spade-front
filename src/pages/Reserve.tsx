@@ -40,13 +40,10 @@ const Reserve = () => {
   const getWindowDimensions = () => {
     const { innerWidth: width, innerHeight: height } = window;
     if(width > 1023) {
-      console.log(slidercouter);
       setSliderCounter(3);
     } else if(width > 767) {
-      console.log(slidercouter);
       setSliderCounter(2);
     } else {
-      console.log(slidercouter);
       setSliderCounter(1);
     }
   }
@@ -63,13 +60,14 @@ const Reserve = () => {
       setServerTime(data[3]);
       setReserve([data[0], data[1], data[2]]);
     });
+    
     socket.on("statistics", (data) => {
       setStats(data);
     });
     socket.on("getchartdata", (data) => {
       setChartdata(data);
     });
-
+    
     socket.emit("getchartdata");
     socket.emit("reserve");
     socket.emit("statistics");
@@ -174,7 +172,7 @@ const Reserve = () => {
       <Carousel responsive={responsive}>
         {/* <div className="grid gap-6 lg:grid-cols-3 items-start"> */}
           {reserve.map((value: any, index: number) => (
-            <div key={value._id} className="rounded shadow-md bg-white mx-2 py-4">
+            <div key={value._id} className="rounded shadow-md bg-white mx-1 py-2">
               <p className="text-lg font-semibold my-4 mx-6 text-left">
                 {value.title}
                 {index == 0 && (
