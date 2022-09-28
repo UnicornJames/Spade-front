@@ -89,5 +89,5 @@ button {
 }
 
 .menu-wrap :where(.menu) :where(.text-black) {
-  color: black;
+  color: black !important;
 }

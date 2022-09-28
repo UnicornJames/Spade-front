@@ -291,7 +291,7 @@ function Header() {
                 </Link>
                 <Link
                   to="/borrow"
-                  className="text-black bg-white md:text-base ml-5 px-4 py-2 border-solid border-white border rounded-full"
+                  className="bg-white text-black md:text-base ml-5 px-4 py-2 border-solid border-white border rounded-full"
                 >
                   Apply
                 </Link>
