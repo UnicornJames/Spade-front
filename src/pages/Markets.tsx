@@ -266,7 +266,7 @@ const Markets = () => {
                 <td>{asset.supply_fixed_term_apy || "N/A"}</td>
                 <td>{percentStyle(asset.borrow_flexible_apr) || "N/A"}%</td>
                 <td>{asset.borrow_fixed_term_apr || "N/A"}</td>
-                <td className={asset.child ? "hidden" : ""}>
+                <td className={asset.child ? "hidden" : "block"}>
                   <Link to={"/markets/overview/" + asset._id}>
                     <button className="px-2 py-1 border bg-gray-100 rounded text-sm cursor-pointer">
                       Details
@@ -287,20 +287,6 @@ const Markets = () => {
                 <div className="w-10/12">
                   <p className="text-left">
                     Total collateral
-                    <Tippy interactive content="Total collateral">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </Tippy>
                   </p>
                 </div>
                 <div className="w-5/12 text-right">
@@ -313,20 +299,6 @@ const Markets = () => {
                 <div className="w-10/12">
                   <p className="text-left">
                     Loan to Value
-                    <Tippy interactive content="Loan to Value">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </Tippy>
                   </p>
                 </div>
                 <div className="w-5/12 text-right">
@@ -339,20 +311,6 @@ const Markets = () => {
                 <div className="w-10/12">
                   <p className="text-left">
                     Total borrowed
-                    <Tippy interactive content="Total borrowed">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </Tippy>
                   </p>
                 </div>
                 <div className="w-5/12 text-right">
@@ -368,20 +326,6 @@ const Markets = () => {
                 <div className="w-10/12">
                   <p className="text-left">
                     Supply Flexible APY
-                    <Tippy interactive content="Supply Flexible APY">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </Tippy>
                   </p>
                 </div>
                 <div className="w-5/12 text-right">
@@ -394,20 +338,6 @@ const Markets = () => {
                 <div className="w-10/12">
                   <p className="text-left">
                     Supply Fixed Term APY
-                    <Tippy interactive content="Supply Fixed Term APY">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </Tippy>
                   </p>
                 </div>
                 <div className="w-5/12 text-right">
@@ -420,20 +350,6 @@ const Markets = () => {
                 <div className="w-10/12">
                   <p className="text-left">
                     Borrow Flexible APR
-                    <Tippy interactive content="Borrow Flexible APR">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </Tippy>
                   </p>
                 </div>
                 <div className="w-5/12 text-right">
@@ -446,20 +362,6 @@ const Markets = () => {
                 <div className="w-10/12">
                   <p className="text-left">
                     Borrow Fixed Term APR
-                    <Tippy interactive content="Borrow APY, stable">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-2 inline relative cursor-pointer -top-[1px]"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </Tippy>
                   </p>
                 </div>
                 <div className="w-5/12 text-right">
@@ -468,12 +370,14 @@ const Markets = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full flex my-4">
-                <Link to={"/markets/overview/" + asset.id} className="w-full">
-                  <button className="p-2 border bg-gray-100 rounded text-sm w-full cursor-pointer">
-                    Details
-                  </button>
-                </Link>
+              <div className={asset.child ? "hidden" : "block"}>
+                <div className={`w-full flex my-4`}>
+                  <Link to={"/markets/overview/" + asset._id} className="w-full">
+                    <button className="p-2 border bg-gray-100 rounded text-sm w-full cursor-pointer">
+                      Details
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

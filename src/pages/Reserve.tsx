@@ -57,9 +57,9 @@ const Reserve = () => {
       setCash(data[0].assets[0].total);
       setHigh(data[0].assets[1].total);
       setBorrow(data[1].total);
-      setServerTime(data[3]);
       setReserve([data[0], data[1], data[2]]);
     });
+
     
     socket.on("statistics", (data) => {
       setStats(data);
@@ -169,7 +169,7 @@ const Reserve = () => {
         </div>
       </div>
 
-      <Carousel responsive={responsive}>
+      <Carousel responsive={responsive} arrows={false}>
         {/* <div className="grid gap-6 lg:grid-cols-3 items-start"> */}
           {reserve.map((value: any, index: number) => (
             <div key={value._id} className="rounded shadow-md bg-white mx-1 py-2">

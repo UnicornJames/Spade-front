@@ -67,18 +67,6 @@ const MarketOverview = () => {
             {currencyAbbr(asset.available_liquidity)}
           </p>
         </div>
-        {/* <div className="mb-2">
-          <p className="text-gray-400 text-xs md:text-sm">Utilization Rate</p>
-          <p className="text-gray-200 text-md md:text-lg">
-            {asset.utilization_rate}
-          </p>
-        </div>
-        <div className="mb-2">
-          <p className="text-gray-400 text-xs md:text-sm">Oracle price</p>
-          <p className="text-gray-200 text-md md:text-lg">
-            {currencyAbbr(asset.oracle_price)}
-          </p>
-        </div> */}
       </div>
       <div className="rounded-md shadow-md bg-white p-1 mt-4 w-full">
         <p className="text-xl mt-4 mb-10 mx-6 text-left">

@@ -84,7 +84,7 @@ const Depository = () => {
           </div>
         </div>
       </div>
-      <p className="mb-10 mt-6 p-2"></p>
+      <p className="mb-10 p-2"></p>
       <div className="rounded-md shadow-md bg-white">
         <ul className="nav nav-tabs nav-justified flex flex-col md:flex-row flex-wrap list-none pl-0 mb-4">
           {depositories.map((v) => (

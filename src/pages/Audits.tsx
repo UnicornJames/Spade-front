@@ -44,7 +44,7 @@ const Audits = () => {
       <p className="text-left text-white text-base mt-2">
         PriceWaterhouseCoopers Audit on 11th September 2022
       </p>
-      <p className="mb-10 mt-6 p-2"></p>
+      <p className="mb-10 p-2"></p>
       <div className="rounded-md shadow-md bg-white">
         <p className="px-4 py-4 border-b">Verified audit figures</p>
         <div className="md:grid grid-cols-2 border-b">
@@ -95,7 +95,7 @@ const Audits = () => {
           <div className="px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="w-full">
-                <p className="text-lg font-medium flex md:text-left text-center text-[#2A2D3C]">
+                <p className="text-lg font-medium text-center md:text-left text-[#2A2D3C]">
                   About our external auditors (PwC)
                 </p>
                 <p className="text-sm text-gray-500 text-center md:text-left">
@@ -121,8 +121,8 @@ const Audits = () => {
                   11th September 2022
                 </p>
               </div>
-              <div className="md:w-2/12 xs:4/12 flex items-center">
-                <div className="w-6/12">
+              <div className="flex items-center">
+                <div className="px-1">
                   <Tippy interactive content="View">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ const Audits = () => {
                     </svg>
                   </Tippy>
                 </div>
-                <div className="w-6/12">
+                <div className="px-1">
                   <Tippy interactive content="Download">
                     <img
                       src="download.png"
