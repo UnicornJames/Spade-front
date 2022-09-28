@@ -133,7 +133,7 @@ const Bankchart: React.FC<BankchartProps> = ({
           }
         })
       );
-    }, 60000);
+    }, 5000);
 
     return () => clearInterval(interval);
   });
