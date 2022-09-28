@@ -50,7 +50,6 @@ const Reserve = () => {
       console.log(slidercouter);
       setSliderCounter(1);
     }
-    setWindowDimension([width, height])
   }
 
   useEffect(() => {
