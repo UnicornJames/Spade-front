@@ -38,8 +38,6 @@ const Bankchart: React.FC<BankchartProps> = ({
   const [dataList, setDataList] = useState(defaultseries);
   const [timestamp, setTimestamp] = useState(21600 * 1000);
   const [buttonclicked, setButtonClicked] = useState(2);
-  const [logarithmic, setLogarithmic] = useState(false);
-  const [lineartarget, setLinearTarget] = useState(0);
   const [tcash, setTcash] = useState(cash);
   const [thigh, setThigh] = useState(high);
   const [tborrow, setTborrow] = useState(borrow);
@@ -189,7 +187,6 @@ const Bankchart: React.FC<BankchartProps> = ({
         title: {
           text: "USD",
         },
-        logarithmic: logarithmic,
         tickAmount: 8,
         labels: {
           formatter: function (value) {
@@ -254,11 +251,6 @@ const Bankchart: React.FC<BankchartProps> = ({
     }
   };
 
-  const LinerTarget = (index: any, target: any) => {
-    setLinearTarget(index);
-    setLogarithmic(target);
-  };
-
   return (
     <>
       <div className="w-full text-center">
@@ -305,27 +297,6 @@ const Bankchart: React.FC<BankchartProps> = ({
                   </button>
                 );
               })}
-            </div>
-
-            <div className="sm:w-12/12 mt-5 lg:flex justify-start">
-              <button
-                className={`py-2 text-xs active:border-none px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${
-                  lineartarget === 0 &&
-                  "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
-                }`}
-                onClick={() => LinerTarget(0, false)}
-              >
-                Linear Scale
-              </button>
-              <button
-                className={`py-2 text-xs active:border-none px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${
-                  lineartarget === 1 &&
-                  "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
-                }`}
-                onClick={() => LinerTarget(1, true)}
-              >
-                Logarithmic Scale
-              </button>
             </div>
           </div>
         </div>
