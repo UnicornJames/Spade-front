@@ -256,7 +256,7 @@ const Bankchart: React.FC<BankchartProps> = ({
           <Chart options={options} series={dataList} height="400" />
         </div>
         <div className="w-12/12 md:w-10/12 lg:w-10/12 m-auto px-1 md:px-10">
-          <div className="w-full lg:flex justify-end">
+          <div className="w-full lg:flex justify-between">
             <div className="md:text-md md:block hidden mt-5">
               {ChartDays.map((chartday, index) => {
                 return (
