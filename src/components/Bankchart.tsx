@@ -8,7 +8,7 @@ interface BankchartProps {
   borrow: any;
   high: any;
   chartdata: any;
-  servertime : any;
+  servertime: any;
 }
 
 const X: number = 0;
@@ -35,7 +35,6 @@ const Bankchart: React.FC<BankchartProps> = ({
     },
   ];
 
-  console.log(servertime);
   const [dataList, setDataList] = useState(defaultseries);
   const [timestamp, setTimestamp] = useState(21600 * 1000);
   const [buttonclicked, setButtonClicked] = useState(2);
@@ -65,26 +64,20 @@ const Bankchart: React.FC<BankchartProps> = ({
     "All Time",
   ];
 
-  const chartsmallButtonName = [
-    "30 M",
-    "1 H",
-    "6 H",
-    "12 H",
-    "1 D",
-    "All"
-  ]
+  const chartsmallButtonName = ["30 M", "1 H", "6 H", "12 H", "1 D", "All"];
 
   useEffect(() => {
     let seriesCash: any = [];
     let seriesHigh: any = [];
     let seriesBorrow: any = [];
-  
-    chartdata && chartdata.map((item: any) => {
-      seriesCash.push({ x: item.timestamp, y: item.total[0] });
-      seriesHigh.push({ x: item.timestamp, y: item.total[1] });
-      seriesBorrow.push({ x: item.timestamp, y: item.total[2] });
-    });
-  
+
+    chartdata &&
+      chartdata.map((item: any) => {
+        seriesCash.push({ x: item.timestamp, y: item.total[0] });
+        seriesHigh.push({ x: item.timestamp, y: item.total[1] });
+        seriesBorrow.push({ x: item.timestamp, y: item.total[2] });
+      });
+
     setDataList([
       {
         name: "Cash",
@@ -99,49 +92,48 @@ const Bankchart: React.FC<BankchartProps> = ({
         data: seriesBorrow,
       },
     ]);
-  },[])
-
-  useEffect(()=> {
-    setTcash(cash)
-    setThigh(high)
-    setTborrow(borrow)
-  }, [cash,high, borrow])
+  }, []);
 
   useEffect(() => {
-    setTservertime(servertime)
-  }, [servertime])
+    setTcash(cash);
+    setThigh(high);
+    setTborrow(borrow);
+  }, [cash, high, borrow]);
 
   useEffect(() => {
-    
+    setTservertime(servertime);
+  }, [servertime]);
+
+  useEffect(() => {
     const addDataRandomly = (data: any, value: any) => {
       return [
         ...data,
         {
           x: tservertime,
-          y: value
-        }
+          y: value,
+        },
       ];
     };
     const interval = setInterval(() => {
       setDataList(
         dataList.map((val: any) => {
-          if(val.name == "Cash") {
+          if (val.name == "Cash") {
             return {
               name: val.name,
-              data: addDataRandomly(val.data, tcash)
+              data: addDataRandomly(val.data, tcash),
             };
           } else if (val.name == "High Quality Liquid Assets (HQLA)") {
             return {
               name: val.name,
-              data: addDataRandomly(val.data, thigh)
+              data: addDataRandomly(val.data, thigh),
             };
           } else {
             return {
               name: val.name,
-              data: addDataRandomly(val.data, tborrow)
+              data: addDataRandomly(val.data, tborrow),
             };
           }
-        })
+        }),
       );
     }, 5000);
 
