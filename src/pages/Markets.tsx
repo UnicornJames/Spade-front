@@ -68,7 +68,7 @@ const Markets = () => {
         </div>
 
         <div className="flex justify-between lg:w-6/12 md:w-8/12 flex-wrap text-left xl:mt-0">
-          <div className="">
+          <div className="mr-4">
             <p className="text-gray-400 text-sm">Total collateral value</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
@@ -78,7 +78,7 @@ const Markets = () => {
               )}
             </p>
           </div>
-          <div className="">
+          <div className="mr-4">
             <p className="text-gray-400 text-sm">Available Liquidity</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
