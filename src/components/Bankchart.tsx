@@ -169,21 +169,20 @@ const Bankchart: React.FC<BankchartProps> = ({
     dataLabels: {
       enabled: false,
     },
-    // legend: {
-    //   position: "bottom",
-    //   offsetY: 5,
-    //   itemMargin: {
-    //     horizontal: 5,
-    //     vertical: 0,
-    //   },
-    // },
+    legend: {
+      position: "bottom",
+      itemMargin: {
+        horizontal: 10,
+        vertical: 20,
+      },
+    },
     xaxis: {
       type: "datetime",
       range: timestamp,
       title: {
         text: "Date (UTC)",
         offsetX: -30,
-        offsetY: 0,
+        offsetY: 20,
       },
       labels: {
         format: timestyle,
