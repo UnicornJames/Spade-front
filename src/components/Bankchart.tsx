@@ -44,21 +44,12 @@ const Bankchart: React.FC<BankchartProps> = ({
   const [tservertime, setTservertime] = useState(servertime);
   const [timestyle, setTimestyle] = useState("HH:mm");
 
-  const ChartDays = [
-    1800 * 1000,
-    3600 * 1000,
-    21600 * 1000,
-    43200 * 1000,
-  ];
+  const ChartDays = [1800 * 1000, 3600 * 1000, 21600 * 1000, 43200 * 1000];
 
-  const chartButtonName = [
-    "30 Minutes",
-    "1 Hour",
-    "6 Hours",
-    "12 Hours"
-  ];
+  const chartButtonName = ["30 Minutes", "1 Hour", "6 Hours", "12 Hours"];
 
   const chartsmallButtonName = ["30m", "1hr", "6h", "12h"];
+
 
   useEffect(() => {
     let seriesCash: any = [];
@@ -139,7 +130,7 @@ const Bankchart: React.FC<BankchartProps> = ({
       id: "realtime",
       type: "line",
       width: "100%",
-      height: "500px",
+      height: "350px",
       zoom: {
         enabled: false,
       },
@@ -168,12 +159,21 @@ const Bankchart: React.FC<BankchartProps> = ({
     dataLabels: {
       enabled: false,
     },
+    // legend: {
+    //   position: "bottom",
+    //   offsetY: 5,
+    //   itemMargin: {
+    //     horizontal: 5,
+    //     vertical: 0,
+    //   },
+    // },
     xaxis: {
       type: "datetime",
       range: timestamp,
       title: {
         text: "Date (UTC)",
         offsetX: -30,
+        offsetY: 0,
       },
       labels: {
         format: timestyle,
