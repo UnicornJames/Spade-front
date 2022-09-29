@@ -258,13 +258,13 @@ const Bankchart: React.FC<BankchartProps> = ({
           <Chart options={options} series={dataList} height="400" />
         </div>
         <div className="w-12/12 md:w-10/12 lg:w-10/12 m-auto px-1 md:px-10">
-          <div className="w-full lg:flex justify-end">
-            <div className="md:text-md mt-1">
+          <div className="w-full lg:flex justify-between">
+            <div className="md:text-md md:block hidden mt-5">
               {ChartDays.map((chartday, index) => {
                 return (
                   <button
                     value={chartday}
-                    className={`py-2 text-xs active:border-none px-3 border-2 active:bg-[#0C6CF277] active:text-white ${
+                    className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white ${
                       index === 0 && "rounded-l-xl"
                     } ${index === ChartDays.length - 1 && "rounded-r-xl"} ${
                       index === buttonclicked &&
@@ -273,13 +273,13 @@ const Bankchart: React.FC<BankchartProps> = ({
                     onClick={() => setTarget(chartday, index)}
                     key={`button-${index}`}
                   >
-                    {chartsmallButtonName[index]}
+                    {chartButtonName[index]}
                   </button>
                 );
               })}
             </div>
 
-            {/* <div className="md:text-md mt-5 block md:hidden">
+            <div className="md:text-md mt-5 block md:hidden">
               {ChartDays.map((chartday, index) => {
                 return (
                   <button
@@ -297,7 +297,7 @@ const Bankchart: React.FC<BankchartProps> = ({
                   </button>
                 );
               })}
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
