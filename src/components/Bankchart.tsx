@@ -59,10 +59,10 @@ const Bankchart: React.FC<BankchartProps> = ({
     "6 Hours",
     "12 Hours",
     "1 Day",
-    "All Time",
+    "1 Week",
   ];
 
-  const chartsmallButtonName = ["30m", "1hr", "6h", "12h", "1d", "All"];
+  const chartsmallButtonName = ["30m", "1hr", "6h", "12h", "1d", "7d"];
 
   useEffect(() => {
     let seriesCash: any = [];
@@ -258,7 +258,7 @@ const Bankchart: React.FC<BankchartProps> = ({
           <Chart options={options} series={dataList} height="400" />
         </div>
         <div className="w-12/12 md:w-10/12 lg:w-10/12 m-auto px-1 md:px-10">
-          <div className="w-full lg:flex justify-between">
+          <div className="w-full lg:flex justify-end">
             <div className="md:text-md md:block hidden mt-5">
               {ChartDays.map((chartday, index) => {
                 return (
