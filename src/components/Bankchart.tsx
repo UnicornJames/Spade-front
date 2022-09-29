@@ -175,6 +175,7 @@ const Bankchart: React.FC<BankchartProps> = ({
       range: timestamp,
       title: {
         text: "Date (UTC)",
+        offsetX: -30,
       },
       labels: {
         format: timestyle,

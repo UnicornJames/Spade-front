@@ -46,7 +46,7 @@ const Audits = () => {
         Audits & Attestations
       </h1>
       <p className="text-left text-white text-base mt-2">
-        PriceWaterhouseCoopers Audit on 11th September 2022
+        Audited on 11th September 2022
       </p>
       <p className="mb-10 p-2"></p>
       <div className="rounded-md shadow-md bg-white">
