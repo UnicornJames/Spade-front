@@ -171,9 +171,9 @@ const Reserve = () => {
       </div>
 
       {/* <Carousel responsive={responsive} arrows={false}> */}
-        <div>
+        <div className="grid gap-6 lg:grid-cols-3 items-start">
           {reserve.map((value: any, index: number) => (
-            <div key={value._id} className="rounded shadow-md bg-white mx-1 py-2 mb-4">
+            <div key={value._id} className="rounded shadow-md bg-white py-2 mb-4">
               <p className="text-lg font-semibold my-4 mx-6 text-left">
                 {value.title}
                 {index == 0 && (
