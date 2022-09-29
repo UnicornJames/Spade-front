@@ -48,7 +48,7 @@ const Bankchart: React.FC<BankchartProps> = ({
     1800 * 1000,
     3600 * 1000,
     21600 * 1000,
-    43200 * 1000,
+    43200 * 1000
   ];
 
   const chartButtonName = [
@@ -57,7 +57,6 @@ const Bankchart: React.FC<BankchartProps> = ({
     "6 Hours",
     "12 Hours"
   ];
-
   const chartsmallButtonName = ["30m", "1hr", "6h", "12h"];
 
 
