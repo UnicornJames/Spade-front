@@ -61,6 +61,7 @@ const Reserve = () => {
       setServerTime(data[3]);
     });
 
+
     socket.on("statistics", (data) => {
       setStats(data);
     });

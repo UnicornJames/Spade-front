@@ -62,12 +62,13 @@ const Markets = () => {
 
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
-      <div className="md:flex justify-between">
-        <div className="text-left text-white font-bold  md:pt-10 cursor-pointer relative">
+      <div className="block md:flex items-center">
+        <div className="text-left text-white w-4/12 font-bold cursor-pointer relative">
           <span className="ml-2 text-xl md:text-2xl">Market Overview</span>
         </div>
-        <div className="flex justify-between flex-wrap text-left 6 xl:mt-0">
-          <div className="mr-8">
+
+        <div className="flex justify-between lg:w-6/12 md:w-8/12 flex-wrap text-left xl:mt-0">
+          <div className="">
             <p className="text-gray-400 text-sm">Total collateral value</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
@@ -77,7 +78,7 @@ const Markets = () => {
               )}
             </p>
           </div>
-          <div className="mr-8">
+          <div className="">
             <p className="text-gray-400 text-sm">Available Liquidity</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
@@ -90,13 +91,14 @@ const Markets = () => {
               )}
             </p>
           </div>
-          <div className="mr-8">
+          <div className="">
             <p className="text-gray-400 text-sm">Total cash borrowed</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(reserve[1].total)}
             </p>
           </div>
         </div>
+
       </div>
       <div className="rounded-md shadow-md bg-white p-1 mt-10">
         <p className="text-xl mt-4 mb-10 mx-6 text-left">

@@ -26,7 +26,7 @@ const Bankchart: React.FC<BankchartProps> = ({
       data: [],
     },
     {
-      name: "High Quality Liquid Assets (HQLA)",
+      name: "HQLA",
       data: [],
     },
     {
@@ -80,7 +80,7 @@ const Bankchart: React.FC<BankchartProps> = ({
         data: seriesCash,
       },
       {
-        name: "High Quality Liquid Assets (HQLA)",
+        name: "HQLA",
         data: seriesHigh,
       },
       {
@@ -118,7 +118,7 @@ const Bankchart: React.FC<BankchartProps> = ({
               name: val.name,
               data: addDataRandomly(val.data, tcash),
             };
-          } else if (val.name == "High Quality Liquid Assets (HQLA)") {
+          } else if (val.name == "HQLA") {
             return {
               name: val.name,
               data: addDataRandomly(val.data, thigh),
