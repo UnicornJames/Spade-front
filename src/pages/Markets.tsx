@@ -64,11 +64,11 @@ const Markets = () => {
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
       <div className="block md:flex items-center">
         <div className="text-left text-white md:w-4/12 mb-4 md:mb-0 font-bold cursor-pointer relative">
-          <span className="ml-2 text-xl md:text-2xl">Market Overview</span>
+          <span className="m-2 text-xl md:text-2xl">Market Overview</span>
         </div>
 
         <div className="flex justify-between lg:w-6/12 md:w-8/12 flex-wrap text-left xl:mt-0">
-          <div className="mr-4">
+          <div className="m-2">
             <p className="text-gray-400 text-sm">Total collateral value</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
@@ -78,7 +78,7 @@ const Markets = () => {
               )}
             </p>
           </div>
-          <div className="mr-4">
+          <div className="m-2">
             <p className="text-gray-400 text-sm">Available Liquidity</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
@@ -91,7 +91,7 @@ const Markets = () => {
               )}
             </p>
           </div>
-          <div className="">
+          <div className="m-2">
             <p className="text-gray-400 text-sm">Total cash borrowed</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(reserve[1].total)}
