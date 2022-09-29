@@ -271,6 +271,7 @@ function Header() {
                 to="/partners"
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex w-full mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
+                
               >
                 Partners
               </Link>
@@ -287,6 +288,7 @@ function Header() {
             {isLoggedIn ? (
               <a
                 onClick={() => {
+                  () => setIsOpen(!isOpen)
                   localStorage.clear();
                   location.href = "/";
                 }}
@@ -298,12 +300,14 @@ function Header() {
               <div className="flex justify-center mt-5">
                 <Link
                   to="/signin"
-                  className="text-white hover:text-black hover: md:text-base px-4 py-2 border-solid border-white border rounded-full"
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="text-white hover:text-black hover:bg-white md:text-base px-4 py-2 border-solid border-white border rounded-full"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/borrow"
+                  onClick={() => setIsOpen(!isOpen)}
                   className="bg-white text-black md:text-base ml-5 px-4 py-2 border-solid border-white border rounded-full"
                 >
                   Apply

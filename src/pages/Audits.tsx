@@ -16,25 +16,29 @@ const Audits = () => {
 
     socket.emit("reserve");
 
-    loadAudits();
+    // loadAudits();
 
     return () => {
       socket.off("reserve");
     };
-  }, []);
+  }, [reserve]);
 
   const totalAssets = useMemo(() => {
     return audits.reduce((sum, v) => sum + v.value, 0);
   }, [audits]);
 
-  const loadAudits = async () => {
-    const { data } = await axios.get(API_URL + "/audits");
-    setAudits(data);
-  };
+  // const loadAudits = async () => {
+  //   const { data } = await axios.get(API_URL + "/audits");
+  //   setAudits(data);
+  // };
 
-  if (!audits.length || !reserve) {
-    return <></>;
-  }
+  useEffect(() => {
+    const loadAudits = async () => {
+      const { data } = await axios.get(API_URL + "/audits");
+      setAudits(data);
+    };
+    loadAudits();
+  }, []);
 
   return (
     <div className="bg-split-white-black-small px-4 md:p-12 xl:px-64">
@@ -83,7 +87,7 @@ const Audits = () => {
                   Total Verified Liabilities
                 </p>
                 <p className="text-md font-semibold text-gray-500">
-                  {currency(reserve[1].total)}
+                  {currency(reserve && reserve[1].total)}
                 </p>
               </div>
             </div>
@@ -99,7 +103,14 @@ const Audits = () => {
                   About our external auditors (PwC)
                 </p>
                 <p className="text-sm text-gray-500 text-center md:text-left">
-                  PwC is the second-largest professional services network in the whole world, which audit Spade Enterprise Ltd regularly to verify that the Spade Reserve assets exceed our customer liabilities, and is considered one of the Big Four accounting firms, along with Deloitte, EY, and KPMG. PwC is the auditor for enterprises such as the Bank of America, J.P Morgan & Chase, Blackrock, and many other publicly/private traded companies.
+                  PwC is the second-largest professional services network in the
+                  whole world, which audit Spade Enterprise Ltd regularly to
+                  verify that the Spade Reserve assets exceed our customer
+                  liabilities, and is considered one of the Big Four accounting
+                  firms, along with Deloitte, EY, and KPMG. PwC is the auditor
+                  for enterprises such as the Bank of America, J.P Morgan &
+                  Chase, Blackrock, and many other publicly/private traded
+                  companies.
                 </p>
               </div>
             </div>
@@ -117,9 +128,7 @@ const Audits = () => {
                 <p className="hidden md:block text-lg font-medium text-[#2A2D3C]">
                   PriceWaterhouseCoopers Audit
                 </p>
-                <p className="text-sm text-gray-500">
-                  11th September 2022
-                </p>
+                <p className="text-sm text-gray-500">11th September 2022</p>
               </div>
               <div className="flex items-center">
                 <div className="px-1">
