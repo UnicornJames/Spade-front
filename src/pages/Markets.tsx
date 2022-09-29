@@ -63,7 +63,7 @@ const Markets = () => {
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
       <div className="block md:flex items-center">
-        <div className="text-left text-white w-4/12 font-bold cursor-pointer relative">
+        <div className="text-left text-white md:w-4/12 mb-4 md:mb-0 font-bold cursor-pointer relative">
           <span className="ml-2 text-xl md:text-2xl">Market Overview</span>
         </div>
 
