@@ -197,42 +197,42 @@ function Header() {
               <Link
                 to="/markets"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
+                className="flex w-full mb-1 mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Markets
               </Link>
               <Link
                 to=""
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
+                className="flex w-full mb-1 mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Overview
               </Link>
               <Link
                 to=""
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
+                className="flex w-full mb-1 mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Credit Health
               </Link>
               <Link
                 to="/terminal"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
+                className="flex w-full mb-1 mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Terminal
               </Link>
               <Link
                 to="/status"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
+                className="flex w-full mb-1 mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Status
               </Link>
               <a
                 href="https://help.withspade.com/"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
+                className="flex w-full mb-1 mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Help
               </a>
@@ -290,7 +290,7 @@ function Header() {
                   localStorage.clear();
                   location.href = "/";
                 }}
-                className="text-white hover:text-black hover: md:text-base px-4 py-2 border-solid border-white border rounded-full cursor-pointer"
+                className="text-white hover:text-black flex justify-center mx-10 hover: md:text-base px-4 py-2 border-solid border-white border rounded-full"
               >
                 Logout
               </a>

@@ -91,3 +91,25 @@ button {
 .menu-wrap :where(.menu) :where(.text-black) {
   color: black !important;
 }
+
+@media screen and (max-width: 767px) {
+  .target {
+    font-weight: bold;
+    color: #fbfbfb;
+    animation-name: rightToLeft;
+    animation-duration: 4.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    text-overflow: clip;
+    /* animation: rightToLeft 4.5s linear infinite; */
+  }
+}
+
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-800px);
+  }
+}
