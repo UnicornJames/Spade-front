@@ -56,7 +56,8 @@ const MarketOverview = () => {
         <div className="mb-2">
           <p className="text-gray-400 text-xs md:text-sm">Reserve Size</p>
           <p className="text-gray-200 text-md md:text-lg">
-            {currencyAbbr(asset.reserve_size)}
+            {/* {currencyAbbr(asset.reserve_size)} */}
+            {currencyAbbr(asset.total_collateral + asset.total_borrowed)}
           </p>
         </div>
         <div className="mb-2">
@@ -72,51 +73,51 @@ const MarketOverview = () => {
         <p className="text-xl mt-4 mb-10 mx-6 text-left">
           Reserve status & configuration
         </p>
-        <div className="flex m-6">
-          <div className="w-3/12 flex items-center">
-            <p className="text-xs md:text-sm">Supply Info</p>
+        <div className="md:flex m-6">
+          <div className="w-full md:w-3/12 items-center">
+            <p className="text-sm md:text-base">Supply Info</p>
           </div>
-          <div className="w-3/12">
+          <div className="w-full md:w-3/12 flex items-center my-2 justify-between md:block" >
             <p className="text-gray-600 text-xs md:text-sm">
               Supply Flexible APY
             </p>
-            <p className="text-gray-900 text-sm md:text-md">
+            <p className="text-gray-900 text-sm md:text-md text-right md:text-left">
               {asset.supply_flexible_apy || "N/A"}
             </p>
           </div>
-          <div className="w-3/12">
+          <div className="w-full md:w-3/12 flex items-center my-2 justify-between md:block">
             <p className="text-gray-600 text-xs md:text-sm">
               Supply Fixed Term APY
             </p>
-            <p className="text-gray-900 text-sm md:text-md">
+            <p className="text-gray-900 text-sm md:text-md text-right md:text-left">
               {asset.supply_fixed_term_apy || "N/A"}
             </p>
           </div>
         </div>
         <hr />
-        <div className="flex m-6">
+        <div className="md:flex m-6">
           <div className="w-3/12 flex items-center">
-            <p className="text-xs md:text-sm">Borrow Info</p>
+            <p className="text-sm md:text-base">Borrow Info</p>
           </div>
-          <div className="w-3/12">
+          <div className="md:w-3/12 my-2 flex justify-between md:block">
             <p className="text-gray-600 text-xs md:text-sm">Total borrowed</p>
-            <p className="text-gray-900 text-sm md:text-md">
+            <p className="text-gray-900 text-sm md:text-md md:text-left text-right">
               {currencyAbbr(asset.total_borrowed)}
             </p>
           </div>
-          <div className="w-3/12">
+          <div className="md:w-3/12 my-2 flex justify-between md:block">
             <p className="text-gray-600 text-xs md:text-sm">
               Borrow Flexible APR
             </p>
-            <p className="text-gray-900 text-sm md:text-md">
+            <p className="ttext-gray-900 text-sm md:text-md md:text-left text-right">
               {asset.borrow_flexible_apr || "N/A"}
             </p>
           </div>
-          <div className="w-3/12">
+          <div className="md:w-3/12 my-2 flex justify-between md:block">
             <p className="text-gray-600 text-xs md:text-sm">
               Borrow Fixed Term APR
             </p>
-            <p className="text-gray-900 text-sm md:text-md">
+            <p className="text-gray-900 text-sm md:text-md md:text-left text-right">
               {asset.borrow_fixed_term_apr || "N/A"}
             </p>
           </div>

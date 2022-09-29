@@ -63,6 +63,14 @@ const Bankchart: React.FC<BankchartProps> = ({
     "All Time",
   ];
 
+  const chartsmallButtonName = [
+    "30 M",
+    "1 H",
+    "6 H",
+    "12 H",
+    "1 D",
+    "All"
+  ]
 
   useEffect(() => {
     let seriesCash: any = [];
@@ -263,9 +271,9 @@ const Bankchart: React.FC<BankchartProps> = ({
         <div id="chart" className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto">
           <Chart options={options} series={dataList} height="400" />
         </div>
-        <div className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto px-1 md:px-10">
+        <div className="w-12/12 md:w-10/12 lg:w-10/12 m-auto px-1 md:px-10">
           <div className="w-full lg:flex justify-between">
-            <div className="md:text-md mt-5">
+            <div className="md:text-md md:block hidden mt-5">
               {ChartDays.map((chartday, index) => {
                 return (
                   <button
@@ -285,9 +293,29 @@ const Bankchart: React.FC<BankchartProps> = ({
               })}
             </div>
 
+            <div className="md:text-md mt-5 block md:hidden">
+              {ChartDays.map((chartday, index) => {
+                return (
+                  <button
+                    value={chartday}
+                    className={`py-2 text-xs active:border-none px-2 border-2 active:bg-[#0C6CF277] active:text-white ${
+                      index === 0 && "rounded-l-xl"
+                    } ${index === ChartDays.length - 1 && "rounded-r-xl"} ${
+                      index === buttonclicked &&
+                      "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
+                    }`}
+                    onClick={() => setTarget(chartday, index)}
+                    key={`button-${index}`}
+                  >
+                    {chartsmallButtonName[index]}
+                  </button>
+                );
+              })}
+            </div>
+
             <div className="sm:w-12/12 mt-5 lg:flex justify-start">
               <button
-                className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${
+                className={`py-2 text-xs active:border-none px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-l-xl ${
                   lineartarget === 0 &&
                   "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
                 }`}
@@ -296,7 +324,7 @@ const Bankchart: React.FC<BankchartProps> = ({
                 Linear Scale
               </button>
               <button
-                className={`py-2 text-xs active:border-none xs:px-1 md:px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${
+                className={`py-2 text-xs active:border-none px-2 border-2 active:bg-[#0C6CF277] active:text-white rounded-r-xl ${
                   lineartarget === 1 &&
                   "bg-[#0C6CF277] border-blue-300 text-[#0C6CF2]"
                 }`}

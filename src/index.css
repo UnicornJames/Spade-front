@@ -80,11 +80,11 @@ button {
 }
 
 .menu-wrap {
-  background-color: black;
+  background-color: #2A2D3C;
 }
 
 .menu-wrap :where(.menu) {
-  background-color: black;
+  background-color: #2A2D3C;
   color: white;
 }
 

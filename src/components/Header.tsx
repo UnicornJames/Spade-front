@@ -187,45 +187,52 @@ function Header() {
         <Menu
           selectedKey={"entry"}
           onClose={() => setIsOpen(false)}
-          width={300}
+          width={"100%"}
           className="pt-5"
           isOpen={isOpen}
+          animate="fallDown"
         >
           {isLoggedIn ? (
             <>
               <Link
                 to="/markets"
-                className="flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Markets
               </Link>
               <Link
                 to=""
-                className="flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Overview
               </Link>
               <Link
                 to=""
-                className="flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Credit Health
               </Link>
               <Link
                 to="/terminal"
-                className="flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Terminal
               </Link>
               <Link
                 to="/status"
-                className="flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Status
               </Link>
               <a
                 href="https://help.withspade.com/"
-                className="flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-1 justi mb-10 fy-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Help
               </a>
@@ -234,37 +241,43 @@ function Header() {
             <>
               <Link
                 to="/"
-                className="flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Reserves
               </Link>
               <Link
                 to="/markets"
-                className="text-white flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Markets
               </Link>
               <Link
                 to="/depository"
-                className="text-white flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Depository
               </Link>
               <Link
                 to="/audits"
-                className="text-white flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Audits
               </Link>
               <Link
                 to="/partners"
-                className="text-white flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Partners
               </Link>
               <Link
                 to="/status"
-                className="text-white flex w-full mb-1 justify-center hover:text-gray-500 text-xl md:text-xl"
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex w-full mb-10 justify-center hover:text-gray-500 text-xl md:text-xl"
               >
                 Status
               </Link>

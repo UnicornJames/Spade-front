@@ -258,9 +258,10 @@ const Markets = () => {
                 <td>{currencyAbbr(asset.total_collateral)}</td>
                 <td>{percentStyle(asset.loan_to_value)}%</td>
                 <td>
-                  {currencyAbbr(
+                {currencyAbbr(asset.total_borrowed)}
+                  {/* {currencyAbbr(
                     (asset.total_collateral / 100) * asset.loan_to_value,
-                  )}
+                  )} */}
                 </td>
                 <td>{percentStyle(asset.supply_flexible_apy) || "N/A"}%</td>
                 <td>{asset.supply_fixed_term_apy || "N/A"}</td>
@@ -315,10 +316,10 @@ const Markets = () => {
                 </div>
                 <div className="w-5/12 text-right">
                   <p className="text-right">
-                    {/* {currencyAbbr(asset.total_borrowed)} */}
-                    {currencyAbbr(
+                    {currencyAbbr(asset.total_borrowed)}
+                    {/* {currencyAbbr(
                       (asset.total_collateral / 100) * asset.loan_to_value,
-                    )}
+                    )} */}
                   </p>
                 </div>
               </div>
