@@ -35,6 +35,22 @@ const Reserve = () => {
   const [high, setHigh] = useState();
   const [borrow, setBorrow] = useState();
   const [servertime, setServerTime] = useState();
+  const [slidercouter, setSliderCounter] = useState(3);
+
+  const getWindowDimensions = () => {
+    const { innerWidth: width, innerHeight: height } = window;
+    if (width > 1023) {
+      setSliderCounter(3);
+    } else if (width > 767) {
+      setSliderCounter(2);
+    } else {
+      setSliderCounter(1);
+    }
+  };
+
+  useEffect(() => {
+    getWindowDimensions();
+  }, []);
 
   useEffect(() => {
     socket.on("reserve", (data) => {
@@ -87,10 +103,6 @@ const Reserve = () => {
   if (!reserve || !stats) {
     return <></>;
   }
-
-  // if (!chartdata || !stats) {
-  //   return <></>;
-  // }
 
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
@@ -158,10 +170,16 @@ const Reserve = () => {
         </div>
       </div>
 
-      {/* <Carousel responsive={responsive} arrows={false}> */}
+
+      {/* <Carousel responsive={responsive} arrows={false}>
       <div className="grid gap-6 lg:grid-cols-3 items-start">
         {reserve.map((value: any, index: number) => (
-          <div key={value._id} className="rounded shadow-md bg-white py-2 mb-4">
+          <div key={value._id} className="rounded shadow-md bg-white py-2 mb-4"> */}
+
+      <Carousel responsive={responsive} arrows={false}>
+        {reserve.map((value: any, index: number) => (
+          <div key={value._id} className="rounded shadow-md bg-white mx-1 py-2">
+
             <p className="text-lg font-semibold my-4 mx-6 text-left">
               {value.title}
               {index == 0 && (
@@ -266,8 +284,8 @@ const Reserve = () => {
             </div>
           </div>
         ))}
-      </div>
-      {/* </Carousel> */}
+      </Carousel>
+
 
       <div id="Chart" className="w-full my-2 md:my-10">
           <Bankchart
