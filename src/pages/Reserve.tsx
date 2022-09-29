@@ -58,6 +58,7 @@ const Reserve = () => {
       setHigh(data[0].assets[1].total);
       setBorrow(data[1].total);
       setReserve([data[0], data[1], data[2]]);
+      setServerTime(data[3]);
     });
 
     

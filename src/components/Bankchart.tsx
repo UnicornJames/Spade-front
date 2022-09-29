@@ -34,6 +34,8 @@ const Bankchart: React.FC<BankchartProps> = ({
       data: [],
     },
   ];
+
+  console.log(servertime);
   const [dataList, setDataList] = useState(defaultseries);
   const [timestamp, setTimestamp] = useState(21600 * 1000);
   const [buttonclicked, setButtonClicked] = useState(2);
@@ -231,7 +233,7 @@ const Bankchart: React.FC<BankchartProps> = ({
         formatter: undefined,
       },
       y: {
-        formatter: function (value: number) {
+        formatter: function (value: any) {
           var val: number = Math.abs(value);
           var newvalue: string = "";
           if (val >= 1000000) {
