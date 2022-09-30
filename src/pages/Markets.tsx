@@ -318,7 +318,6 @@ const Markets = () => {
                 </div>
                 <div className="w-5/12 text-right">
                   <p className="text-right">
-                    {/* {currencyAbbr(asset.total_borrowed)} */}
                     {currencyAbbr(
                       (asset.total_collateral / 100) * asset.loan_to_value
                     )}
