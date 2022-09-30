@@ -98,7 +98,7 @@ const Bankchart: React.FC<BankchartProps> = ({
         data: seriesBorrow,
       },
     ]);
-  }, []);
+  }, [chartdata]);
 
   useEffect(() => {
     setTcash(cash);
@@ -159,7 +159,7 @@ const Bankchart: React.FC<BankchartProps> = ({
         enabled: true,
         easing: "linear",
         dynamicAnimation: {
-          speed: 500,
+          speed: 50,
         },
       },
     },
