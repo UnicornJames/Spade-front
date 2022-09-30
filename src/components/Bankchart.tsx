@@ -43,7 +43,18 @@ const Bankchart: React.FC<BankchartProps> = ({
   const [tborrow, setTborrow] = useState(borrow);
   const [tservertime, setTservertime] = useState(servertime);
   const [timestyle, setTimestyle] = useState("HH:mm");
+  const [flag, setFlag] = useState(1);
 
+  // while( flag == 1 ){
+  // if(flag == 1){
+  //   if(!chartdata){
+  //     setFlag(0);
+  //     } else {
+  //         window.location.reload();
+  //     }
+  //   }
+  // }
+    
   const ChartDays = [
     1800 * 1000,
     3600 * 1000,
@@ -171,6 +182,7 @@ const Bankchart: React.FC<BankchartProps> = ({
     },
     legend: {
       position: "bottom",
+      offsetY: 20,
       itemMargin: {
         horizontal: 10,
         vertical: 20,

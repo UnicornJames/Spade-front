@@ -57,7 +57,7 @@ const MarketOverview = () => {
           <p className="text-gray-400 text-xs md:text-sm">Reserve Size</p>
           <p className="text-gray-200 text-md md:text-lg">
             {/* {currencyAbbr(asset.reserve_size)} */}
-            {currencyAbbr(asset.total_collateral + asset.total_borrowed)}
+            {currencyAbbr(asset.total_collateral + (asset.total_collateral / 100) * asset.loan_to_value)}
           </p>
         </div>
         <div className="mb-2">
