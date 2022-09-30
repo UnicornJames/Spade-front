@@ -91,25 +91,27 @@ const Depository = () => {
             <li className="nav-item flex-grow text-center" key={v._id}>
               <span
                 onClick={() => setActive(v.name)}
-                className={`nav-link w-full block font-medium text-xs leading-tight border-x-0 border-t-0 border-b-2 px-6 py-3 my-2 hover:bg-gray-100 cursor-pointer ${
+                className={`nav-link w-full block flex justify-center font-medium text-xs leading-tight border-x-0 border-t-0 border-b-2 px-6 py-3 my-2 hover:bg-gray-100 cursor-pointer ${
                   active == v.name ? "active" : ""
                 }`}
               >
                 {v.name}
-                <Tippy interactive content={v.tooltip}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-2 relative -top-[1px] inline cursor-pointer"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </Tippy>
+                <div className="hidden md:block">
+                  <Tippy interactive content={v.tooltip}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 ml-2 relative -top-[1px] inline cursor-pointer"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </Tippy>
+                </div>
               </span>
             </li>
           ))}
