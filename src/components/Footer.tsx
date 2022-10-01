@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="text-white ">
       <div className="py-10 bg-[#252837] md:flex justify-center">
-        <div className="lg:w-3/12 md:w-4/12 w-full flex justify-start">
+        <div className="lg:w-3/12 md:w-4/12 w-full flex justify-start md:px-0 px-2">
           <img className="w-32 mb-5" src="/spade.png" alt="Spade" />
         </div>
         <div className="lg:w-5/12 md:w-7/12 w-full flex flex-wrap md:justify-end">
