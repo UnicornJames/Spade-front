@@ -21,7 +21,7 @@ const CommunityCard = (props: CommunityCardProps) => {
       </p>
       <div className="flex justify-between text-green hidden hover:block">
         <a>Try</a>
-        <span id="arrow" class="arrow"></span>
+        <span id="arrow" className="arrow"></span>
       </div>
     </div>
   );
