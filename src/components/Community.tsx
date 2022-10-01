@@ -46,21 +46,21 @@ const Community: React.FC<CommunityProps> = () => {
         <button data-target="#demo" onClick={() => setActived(4)} data-slide-to="4" className={`px-2 text-xl ${actived == 4 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}><p className="text-sm md:text-base">Insurance</p></button>
       </div>
 
-      <div id="demo" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
+      <div id="demo" className="carousel slide" data-ride="carousel">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
             <TabOne />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <TabTwo />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <TabThree />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <TabFour />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <TabFive />
           </div>
         </div>
