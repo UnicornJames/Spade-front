@@ -1628,6 +1628,11 @@
   dependencies:
     "@remix-run/router" "1.0.1"
 
+"react-simple-tabs-component@^2.1.1":
+  "integrity" "sha512-MpAGtZn/C7yZT9dlgZen5A3bnyZpAO6CUSGuaXZtxgOnP7RTo1n7kLiNaQtXrrBmYKxJL6PaUWASsUFeJI5LNg=="
+  "resolved" "https://registry.npmjs.org/react-simple-tabs-component/-/react-simple-tabs-component-2.1.1.tgz"
+  "version" "2.1.1"
+
 "react-toastify@^9.0.7":
   "integrity" "sha512-EwM+teWt49HSHx+67qI08yLAW1zAsBxCXLCsUfxHYv1W7/R3ZLhrqKalh7j+kjgPna1h5LQMSMwns4tB4ww2yQ=="
   "resolved" "https://registry.npmjs.org/react-toastify/-/react-toastify-9.0.8.tgz"

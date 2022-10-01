@@ -3,6 +3,7 @@ import React, { useEffect, useState, useLayoutEffect } from "react";
 import { socket } from "../socket";
 import { currency, currencyAbbr } from "../utils/currency";
 import Bankchart from "../components/Bankchart";
+import Community from "../components/Community";
 
 const Reserve = () => {
   const [reserve, setReserve] = useState<any>(null);
@@ -206,6 +207,8 @@ const Reserve = () => {
                     {asset.items.map((item: any, itemIndex: number) => (
                       <div key={itemIndex} className="my-4">
                         {percentageTemplate(value.total, value.color, item)}
+                        {/* {value.total}+++
+                        {item.total}--- */}
                       </div>
                     ))}
                   </div>
@@ -213,6 +216,8 @@ const Reserve = () => {
               : value.assets.map((asset: any, index: number) => (
                   <div key={index} className="my-4 mx-6">
                     {percentageTemplate(value.total, value.color, asset)}
+                    {/* {value.total}=====
+                    {asset.total}????? */}
                   </div>
                 ))}
             <br />
@@ -240,7 +245,10 @@ const Reserve = () => {
           </div>
         ))}
       </div>
-      <div id="Chart" className="w-full my-2 md:my-10">
+      <div id="Chart" className="w-full md:py-10 py-5">
+        <Community />
+      </div>
+      <div id="Chart" className="w-full md:py-10 py-5">
           <Bankchart
             cash={cash}
             high={high}

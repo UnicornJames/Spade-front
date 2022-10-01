@@ -11,20 +11,6 @@ const Markets = () => {
 
   const [reserve, setReserve] = useState<any>(null);
 
-  useEffect(() => {
-    loadAssets();
-
-    socket.on("reserve", (data) => {
-      setReserve(data);
-    });
-
-    socket.emit("reserve");
-
-    return () => {
-      socket.off("reserve");
-    };
-  }, []);
-
   const tooltip = {
     asset:
       "You can provide assets for collateral as a form of security to secure a loan with Spade. Assets can range from commodities, stock, digital assets, and real estate.",
@@ -40,6 +26,25 @@ const Markets = () => {
     borrow_fixed_term_apr: "Borrow Fixed Term APR",
   };
 
+  useEffect(() => {
+    loadAssets();
+
+    let rotationInterval = setInterval (() => {
+      loadAssets();
+    }, 600000) //get new data per 10 mins
+
+    socket.on("reserve", (data) => {
+      setReserve(data);
+    });
+
+    socket.emit("reserve");
+
+    return () => {
+      socket.off("reserve");
+      clearInterval(rotationInterval);
+    };
+  }, []);
+ 
   const loadAssets = async () => {
     const { data } = await axios.get(API_URL + "/assets");
     const finalData: any[] = [];

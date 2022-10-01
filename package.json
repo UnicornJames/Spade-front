@@ -29,6 +29,7 @@
     "react-multi-carousel": "^2.8.2",
     "react-responsive": "^9.0.0",
     "react-router-dom": "^6.4.0",
+    "react-simple-tabs-component": "^2.1.1",
     "react-toastify": "^9.0.7",
     "socket.io-client": "^4.5.1",
     "styled-components": "^5.3.5",

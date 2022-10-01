@@ -81,7 +81,7 @@ const MarketOverview = () => {
               Supply Flexible APY
             </p>
             <p className="text-gray-900 text-sm md:text-md text-right md:text-left">
-              {asset.supply_flexible_apy || "N/A"}
+              {asset.supply_flexible_apy.toFixed(2) || "N/A"}%
             </p>
           </div>
           <div className="w-full md:w-3/12 flex items-center my-2 justify-between md:block">
@@ -109,7 +109,7 @@ const MarketOverview = () => {
               Borrow Flexible APR
             </p>
             <p className="ttext-gray-900 text-sm md:text-md md:text-left text-right">
-              {asset.borrow_flexible_apr || "N/A"}
+              {asset.borrow_flexible_apr.toFixed(2) || "N/A"}%
             </p>
           </div>
           <div className="md:w-3/12 my-2 flex justify-between md:block">

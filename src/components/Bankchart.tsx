@@ -272,6 +272,7 @@ const Bankchart: React.FC<BankchartProps> = ({
   return (
     <>
       <div className="w-full text-center">
+        <div className="w-full flex justify-center text-xl pt-4">Oracle S&D Analytics</div>
         <div id="chart" className="sm:w-12/12 md:w-10/12 lg:w-10/12 m-auto">
           <Chart options={options} series={dataList} height="400" />
         </div>

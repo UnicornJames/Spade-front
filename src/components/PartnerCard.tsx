@@ -17,7 +17,7 @@ const PartnerCard = (props: PartnerCardProps) => {
         {card.title}
       </h4>
       <p className="text-gray-400 text-center md:text-left">
-        {card.descriptopn}
+        {card.description}
       </p>
     </div>
   );

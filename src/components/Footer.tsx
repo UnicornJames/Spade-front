@@ -4,21 +4,28 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <>
-      <div className="w-full bg-white px-10 lg:px-20 py-14 lg:flex lg:items-center lg:justify-center">
-        <div className="w-full mt-10 lg:mt-0 lg:w-3/4">
-          <Statistics />
+    <div className="text-white ">
+      <div className="py-10 bg-[#252837] md:flex justify-center">
+        <div className="lg:w-3/12 md:w-4/12 w-full flex justify-start">
+          <img className="w-32 mb-5" src="/spade.png" alt="Spade" />
+        </div>
+        <div className="lg:w-5/12 md:w-7/12 w-full flex flex-wrap md:justify-end">
+          <h4 className="px-2">Aave Protocol</h4>
+          <h4 className="px-2">Governance</h4>
+          <h4 className="px-2">Docs</h4>
+          <h4 className="px-2">Security</h4>
+          <h4 className="px-2">FAQ</h4>
         </div>
       </div>
-      <div className="w-full bg-[#292E41] px-10 lg:px-20 py-11">
-        <div className="md:flex md:flex-row flex flex-col">
-          <div className="w-full md:w-3/12 flex flex-col items-center mb-5 md:mb-0">
-            <img src="/spade.png" className="w-32 mb-4" />
-            <div className="flex space-x-6">
+
+      <div className="bg-[#2A2D3C] md:flex justify-center">
+        <div className="md:flex pt-10 pb-20 text-sm w-full justify-center">
+          <div className="lg:w-3/12 md:w-4/12 py-2 mb-4">
+            <div className="flex md:justify-start">
               <a
                 href="//facebook.com/withspade"
                 target="_blank"
-                className="text-white"
+                className="text-white w-6 mx-3"
               >
                 <span className="sr-only">Facebook</span>
                 <svg
@@ -37,7 +44,7 @@ const Footer = () => {
               <a
                 href="//instagram.com/withspade"
                 target="_blank"
-                className="text-white"
+                className="text-white w-6 mx-3"
               >
                 <span className="sr-only">Instagram</span>
                 <svg
@@ -56,7 +63,7 @@ const Footer = () => {
               <a
                 href="//twitter.com/spadebank"
                 target="_blank"
-                className="text-white"
+                className="text-white w-6 mx-3"
               >
                 <span className="sr-only">Twitter</span>
                 <svg
@@ -70,30 +77,35 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="flex justify-self-end">
-            <div className="text-center">
-              <h2 className="text-slate-300 mb-4">© 2022 Spade Oracle Ltd. All rights reserved.</h2>
-              <h2 className="text-slate-300">One Canada Square, Canary Wharf, London E14 5AB Registered in England and Wales</h2>
+          <div className="lg:w-5/12 md:w-7/12 flex w-full justify-end">
+            <div className="md:flex w-6/12">
+              <div className="md:w-6/12">
+                <div className="mb-4 mx-4">aTokens</div>
+                <div className="mb-4 mx-4">Bug Bounty</div>
+                <div className="mb-4 mx-4">Flash Loans</div>
+                <div className="mb-4 mx-4">Rate Switching</div>
+              </div>
+              <div className="md:w-6/12">
+                <div className="mb-4 mx-4">Technical Paper</div>
+                <div className="mb-4 mx-4">Aavenomics</div>
+                <div className="mb-4 mx-4">Careers</div>
+              </div>
+            </div>
+            <div className="md:flex w-6/12">
+              <div className="md:w-6/12">
+                <div className="mb-4 mx-4">Branding</div>
+                <div className="mb-4 mx-4">Blog</div>
+                <div className="mb-4 mx-4">Contact</div>
+                <div className="mb-4 mx-4">Terms of Use</div>
+              </div>
+              <div className="md:w-6/12">
+                <div className="mb-4 mx-4">Privacy Policy</div>
+              </div>
             </div>
           </div>
-          {/* <div className="w-full md:w-9/12 grid grid-cols-2 md:grid-cols-3">
-            {footerBottomLinks.map((v, k) => (
-              <div key={k}>
-                {v.map((v1, k1) => (
-                  <a
-                    key={k1}
-                    href={v1.link}
-                    className="block text-[#A5A8B6] my-4"
-                  >
-                    {v1.title}
-                  </a>
-                ))}
-              </div>
-            ))}
-          </div> */}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
