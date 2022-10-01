@@ -39,11 +39,11 @@ const Community: React.FC<CommunityProps> = () => {
       {/* <Tabs tabs={tabs} /> */}
 
       <div className="flex justify-start mb-8">
-        <button data-target="#demo" onClick={() => setActived(0)} data-slide-to="0" className={`px-2 text-xl ${actived == 0 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}>Supply</button>
-        <button data-target="#demo" onClick={() => setActived(1)} data-slide-to="1" className={`px-2 text-xl ${actived == 1 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}>Borrow</button>
-        <button data-target="#demo" onClick={() => setActived(2)} data-slide-to="2" className={`px-2 text-xl ${actived == 2 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}>Control</button>
-        <button data-target="#demo" onClick={() => setActived(3)} data-slide-to="3" className={`px-2 text-xl ${actived == 3 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}>Audit</button>
-        <button data-target="#demo" onClick={() => setActived(4)} data-slide-to="4" className={`px-2 text-xl ${actived == 4 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}>Insurance</button>
+        <button data-target="#demo" onClick={() => setActived(0)} data-slide-to="0" className={`px-2 text-xl ${actived == 0 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}><p className="text-sm md:text-base">Supply</p></button>
+        <button data-target="#demo" onClick={() => setActived(1)} data-slide-to="1" className={`px-2 text-xl ${actived == 1 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}><p className="text-sm md:text-base">Borrow</p></button>
+        <button data-target="#demo" onClick={() => setActived(2)} data-slide-to="2" className={`px-2 text-xl ${actived == 2 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}><p className="text-sm md:text-base">Control</p></button>
+        <button data-target="#demo" onClick={() => setActived(3)} data-slide-to="3" className={`px-2 text-xl ${actived == 3 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}><p className="text-sm md:text-base">Audit</p></button>
+        <button data-target="#demo" onClick={() => setActived(4)} data-slide-to="4" className={`px-2 text-xl ${actived == 4 ? 'border-[#11DD33] text-[#11DD33]': 'text-[#222222aa]'} border-b-2 hover:text-[#11DD33]`}><p className="text-sm md:text-base">Insurance</p></button>
       </div>
 
       <div id="demo" class="carousel slide" data-ride="carousel">

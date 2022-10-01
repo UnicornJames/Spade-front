@@ -245,7 +245,7 @@ const Reserve = () => {
           </div>
         ))}
       </div>
-      <div id="Chart" className="w-full md:py-10 py-5">
+      <div id="Chart" className="w-full md:py-10 py-5 mt-10">
         <Community />
       </div>
       <div id="Chart" className="w-full md:py-10 py-5">
