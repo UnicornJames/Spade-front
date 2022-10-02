@@ -8,8 +8,8 @@ const Footer = () => {
       {/* <div className="bg-[#292E41] lg:flex justify-center items-center pt-20 pb-20 lg:py-10 px-6 md:pt-[132px] md:pb-[96px] lg:px-12 xl:px-64 text-[#f1f1f3]">
         <Statistics />
       </div> */}
-      <div className="bg-[#292E41] lg:flex justify-between items-center pt-20 pb-20 lg:py-10 px-6 md:pt-[132px] md:pb-[96px] lg:px-12 xl:px-64 text-[#f1f1f3]">
-          <div className="pb-10 md:pb-0">
+      <div className="bg-[#292E41] text-[#f1f1f3] lg:flex justify-between items-center pt-20 pb-20 lg:py-10 md:pt-[132px] md:pb-[96px] px-4 md:px-12 lg:px-14 xl:px-24">
+          <div className="pb-10 lg:pb-0">
             <img className="w-32" src="/spade.png" alt="Spade" />
           </div>
           <div className="hidden md:flex md:flex justify-between">
@@ -17,7 +17,7 @@ const Footer = () => {
               <div className="mr-4 md:pb-0 pb-6 "><a className="">Governance</a></div>
               <div className="mr-4 md:pb-0 pb-6 "><a className="">Docs</a></div>
               <div className="mr-4 md:pb-0 pb-6 "><a className="">Security</a></div>
-              <div className="mr-4 md:pb-0"><a className="">FAQ</a></div>
+              <div className="md:pb-0"><a className="">FAQ</a></div>
           </div>
           <div className="md:hidden flex">
             <div className="w-6/12">
@@ -32,7 +32,7 @@ const Footer = () => {
           </div>
       </div>
 
-      <div className="bg-[#383d51] text-[#a5a8b6] lg:flex justify-center pt-10 pb-[60px] lg:pb-[144px] lg:pt-[65px] px-6">
+      <div className="bg-[#383d51] text-[#a5a8b6] lg:flex justify-center pt-10 pb-[60px] lg:pb-[144px] lg:pt-[65px] px-4 md:px-12 lg:px-14 xl:px-24">
         <div className="lg:flex lg:text-sm w-full justify-between">
           <div className="flex lg:w-5/12 mb-10">
             <a className="mr-[16px] w-10 md:w-8 lg:w-6"><img src="/public/link/twitter.png" className="socialIcon"></img></a>

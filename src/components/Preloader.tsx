@@ -15,7 +15,7 @@ const Preloader = () => {
     <div
       className="bg-[#292D3B] w-[100vw] h-[100vh] z-[9999] fixed flex justify-center items-center"
       id="preloader"
-      style={{ transition: "all 0.5s ease-out" }}
+      style={{ transition: "all 0.5s ease-out", position: 'fixed', top: '44px', zIndex: '100' }}
     >
       <img src="/spade.png" className="w-52 animate-bounce" />
     </div>

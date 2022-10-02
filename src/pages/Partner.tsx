@@ -55,8 +55,8 @@ const Partner = () => {
   ]
     
   if (!assets.length || !reserve) {
-    // return <Preloader />;
-    return <></>
+    return <Preloader />;
+    // return <></>
   }
   return (
     <div className="bg-split-white-black p-4 md:p-10 lg:p-20 lg:px-36 lg:py-20">

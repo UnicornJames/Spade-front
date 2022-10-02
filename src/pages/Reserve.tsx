@@ -7,6 +7,7 @@ import Community from "../components/Community";
 import EcoSystem from "../components/EcoSystem";
 import Preloader from "../components/Preloader";
 import BaseTable from "../components/BaseTable";
+import Statistics from "../components/Statistics";
 
 const Reserve = () => {
   const [reserve, setReserve] = useState<any>(null);
@@ -71,8 +72,8 @@ const Reserve = () => {
 
   
   if (!reserve || !stats || !chartdata) {
-    // return <Preloader />;
-    return <></>
+    return <Preloader />;
+    // return <></>
   } 
   
   return (
@@ -145,7 +146,7 @@ const Reserve = () => {
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3 items-start">
+      <div className="grid gap-6 lg:grid-cols-3 items-start mb-10">
         {reserve.map((value: any, index: number) => (
           <div key={value._id} className="rounded shadow-md bg-white mx-1 py-2">
             <p className="text-lg font-semibold my-4 mx-6 text-left">
@@ -257,9 +258,9 @@ const Reserve = () => {
           </div>
         ))}
       </div>
-      {/* <div id="table" className="w-full md:py-10 py-5 shadow-xl mb-10">
+      <div id="table" className="w-full md:py-10 py-5 shadow-xl mb-10">
         <BaseTable />
-      </div> */}
+      </div>
       <div id="list" className="w-full md:py-10 py-5 mt-10 pb-10">
         <Community />
         {/* <EcoSystem /> */}
@@ -272,6 +273,9 @@ const Reserve = () => {
             chartdata={chartdata && chartdata}
             servertime={servertime}
           />
+      </div>
+      <div id="statistic" className="w-full shadow-xl mb-10">
+        <Statistics />
       </div>
     </div>
   );

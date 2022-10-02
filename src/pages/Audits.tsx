@@ -42,8 +42,8 @@ const Audits = () => {
   }, []);
 
   if (!audits.length || !reserve) {
-      // <Preloader />
-      return <></>
+      return <Preloader />
+      // return <></>
 
   }
 

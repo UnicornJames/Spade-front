@@ -20,8 +20,8 @@ const MarketOverview = () => {
   };
 
   if (!asset) {
-    // return <Preloader />;
-    return <></>
+    return <Preloader />;
+    // return <></>
   }
 
   return (
