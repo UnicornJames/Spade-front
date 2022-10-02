@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { API_URL } from "../config";
 import { socket } from "../socket";
 import { currencyAbbr } from "../utils/currency";
+import Preloader from "../components/Preloader";
 
 const Markets = () => {
   const [assets, setAssets] = useState<any[]>([]);
@@ -58,7 +59,9 @@ const Markets = () => {
   };
 
   if (!assets.length || !reserve) {
-    return <></>;
+    return (
+      <Preloader />
+    )
   }
 
   const percentStyle = (value: number) => {
@@ -73,7 +76,7 @@ const Markets = () => {
         </div>
 
         <div className="flex justify-between lg:w-6/12 md:w-8/12 flex-wrap text-left xl:mt-0">
-          <div className="mx-2">
+          <div className="mx-2 pb-4">
             <p className="text-gray-400 text-sm">Total collateral value</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
@@ -83,7 +86,7 @@ const Markets = () => {
               )}
             </p>
           </div>
-          <div className="mx-2">
+          <div className="mx-2 pb-4">
             <p className="text-gray-400 text-sm">Available Liquidity</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(
@@ -96,7 +99,7 @@ const Markets = () => {
               )}
             </p>
           </div>
-          <div className="mx-2">
+          <div className="mx-2 pb-4">
             <p className="text-gray-400 text-sm">Total cash borrowed</p>
             <p className="text-gray-200 text-xl">
               {currencyAbbr(reserve[1].total)}
@@ -107,7 +110,7 @@ const Markets = () => {
       </div>
       <div className="rounded-md shadow-md bg-white p-1 mt-10">
         <p className="text-xl mt-4 mb-10 mx-6 text-left">
-          Borrow cash/stablecoins
+          Oracle reserve assets
         </p>
         <table className="w-full hidden lg:table">
           <thead className="text-xs text-left text-gray-500 font-thin">

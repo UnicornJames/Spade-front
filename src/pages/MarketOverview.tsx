@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { API_URL } from "../config";
 import { currencyAbbr } from "../utils/currency";
+import Preloader from "../components/Preloader";
 
 const MarketOverview = () => {
   let { asset_id } = useParams();
@@ -19,7 +20,7 @@ const MarketOverview = () => {
   };
 
   if (!asset) {
-    return <></>;
+    return <Preloader />;
   }
 
   return (

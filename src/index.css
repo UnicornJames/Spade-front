@@ -113,3 +113,12 @@ button {
     transform: translateX(-800px);
   }
 }
+
+.socialIcon {
+  width: 2rem;
+}
+
+.logo {
+  width: 24px;
+  
+}

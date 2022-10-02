@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { API_URL } from "../config";
+import Preloader from "../components/Preloader";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);

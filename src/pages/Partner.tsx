@@ -6,6 +6,7 @@ import { API_URL } from "../config";
 import { socket } from "../socket";
 import { currencyAbbr } from "../utils/currency";
 import  PartnerCard from "../components/PartnerCard";
+import Preloader from "../components/Preloader";
 
 const Partner = () => {
   const [assets, setAssets] = useState<any[]>([]);
@@ -39,7 +40,7 @@ const Partner = () => {
   };
 
   if (!assets.length || !reserve) {
-    return <></>;
+    return <Preloader />;
   }
 
   const exploreList = [

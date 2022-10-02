@@ -3,9 +3,41 @@ import CommunityCard from "./CommunityCard"
 
 const TabFour = () => {
   const exploreList = [
-    { title: "Goldman Sachs Group (Depository)", logo: "partners_logo/Goldman.png", description: "Goldman Sachs Group, Inc is a multinational investment banking and financial services company that is partnered with Spade Enterprise Ltd to assure the protection of our real estate assets, with access at any time under the instructions of an authorized Spade Enterprise Ltd director to liquidate and to be sold to Goldman Sachs Group Inc or their associates."},
-    { title: "Citi (Custodian)", logo: "partners_logo/Citibank.png", description: "Citigroup Inc. is an American multinational investment bank and financial services corporation that is that regulated by the Office of the Comptroller of the Currency (OCC) and Federal Reserve Bank of New York (FRBNY)."},
-    { title: "Blackstone Real Estate (Depository)", logo: "partners_logo/Blackstone.png", description: "Blackstone Real Estate Group (Blackstone Inc) is an American alternative investment management company that retain the property holdings of Spade Enterprise Ltd real estate assets, with access at any time under the instructions of an authorized Spade Enterprise Ltd director to manage, or liquidate to be sold to Blackstone Inc or their associates."},
+    {
+      title: "Aave",
+      logo: "logos/aave.svg",
+      description:
+        "Earn 4.00% APR on USD balances without any of the complexities of crypto.",
+    },
+    {
+      title: "Zapper",
+      logo: "logos/zapper.svg",
+      description:
+        "Secure custody for COMP & cTokens, and native support for Compound governance.",
+    },
+    {
+      title: "Defi Saver",
+      logo: "logos/defiSaver.svg",
+      description:
+        "Safe crypto custody complete with trading, staking, and Compound governance.",
+    },
+    {
+      title: "Zerion",
+      logo: "logos/zerion.svg",
+      description: "Safely move assets between exchanges, wallets & Compound.",
+    },
+    {
+      title: "InstaDapp",
+      logo: "logos/instaDapp.svg",
+      description:
+        "Full-service crypto custodian, with support for both cTokens and COMP.",
+    },
+    {
+      title: "DeBank",
+      logo: "logos/deBank.svg",
+      description:
+        "Access Compound directly from the security of your Ledger hardware wallet.",
+    },
   ]
   return (
     <div className='grid md:grid-cols-3 grid-col-1 gap-4'>

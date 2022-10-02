@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { API_URL } from "../config";
+import Preloader from "../components/Preloader";
 
 const Borrow = () => {
   const [loading, setLoading] = useState(false);
@@ -48,6 +49,12 @@ const Borrow = () => {
       setLoading(false);
     },
   });
+
+  if (!formik) {
+    return (
+      <Preloader />
+    )
+  }
 
   return (
     <div className="bg-split-white-black px-4 md:p-12 xl:px-64">

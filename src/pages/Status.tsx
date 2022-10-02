@@ -1,5 +1,6 @@
 import Tippy from "@tippyjs/react";
 import React from "react";
+import Preloader from "../components/Preloader";
 
 const Status = () => {
   const services = [

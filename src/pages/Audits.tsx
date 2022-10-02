@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { API_URL } from "../config";
 import { socket } from "../socket";
 import { currency } from "../utils/currency";
+import Preloader from "../components/Preloader";
 
 const Audits = () => {
   const [audits, setAudits] = useState<any[]>([]);
@@ -40,8 +41,14 @@ const Audits = () => {
     loadAudits();
   }, []);
 
+  if (!audits.length || !reserve) {
+    return (
+      <Preloader />
+    )
+  }
+
   return (
-    <div className="bg-split-white-black-small px-4 md:p-12 xl:px-64">
+    <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
       <h1 className="text-left text-white text-2xl lg:text-4xl font-bold">
         Audits & Attestations
       </h1>

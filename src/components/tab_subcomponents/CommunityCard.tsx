@@ -9,20 +9,24 @@ const CommunityCard = (props: CommunityCardProps) => {
   const { card } = props;
 
   return (
-    <div className="box hover:shadow-4xl shadow-xl p-2 md:p-6 transition ease-in-out delay-150 hover:-translate-y-2 duration-300 cursor-pointer">
-      <div className="bg-cover">
-        <img className="w-11/12 md:4/6 mb-5" src={card.logo}></img>
+    <div className="box flex items-center justify-between shadow-xl hover:shadow-2xl p-2 md:p-6 transition ease-in-out delay-150 relative hover:-translate-y-2 duration-300 cursor-pointer communityCardGroup">
+      <div className="bg-cover flex items-center">
+        <img className="w-[48px] md:4/6 m-4" src={card.logo}></img>
+        <h4 className="text-stone-700 text-start">
+          {card.title}
+        </h4>
       </div>
-      <h4 className="mb-5 text-stone-700 text-start">
-        {card.title}
-      </h4>
-      <p className="text-gray-400 text-center md:text-left">
+      <p><img src="arrowRight1.svg" alt=" " className="communityCard w-5 flex text-[#00D395]"></img></p>
+
+      {/* <p className="text-gray-400 text-center md:text-left">
         {card.description}
-      </p>
-      <div className="flex justify-between text-green hidden hover:">
-        <a>Try</a>
-        <span id="arrow" className="arrow"></span>
-      </div>
+      </p> */}
+      {/* <div className="text-[#00D395] communityCard absolute bottom-5 right-0 px-10 w-full">
+        <a className="flex justify-between font-bold">
+          <p>Try</p>
+          <p><img src="arrowRight1.svg" alt=" " className="w-5 text-[#00D395]"></img></p>
+        </a>
+      </div> */}
     </div>
   );
 };

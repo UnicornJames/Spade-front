@@ -4,13 +4,14 @@ import React, { useEffect, useMemo, useState } from "react";
 import { API_URL } from "../config";
 import { socket } from "../socket";
 import { currency } from "../utils/currency";
+import Preloader from "../components/Preloader";
 
 const Depository = () => {
   const [depositories, setDepositories] = useState<any[]>([]);
   const [active, setActive] = useState<any>(null);
   const [audits, setAudits] = useState<any[]>([]);
   const [reserve, setReserve] = useState<any>(null);
-  const [buttonindex, setButtonIndex] = useState(1);
+  const [buttonindex, setButtonIndex] = useState(0);
 
   const currentItems = useMemo(
     () => depositories.find((v) => v.name == active)?.items || [],
@@ -67,24 +68,27 @@ const Depository = () => {
   }
 
   if (!depositories.length || !audits.length || !reserve) {
-    return <></>;
+    return <Preloader />;
   }
 
   return (
-    <div className="bg-split-white-black-small px-4 md:p-12 xl:px-64">
-      <div className="xl:flex">
-        <div className="md:w-8/12 xl:w-6/12  text-left text-white pt-10 md:pt-2 cursor-pointer relative">
+    <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
+      <div className="md:flex items-center none">
+        <div className="md:w-6/12 text-left text-white pt-10 md:pt-2 cursor-pointer relative">
           <span className="ml-2 text-xl md:text-2xl lg:text-4xl font-bold">
             Depository
           </span>
-          <p className="ml-2 text-left text-white md:text-base text-xs mt-2">
+          <p className="ml-2 text-left text-white hidden md:block md:text-base text-xs mt-2">
             Last verified at 07/09/2022 02:05:45 PM UTC
           </p>
+          <p className="ml-2 text-left text-white block md:hidden md:text-base text-xs mt-2">
+            Last verified at 7th September 2022
+          </p>
         </div>
-        <div className="w-full xl:w-6/12 flex mt-6 xl:mt-0 justify-end pr-10">
+        <div className="md:w-6/12 px-2 flex mt-6 xl:mt-0 md:justify-end pr-10">
           <div className="md:w-6/12">
-            <p className="text-gray-400 text-md text-right">Total assets</p>
-            <p className="text-gray-200 text-xl text-right">
+            <p className="text-gray-400 text-md md:text-right">Total assets</p>
+            <p className="text-gray-200 text-xl md:text-right">
               {currency(totalAssets)}
             </p>
           </div>
