@@ -38,11 +38,7 @@ const Partner = () => {
     });
     setAssets(finalData);
   };
-
-  if (!assets.length || !reserve) {
-    return <Preloader />;
-  }
-
+  
   const exploreList = [
     { title: "ExxonMobil (Depository)", logo: "partners_logo/ExxonMobil.png", description: "ExxonMobil Corporation is an American multinational oil and gas corporation that is the key administrator and shareholder of the Spade Enterprise Ltd WTI Crude Oil and Brent Crude Oil depository. ExxonMobil Corporation is organized and exists under the laws of the State of New Jersey, restated and integrated into its Certificate of Incorporation."},
     { title: "ConocoPhilips (Depository)", logo: "partners_logo/ConocoPhillips.png", description: "ConocoPhillips is an American multinational corporation engaged in hydrocarbon exploration and production which is dependent to safeguard Spade Enterprise Ltd’s natural gas reserves by storing them within their LNG facilities. ConocoPhillips is a trusted public body that conducts independent exploration and production (E&P)."},
@@ -57,19 +53,23 @@ const Partner = () => {
     { title: "SOC 2 Type I & Type II", logo: "partners_logo/SOC.png", description: "The SOC 2 compliance framework gauges the levels of security and protection of customer data. Type I evaluates an organization’s internal controls related to financial reporting, and Type II measures its preparedness to handle and protect customer information and data."},
     { title: "BitGo (Custodian)", logo: "partners_logo/BitGo.png", description: "BitGo Trust Company is regarded as the globe’s most protective and conforming custody for digital assets. BitGo Trust Company has been appointed to be the primary depository for Spade Enterprise Ltd’s digital currency reserve. BitGo Trust Company is regulated by the South Dakota Division of Banking. Do these now please"},
   ]
-
-  return (
-    <div className="bg-split-white-black p-4 md:p-10 lg:p-20 lg:px-36 lg:py-20">
-      <h1 className="text-left text-white text-2xl lg:text-4xl font-bold">Partners</h1>
-      <div className="rounded-md shadow-md bg-white p-1 mt-10">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 p-2 md:padding-5">        
-            {exploreList.map((item, i) => (
-                <PartnerCard key={i} card={item} />
-            ))}
+    
+  if (!assets.length || !reserve) {
+    return <Preloader />;
+  } else {
+    return (
+      <div className="bg-split-white-black p-4 md:p-10 lg:p-20 lg:px-36 lg:py-20">
+        <h1 className="text-left text-white text-2xl lg:text-4xl font-bold">Partners</h1>
+        <div className="rounded-md shadow-md bg-white p-1 mt-10">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 p-2 md:padding-5">        
+              {exploreList.map((item, i) => (
+                  <PartnerCard key={i} card={item} />
+              ))}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Partner;
