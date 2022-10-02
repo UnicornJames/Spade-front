@@ -135,6 +135,7 @@ const Community: React.FC<CommunityProps> = () => {
           </div>
         </div>
       </div> */}
+      
       <div className="flex justify-start mb-8">
         {tabs.map((item: any, key: number) => (
           <button
