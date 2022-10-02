@@ -32,7 +32,7 @@ const Markets = () => {
 
     let rotationInterval = setInterval (() => {
       loadAssets();
-    }, 600000) //get new data per 10 mins
+    }, 60000) //get new data per 1 mins
 
     socket.on("reserve", (data) => {
       setReserve(data);
@@ -57,16 +57,16 @@ const Markets = () => {
     });
     setAssets(finalData);
   };
+  
+  const percentStyle = (value: number) => {
+    return value.toFixed(2);
+  };
 
   if (!assets.length || !reserve) {
     return (
       <Preloader />
     )
   }
-
-  const percentStyle = (value: number) => {
-    return value.toFixed(2);
-  };
 
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">

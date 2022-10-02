@@ -6,7 +6,7 @@ import Bankchart from "../components/Bankchart";
 import Community from "../components/Community";
 import EcoSystem from "../components/EcoSystem";
 import Preloader from "../components/Preloader";
-import MarketTable from "../components/MarketTable";
+import BaseTable from "../components/BaseTable";
 
 const Reserve = () => {
   const [reserve, setReserve] = useState<any>(null);
@@ -257,7 +257,7 @@ const Reserve = () => {
         ))}
       </div>
       <div id="table" className="w-full md:py-10 py-5 shadow-xl mb-10">
-        <MarketTable />
+        <BaseTable />
       </div>
       <div id="list" className="w-full md:py-10 py-5 mt-10 pb-10">
         <Community />
