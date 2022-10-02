@@ -4,9 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import { API_URL } from "../config";
 import { currencyAbbr } from "../utils/currency";
 import Preloader from "../components/Preloader";
+import { useNavigate } from "react-router-dom";
 
 const MarketOverview = () => {
   let { asset_id } = useParams();
+  const navigate = useNavigate();
 
   const [asset, setAsset] = useState<any>(null);
 
@@ -27,7 +29,7 @@ const MarketOverview = () => {
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
       <div className="text-left text-white font-bold pt-10 md:pt-2">
-        <Link to="/markets">
+        {/* <Link to="/markets">
           <button className="p-2 border bg-gray-800 border-gray-600 rounded text-sm cursor-pointer mr-4 mb-6 md:mb-0 block md:inline">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +47,24 @@ const MarketOverview = () => {
             </svg>
             Go Back
           </button>
-        </Link>
+        </Link> */}
+        <button onClick={() => navigate(-1)} className="p-2 border bg-gray-800 border-gray-600 rounded text-sm cursor-pointer mr-4 mb-6 md:mb-0 block md:inline">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4 inline mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          Go Back
+        </button>
       </div>
       <div className="w-full flex mb-6 mt-4">
         <div className="w-full flex">
@@ -58,7 +77,10 @@ const MarketOverview = () => {
         <div className="mb-2">
           <p className="text-gray-400 text-xs md:text-sm">Reserve Size</p>
           <p className="text-gray-200 text-md md:text-lg">
-            {currencyAbbr(asset.total_collateral + (asset.total_collateral / 100) * asset.loan_to_value)}
+            {currencyAbbr(
+              asset.total_collateral +
+                (asset.total_collateral / 100) * asset.loan_to_value,
+            )}
           </p>
         </div>
         <div className="mb-2">
@@ -78,7 +100,7 @@ const MarketOverview = () => {
           <div className="w-full md:w-3/12 items-center">
             <p className="text-sm md:text-base">Supply Info</p>
           </div>
-          <div className="w-full md:w-3/12 flex items-center my-2 justify-between md:block" >
+          <div className="w-full md:w-3/12 flex items-center my-2 justify-between md:block">
             <p className="text-gray-600 text-xs md:text-sm">
               Supply Flexible APY
             </p>
