@@ -16,7 +16,7 @@ const CommunityCard = (props: CommunityCardProps) => {
           {card.title}
         </h4>
       </div>
-      <p><img src="arrowRight1.svg" alt=" " className="communityCard w-5 flex text-[#00D395]"></img></p>
+      <p><img src="/public/right-arrow.svg" alt=" " className="communityCard w-5 flex text-[#00D395]"></img></p>
 
       {/* <p className="text-gray-400 text-center md:text-left">
         {card.description}

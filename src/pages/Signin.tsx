@@ -39,7 +39,8 @@ const Signin = () => {
   });
 
   if (!formik) {
-    return <Preloader />;
+    // return <Preloader />;
+    return <></>
   }
 
   return (

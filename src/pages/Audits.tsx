@@ -42,9 +42,9 @@ const Audits = () => {
   }, []);
 
   if (!audits.length || !reserve) {
-    return (
-      <Preloader />
-    )
+      // <Preloader />
+      return <></>
+
   }
 
   return (

@@ -71,7 +71,8 @@ const Reserve = () => {
 
   
   if (!reserve || !stats || !chartdata) {
-    return <Preloader />;
+    // return <Preloader />;
+    return <></>
   } 
   
   return (
@@ -256,9 +257,9 @@ const Reserve = () => {
           </div>
         ))}
       </div>
-      <div id="table" className="w-full md:py-10 py-5 shadow-xl mb-10">
+      {/* <div id="table" className="w-full md:py-10 py-5 shadow-xl mb-10">
         <BaseTable />
-      </div>
+      </div> */}
       <div id="list" className="w-full md:py-10 py-5 mt-10 pb-10">
         <Community />
         {/* <EcoSystem /> */}

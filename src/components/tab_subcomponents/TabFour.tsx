@@ -1,7 +1,13 @@
 import React from 'react'
 import CommunityCard from "./CommunityCard"
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-const TabFour = () => {
+interface TabProps {
+  responsive: any
+}
+
+const TabFour:React.FC<TabProps> = ( {responsive} ) => {
   const exploreList = [
     {
       title: "Aave",
@@ -40,10 +46,19 @@ const TabFour = () => {
     },
   ]
   return (
-    <div className='grid md:grid-cols-3 grid-col-1 gap-4'>
-      {exploreList.map ((item, i) => (
-        <CommunityCard key = {i} card={item} />
-      ))}
+    <div className="">
+      <div className="lg:hidden grid gap-4 py-2">
+        <Carousel responsive={responsive}>
+          {exploreList.map((item, i) => (
+            <CommunityCard key={i} card={item} />
+          ))}
+        </Carousel>
+      </div>
+      <div className="hidden lg:grid grid-cols-3 xl:grid-cols-4 grid-col-1 gap-4">
+        {exploreList.map((item, i) => (
+          <CommunityCard key={i} card={item} />
+        ))}
+      </div>
     </div>
   )
 }
