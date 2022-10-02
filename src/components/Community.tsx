@@ -11,6 +11,7 @@ interface CommunityProps {}
 
 const Community: React.FC<CommunityProps> = () => {
   const [actived, setActived] = useState(0);
+  const [target, setTarget] = useState(0);
   const tabs = [
     {
       label: "Supply",
@@ -37,27 +38,32 @@ const Community: React.FC<CommunityProps> = () => {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 1440, min: 1025 },
-      items: 4
+      items: 4,
     },
     desktop: {
       breakpoint: { max: 1024, min: 769 },
-      items: 3
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 768, min: 426 },
-      items: 2
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 425, min: 0 },
-      items: 1
-    }
+      items: 1,
+    },
+  };
+
+  const setset = (index: number) => {
+    setActived(index);
+    setTarget(index);
   };
 
   return (
     <div className="App">
       {/* <Tabs tabs={tabs} /> */}
 
-      <div className="flex justify-start mb-8">
+      {/* <div className="flex justify-start mb-8">
         <button
           data-target="#demo"
           onClick={() => setActived(0)}
@@ -111,7 +117,7 @@ const Community: React.FC<CommunityProps> = () => {
       </div>
 
       <div id="demo" className="carousel slide" data-ride="carousel">
-        <div className="carousel-inner">
+        <div className="">
           <div className="pb-10 carousel-item active">
             <TabOne responsive = {responsive} />
           </div>
@@ -127,6 +133,39 @@ const Community: React.FC<CommunityProps> = () => {
           <div className="pb-10 carousel-item">
             <TabFive responsive = {responsive} />
           </div>
+        </div>
+      </div> */}
+      
+      <div className="flex justify-start mb-8">
+        {tabs.map((item: any, key: number) => (
+          <button
+            onClick={() => setset(key)}
+            className={`px-2 text-xl ${
+              actived - key == 0
+                ? "border-[#00D395] text-[#00D395]"
+                : "text-[#CCD6DD]"
+            } border-b-2 hover:text-[#00D395]`}
+          >
+            <p className="text-sm md:text-xl font-medium">{item.label}</p>
+          </button>
+        ))}
+      </div>
+
+      <div>
+        <div className={`${target == 0 ? "block" : "hidden"}`}>
+          <TabOne responsive={responsive} />
+        </div>
+        <div className={`${target == 1 ? "block" : "hidden"}`}>
+          <TabTwo responsive={responsive} />
+        </div>
+        <div className={`${target == 2 ? "block" : "hidden"}`}>
+          <TabThree responsive={responsive} />
+        </div>
+        <div className={`${target == 3 ? "block" : "hidden"}`}>
+          <TabFour responsive={responsive} />
+        </div>
+        <div className={`${target == 4 ? "block" : "hidden"}`}>
+          <TabFive responsive={responsive} />
         </div>
       </div>
     </div>
