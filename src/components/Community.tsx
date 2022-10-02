@@ -33,7 +33,7 @@ const Community: React.FC<CommunityProps> = () => {
       Component: TabFive,
     },
   ];
-  const responsive = {
+  const responsive: any = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 1440, min: 1025 },
