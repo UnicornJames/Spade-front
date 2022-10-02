@@ -60,8 +60,8 @@ const Markets = () => {
 
   if (!assets.length || !reserve) {
     return (
-      // <Preloader />
-      <></>
+      <Preloader />
+      // <></>
     )
   }
 

@@ -68,8 +68,8 @@ const Depository = () => {
   }
 
   if (!depositories.length || !audits.length || !reserve) {
-    // return <Preloader />;
-    return <></>
+    return <Preloader />;
+    // return <></>
   }
 
   return (

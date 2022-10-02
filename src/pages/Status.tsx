@@ -12,6 +12,13 @@ const Status = () => {
     "Streamline Conversion",
     "Proprietary AI",
   ];
+  
+  if (!services) {
+    return (
+      <Preloader />
+      // <></>
+    )
+  }
 
   return (
     <div className="bg-split-white-black px-4 md:p-12 xl:px-64">
