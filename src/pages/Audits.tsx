@@ -45,8 +45,7 @@ const Audits = () => {
     return (
       <Preloader />
     )
-  }
-
+  } else {
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
       <h1 className="text-left text-white text-2xl lg:text-4xl font-bold">
@@ -176,7 +175,7 @@ const Audits = () => {
         </div>
       </div>
     </div>
-  );
+  );}
 };
 
 export default Audits;

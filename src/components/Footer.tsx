@@ -5,12 +5,12 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="text-base font-medium">
+      {/* <div className="bg-[#292E41] lg:flex justify-center items-center pt-20 pb-20 lg:py-10 px-6 md:pt-[132px] md:pb-[96px] lg:px-12 xl:px-64 text-[#f1f1f3]">
+        <Statistics />
+      </div> */}
       <div className="bg-[#292E41] lg:flex justify-between items-center pt-20 pb-20 lg:py-10 px-6 md:pt-[132px] md:pb-[96px] lg:px-12 xl:px-64 text-[#f1f1f3]">
-          <div className="pb-10">
+          <div className="pb-10 md:pb-0">
             <img className="w-32" src="/spade.png" alt="Spade" />
-          </div>
-          <div className="pb-10">
-            <Statistics />
           </div>
           <div className="hidden md:flex md:flex justify-between">
               <div className="mr-4 md:pb-0 pb-6 "><a className="">Aave Protocol</a></div>
