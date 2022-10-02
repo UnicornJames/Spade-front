@@ -16,7 +16,7 @@ const Reserve = () => {
   const [high, setHigh] = useState();
   const [borrow, setBorrow] = useState();
   const [servertime, setServerTime] = useState();
-
+  
   useEffect(() => {
     socket.on("reserve", (data) => {
       setCash(data[0].assets[0].total);
@@ -33,11 +33,11 @@ const Reserve = () => {
     socket.on("getchartdata", (data) => {
       setChartdata(data);
     });
-
+    
     socket.emit("getchartdata");
     socket.emit("reserve");
     socket.emit("statistics");
-
+    
     return () => {
       socket.off("reserve");
       socket.off("statistics");
@@ -45,7 +45,10 @@ const Reserve = () => {
     };
 
   }, [chartdata]);
-
+  
+  if (!reserve || !stats || !chartdata) {
+    return <Preloader />;
+  }
   const percentageTemplate = (total: number, color: string, item: any) => {
     const percent = (item.total / total) * 100;
     return (
@@ -70,9 +73,6 @@ const Reserve = () => {
      window.open("/public/Governanceintheblockchaineconomyaframeworkandresearchagenda.pdf","_blank");
   }
 
-  if (!reserve || !stats) {
-    return <Preloader />;
-  }
 
   return (
     <div className="bg-split-white-black px-4 md:p-12 lg:p-14 xl:px-24">
