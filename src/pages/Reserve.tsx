@@ -46,6 +46,7 @@ const Reserve = () => {
     };
 
   }, [chartdata]);
+
   const percentageTemplate = (total: number, color: string, item: any) => {
     const percent = (item.total / total) * 100;
     return (
@@ -261,18 +262,18 @@ const Reserve = () => {
       <div id="table" className="w-full md:py-10 py-5 shadow-xl mb-10">
         <BaseTable />
       </div>
-      <div id="list" className="w-full md:py-10 py-5 mt-10 pb-10">
+      <div id="list" className="w-full md:py-10 py-5 mt-10 pb-10 h-[200px] lg:h-[360px]">
         <Community />
         {/* <EcoSystem /> */}
       </div>
       <div id="Chart" className="w-full md:py-10 py-5 shadow-xl mb-10">
-          <Bankchart
-            cash={cash}
-            high={high}
-            borrow={borrow}
-            chartdata={chartdata && chartdata}
-            servertime={servertime}
-          />
+        <Bankchart
+          cash={cash}
+          high={high}
+          borrow={borrow}
+          chartdata={chartdata && chartdata}
+          servertime={servertime}
+        />
       </div>
       <div id="statistic" className="w-full shadow-xl mb-10">
         <Statistics />

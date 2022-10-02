@@ -15,15 +15,14 @@ const BaseTable = () => {
         let rotationInterval = setInterval (() => {
           loadAssets();
         }, 60000) //get new data per 1 mins
+        
+        // socket.on("reserve", (data) => {
+        //   setReserve(data);
+        // });
     
-        socket.on("reserve", (data) => {
-          setReserve(data);
-        });
-    
-        socket.emit("reserve");
-    
+        // socket.emit("reserve");
         return () => {
-          socket.off("reserve");
+          // socket.off("reserve");
           clearInterval(rotationInterval);
         };
       }, []);
@@ -33,10 +32,10 @@ const BaseTable = () => {
         const finalData: any[] = [];
         data.forEach((v: any) => {
           finalData.push(v);
-          v.sub_assets.forEach((z: any, i: number) => {
-            finalData.push({ ...z, _id: `${v._id}-${i}`, child: true });
+          // v.sub_assets.forEach((z: any, i: number) => {
+            //   finalData.push({ ...z, _id: `${v._id}-${i}`, child: true });
+            // });
           });
-        });
         setAssets(finalData);
       };
       
@@ -121,15 +120,16 @@ const BaseTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {assets.map((asset: any) => (
+                    {assets.map((asset: any, key: number) => (
                     <tr
                         className={`border-t hover:bg-gray-100 ${
                         asset.child ? "hidden" : "font-medium"
                         }`}
                         key={asset._id}
                     >
-                        <td className={`pl-8 py-2 flex ${asset.child ? "pl-10" : ""}`}>
-                            {asset.name}
+                        <td className={`pl-8 py-2 flex items-center ${asset.child ? "pl-10" : ""}`}>
+                          <img src={`marketsymbol/${key}.png`} className="w-[24px] mr-2" />
+                          {asset.name}
                         </td>
                         <td>{currencyAbbr(asset.total_collateral)}</td>
                         <td>{percentStyle(asset.loan_to_value)}%</td>
@@ -151,7 +151,7 @@ const BaseTable = () => {
                 </tbody>
             </table>
         <div className="lg:hidden">
-          {/* {assets.map((asset: any) => (
+          {assets.map((asset: any) => (
             <div key={asset._id} className="border-t p-4">
               <div className="w-full">
                 <p className="font-bold text-center md:text-left">{asset.name}</p>
@@ -204,7 +204,7 @@ const BaseTable = () => {
                 </div>
               </div>
             </div>
-          ))} */}
+          ))}
         </div>
         </div>
     )

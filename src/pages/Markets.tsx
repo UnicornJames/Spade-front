@@ -33,19 +33,19 @@ const Markets = () => {
     let rotationInterval = setInterval (() => {
       loadAssets();
     }, 60000) //get new data per 1 mins
-
+    
     socket.on("reserve", (data) => {
       setReserve(data);
     });
-
+    
     socket.emit("reserve");
-
+    
     return () => {
       socket.off("reserve");
       clearInterval(rotationInterval);
     };
   }, []);
- 
+  
   const loadAssets = async () => {
     const { data } = await axios.get(API_URL + "/assets");
     const finalData: any[] = [];
