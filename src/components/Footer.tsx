@@ -35,10 +35,10 @@ const Footer = () => {
       <div className="bg-[#383d51] text-[#a5a8b6] lg:flex justify-center pt-10 pb-[60px] lg:pb-[144px] lg:pt-[65px] px-4 md:px-12 lg:px-14 xl:px-24">
         <div className="lg:flex lg:text-sm w-full justify-between">
           <div className="flex lg:w-5/12 mb-10">
-            <a className="mr-[16px] w-10 md:w-8 lg:w-6"><img src="/public/link/twitter.png" className="socialIcon"></img></a>
-            <a className="mr-[16px] w-10 md:w-8 lg:w-6"><img src="/public/link/github.png" className="socialIcon"></img></a>
-            <a className="mr-[16px] w-10 md:w-8 lg:w-6"><img src="/public/link/discord.png" className="socialIcon"></img></a>
-            <a className="mr-[16px] w-10 md:w-8 lg:w-6"><img src="/public/link/telegram.png" className="socialIcon"></img></a>
+            <a className="mr-[16px] w-10 md:w-8 lg:w-6"><img src="link/twitter.png" className="socialIcon"></img></a>
+            <a className="mr-[16px] w-10 md:w-8 lg:w-6"><img src="link/github.png" className="socialIcon"></img></a>
+            <a className="mr-[16px] w-10 md:w-8 lg:w-6"><img src="link/discord.png" className="socialIcon"></img></a>
+            <a className="mr-[16px] w-10 md:w-8 lg:w-6"><img src="link/telegram.png" className="socialIcon"></img></a>
           </div>
           <div className="hidden lg:flex text-base w-full justify-between">
               <div className="flex flex-col gap-5">
