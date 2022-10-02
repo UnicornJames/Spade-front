@@ -38,6 +38,10 @@ const Signin = () => {
     },
   });
 
+  if (!formik) {
+    return <Preloader />;
+  }
+
   return (
     <div className="bg-split-white-black px-4 md:p-12 xl:px-64">
       <h1 className="text-left text-white text-2xl lg:text-4xl font-bold">
