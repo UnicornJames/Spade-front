@@ -111,7 +111,7 @@ const Community: React.FC<CommunityProps> = () => {
       </div>
 
       <div id="demo" className="carousel slide" data-ride="carousel">
-        <div className="carousel-inner">
+        <div className="">
           <div className="pb-10 carousel-item active">
             <TabOne responsive = {responsive} />
           </div>
