@@ -48,7 +48,7 @@ const TabFour:React.FC<TabProps> = ( {responsive} ) => {
   return (
     <div className="">
       <div className="lg:hidden grid gap-4 py-2">
-        <Carousel responsive={responsive}>
+        <Carousel responsive={responsive} removeArrowOnDeviceType={['superLargeDesktop', 'desktop', 'tablet', 'mobile']}>
           {exploreList.map((item, i) => (
             <CommunityCard key={i} card={item} />
           ))}
